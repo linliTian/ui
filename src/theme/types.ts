@@ -234,6 +234,8 @@ export interface GlobalTheme {
   panelMargin: string;
   panelActiveBoxShadow: string;
   panelHoverBoxShadow: string;
+  panelWithTitleBorder: string;
+  panelWithTitleBorderColor: string;
 
   // ---- Radio ---- //
   radioItemLineHeight: string;

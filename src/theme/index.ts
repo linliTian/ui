@@ -209,6 +209,8 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   panelMargin: '16px',
   panelActiveBoxShadow: `0px 0px 4px ${rgba(themeColors.black, 0.2)}`,
   panelHoverBoxShadow: `0px 7px 21px ${rgba(themeColors.black, 0.07)}`,
+  panelWithTitleBorder: '1px solid',
+  panelWithTitleBorderColor: themeColors.border,
 
   // ---- Radio ---- //
   radioItemLineHeight: '16px',

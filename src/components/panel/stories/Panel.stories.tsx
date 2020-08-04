@@ -4,11 +4,11 @@ import styled from 'styled-components';
 // @ts-ignore
 import mdx from './Panel.mdx';
 
+import { Typography } from '../../typography/Typography';
 import { Panel } from '../Panel';
 
 const Parent = styled.div`
   padding: 20px;
-  background: #f1f1f1;
 `;
 
 const Container = styled.div`
@@ -50,6 +50,22 @@ export const clickable = () => {
       <Container>
         <Panel onClick={() => console.log('clicked')}>
           <Content>Click Me!</Content>
+        </Panel>
+      </Container>
+    </Parent>
+  );
+};
+
+export const title = () => {
+  return (
+    <Parent>
+      <Container>
+        <Panel title="Title">
+          <Content>Content!</Content>
+        </Panel>
+
+        <Panel title="Title" titleLevel={5}>
+          <Content>Content!</Content>
         </Panel>
       </Container>
     </Parent>

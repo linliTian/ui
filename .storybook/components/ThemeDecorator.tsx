@@ -15,7 +15,7 @@ const Container = styled.div`
     border-radius: 4px;
     padding: 20px;
 
-    background: ${theme.colors.primaryBackground};
+    background: ${theme.colors.secondaryBackground};
   `};
 `;
 
