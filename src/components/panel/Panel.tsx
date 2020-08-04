@@ -83,7 +83,8 @@ const Title = styled(Typography.Title)<{ level?: number }>`
     css`
       top: -10px;
     `}
-
+  
+  left: 8px;
   border-radius: ${({ theme }) => theme.panelBorderRadius};
 
   padding: 4px 8px;
