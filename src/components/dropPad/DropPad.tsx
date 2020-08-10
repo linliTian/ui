@@ -21,6 +21,9 @@ export interface DropPadProps {
   /** files that have been dropped */
   files: DroppedFile[];
 
+  /** if true, the droppad will be hidden. Any dropped files will continue to be shown */
+  hideDroppad?: boolean;
+
   /** called after a file has been dropped on the pad */
   onDrop?: (files: File[]) => void;
 
@@ -65,6 +68,7 @@ const StyledPaperClip = styled(PaperClip)`
 
 export const DropPad: React.FunctionComponent<DropPadProps> = ({
   className,
+  hideDroppad,
   onDrop,
   onDelete,
   files,
@@ -91,19 +95,21 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
 
   return (
     <Container className={`${className} rtk-drop-pad`}>
-      <DropPadContainer
-        {...getRootProps()}
-        isDragActive={isDragActive}
-        theme={theme}
-      >
-        <BorderContainer theme={theme} isDragActive={isDragActive}>
-          <input {...getInputProps()} />
-          <Typography.Body>
-            <StyledPaperClip />
-            <strong>Choose a file</strong>&nbsp;to attach or drag it here.
-          </Typography.Body>
-        </BorderContainer>
-      </DropPadContainer>
+      {!hideDroppad && (
+        <DropPadContainer
+          {...getRootProps()}
+          isDragActive={isDragActive}
+          theme={theme}
+        >
+          <BorderContainer theme={theme} isDragActive={isDragActive}>
+            <input {...getInputProps()} />
+            <Typography.Body>
+              <StyledPaperClip />
+              <strong>Choose a file</strong>&nbsp;to attach or drag it here.
+            </Typography.Body>
+          </BorderContainer>
+        </DropPadContainer>
+      )}
       {files.map(({ file, percentUploaded }, i) => {
         return (
           <DropPadFile
