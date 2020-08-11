@@ -55,8 +55,7 @@ const LoadingBarContainer = styled.div`
 
 const LoadingBar = styled.div`
   position: absolute;
-  background: ${({ theme }) =>
-    theme.dropPdjnvkklklklkadFileLoadingBarBackground};
+  background: ${({ theme }) => theme.dropPadFileLoadingBarBackground};
   height: 4px;
   border-radius: 2px;
 `;
