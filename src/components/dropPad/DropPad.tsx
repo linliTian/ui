@@ -10,6 +10,7 @@ import { Typography } from '../typography/Typography';
 import { DropPadFile } from './DropPadFile';
 
 export interface DroppedFile {
+  itemKey: string | number;
   file: File;
   percentUploaded: number;
 }
@@ -75,13 +76,8 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
 }) => {
   const handleDrop = React.useCallback(
     files => {
-      const newFiles = files.map(file => ({
-        file,
-        percentUploaded: 0,
-      }));
-
       if (onDrop) {
-        onDrop(newFiles);
+        onDrop(files);
       }
     },
     [onDrop]
@@ -110,11 +106,12 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
           </BorderContainer>
         </DropPadContainer>
       )}
-      {files.map(({ file, percentUploaded }, i) => {
+      {files.map(({ itemKey, file, percentUploaded }) => {
         return (
           <DropPadFile
             file={file}
-            key={i}
+            key={itemKey}
+            itemKey={itemKey}
             percentUploaded={percentUploaded}
             onDelete={onDelete}
           />

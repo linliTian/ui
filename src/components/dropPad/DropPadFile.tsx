@@ -10,7 +10,7 @@ import TrashAlt from '../icons/TrashAlt';
 import { DroppedFile } from './DropPad';
 
 export interface DropPadFileProps extends DroppedFile {
-  key: string | number;
+  itemKey: string | number;
   onDelete?: (key: string | number) => void;
 }
 
@@ -40,44 +40,46 @@ const StyledFileIcon = styled(File)`
 
 const StyledTrashIcon = styled(TrashAlt)`
   color: ${({ theme }) => theme.colors.primary};
+  padding: 4px;
   cursor: pointer;
 `;
 
-// const LoadingBarContainer = styled.div`
-//   position: relative;
-//   background: ${({ theme }) => theme.dropPadFileLoadingBackground};
-//   height: 4px;
-//   border-radius: 2px;
+const LoadingBarContainer = styled.div`
+  position: relative;
+  background: ${({ theme }) => theme.dropPadFileLoadingBackground};
+  height: 4px;
+  border-radius: 2px;
 
-//   margin-top: 8px;
-// `;
+  margin-top: 8px;
+`;
 
-// const LoadingBar = styled.div`
-//   position: absolute;
-//   background: ${({ theme }) => theme.dropPdjnvkklklklkadFileLoadingBarBackground};
-//   height: 4px;
-//   border-radius: 2px;
-// `;
+const LoadingBar = styled.div`
+  position: absolute;
+  background: ${({ theme }) =>
+    theme.dropPdjnvkklklklkadFileLoadingBarBackground};
+  height: 4px;
+  border-radius: 2px;
+`;
 
 export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
   file,
-  key,
-  // percentUploaded,
+  itemKey,
+  percentUploaded,
   onDelete,
 }) => {
   const theme = useTheme();
 
   const handleDelete = React.useCallback(() => {
     if (onDelete) {
-      onDelete(key);
+      onDelete(itemKey);
     }
-  }, [onDelete, key]);
+  }, [onDelete, itemKey]);
 
   return (
-    <Container key={key} theme={theme}>
+    <Container key={itemKey} theme={theme}>
       <ContentContainer>
         <TextContainer>
-          <StyledFileIcon theme={theme} size={'2x'} />
+          <StyledFileIcon theme={theme} size={'lg'} />
           <Typography.Body>
             <strong>{file.name}</strong>
           </Typography.Body>
@@ -89,10 +91,9 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
           inverse
         />
       </ContentContainer>
-      {/* TODO: Implement percent uploaded at a later date */}
-      {/* <LoadingBarContainer theme={theme}>
+      <LoadingBarContainer theme={theme}>
         <LoadingBar style={{ width: `${percentUploaded}%` }} theme={theme} />
-      </LoadingBarContainer> */}
+      </LoadingBarContainer>
     </Container>
   );
 };

@@ -22,9 +22,15 @@ export const simple = () => {
   const [files, setFiles] = React.useState<DroppedFile[]>([]);
 
   const handleDrop = React.useCallback(recentFiles => {
-    const newFiles = [...files, ...recentFiles];
+    const newFiles = recentFiles.map(file => {
+      return {
+        file,
+        percentUploaded: 0,
+        itemKey: file.lastModified,
+      };
+    });
 
-    setFiles(newFiles);
+    setFiles([...files, ...newFiles]);
   }, []);
 
   return (
