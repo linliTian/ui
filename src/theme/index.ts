@@ -121,6 +121,7 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   dropPadBorderRadius: '4px',
   dropPadFileLoadingBackground: themeColors.secondaryBackground,
   dropPadFileLoadingBarBackground: themeColors.primary,
+  dropPadFileErrorBackground: `${rgba(themeColors.red, 0.2)}`,
 
   // ---- Layout ---- //
   layoutHeaderHeight: '44px',

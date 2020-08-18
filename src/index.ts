@@ -126,11 +126,7 @@ export { Placement } from './components/tooltip/placements';
 
 export { Select, SelectProps } from './components/select/Select';
 
-export {
-  DropPad,
-  DropPadProps,
-  DroppedFile,
-} from './components/dropPad/DropPad';
+export { DropPad, DropPadProps } from './components/dropPad/DropPad';
 
 export { DropPadFileProps } from './components/dropPad/DropPadFile';
 

@@ -44,6 +44,8 @@ const StyledLabel = styled.label`
     transition: all ${({ theme }) => theme.animationTimeVeryFast}s ease-in-out;
     padding-left: 32px;
 
+    font-family: 'Lato' sans-serif;
+
     &::before {
       content: '';
 

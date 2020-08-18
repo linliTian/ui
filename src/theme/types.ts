@@ -146,6 +146,7 @@ export interface GlobalTheme {
   dropPadBorderRadius: string;
   dropPadFileLoadingBackground: string;
   dropPadFileLoadingBarBackground: string;
+  dropPadFileErrorBackground: string;
 
   // ---- Input ---- //
   inputBackground: string;

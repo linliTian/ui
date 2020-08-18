@@ -1,4 +1,5 @@
 import * as React from 'react';
+import cryptoRandomString from 'crypto-random-string';
 import styled from 'styled-components';
 
 import { useDropzone } from 'react-dropzone';
@@ -9,27 +10,21 @@ import { useTheme } from '../../hooks/useTheme';
 import { Typography } from '../typography/Typography';
 import { DropPadFile } from './DropPadFile';
 
-export interface DroppedFile {
-  itemKey: string | number;
-  file: File;
-  percentUploaded: number;
-}
-
 export interface DropPadProps {
   /** className for the DropPad component */
   className?: string;
 
-  /** files that have been dropped */
-  files: DroppedFile[];
-
   /** if true, the droppad will be hidden. Any dropped files will continue to be shown */
   hideDroppad?: boolean;
 
-  /** called after a file has been dropped on the pad */
-  onDrop?: (files: File[]) => void;
-
   /** called when the delete icon is clicked on a dropped file */
-  onDelete?: (key: string | number) => void;
+  onDelete?: (key: string | number) => Promise<any>;
+
+  /** called with the response from the server once the file has been uploaded */
+  onFileUploaded?: (itemKey: string | number, response: any) => void;
+
+  /** if true, the droppad will be hidden. Any dropped files will continue to be shown */
+  uploadUrl: string;
 }
 
 const Container = styled.div``;
@@ -70,17 +65,44 @@ const StyledPaperClip = styled(PaperClip)`
 export const DropPad: React.FunctionComponent<DropPadProps> = ({
   className,
   hideDroppad,
-  onDrop,
   onDelete,
-  files,
+  onFileUploaded,
+  uploadUrl,
 }) => {
+  const [files, setFiles] = React.useState<
+    {
+      file: File;
+      itemKey: string;
+    }[]
+  >([]);
+
   const handleDrop = React.useCallback(
-    files => {
-      if (onDrop) {
-        onDrop(files);
-      }
+    newFiles => {
+      const newFilesWithId = newFiles.map(f => {
+        return {
+          file: f,
+          // this is a necassary unique identifier
+          itemKey: cryptoRandomString({ length: 5 }),
+        };
+      });
+
+      setFiles([...files, ...newFilesWithId]);
     },
-    [onDrop]
+    [files]
+  );
+
+  const handleDelete = React.useCallback(
+    async itemKey => {
+      // filter out this item from the list of files
+      if (onDelete) {
+        await onDelete(itemKey);
+      }
+
+      const newFiles = files.filter(f => f.itemKey !== itemKey);
+
+      setFiles(newFiles);
+    },
+    [files, setFiles, onDelete]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -93,7 +115,9 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
     <Container className={`${className} rtk-drop-pad`}>
       {!hideDroppad && (
         <DropPadContainer
-          {...getRootProps()}
+          {...getRootProps({
+            multiple: false,
+          })}
           isDragActive={isDragActive}
           theme={theme}
         >
@@ -106,23 +130,20 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
           </BorderContainer>
         </DropPadContainer>
       )}
-      {files.map(({ itemKey, file, percentUploaded }) => {
+      {files.map(({ file, itemKey }) => {
         return (
           <DropPadFile
+            uploadUrl={uploadUrl}
+            onDelete={handleDelete}
+            onFileUploaded={onFileUploaded}
             file={file}
             key={itemKey}
             itemKey={itemKey}
-            percentUploaded={percentUploaded}
-            onDelete={onDelete}
           />
         );
       })}
     </Container>
   );
-};
-
-DropPad.defaultProps = {
-  files: [],
 };
 
 DropPad.displayName = 'DropPad';
