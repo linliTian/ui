@@ -85,7 +85,6 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
           itemKey: cryptoRandomString({ length: 5 }),
         };
       });
-
       setFiles([...files, ...newFilesWithId]);
     },
     [files]
@@ -115,14 +114,16 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
     <Container className={`${className} rtk-drop-pad`}>
       {!hideDroppad && (
         <DropPadContainer
-          {...getRootProps({
-            multiple: false,
-          })}
+          {...getRootProps()}
           isDragActive={isDragActive}
           theme={theme}
         >
           <BorderContainer theme={theme} isDragActive={isDragActive}>
-            <input {...getInputProps()} />
+            <input
+              {...getInputProps({
+                multiple: false,
+              })}
+            />
             <Typography.Body>
               <StyledPaperClip />
               <strong>Choose a file</strong>&nbsp;to attach or drag it here.

@@ -39,8 +39,10 @@ const StyledFileIcon = styled(File)`
   margin-right: 8px;
 `;
 
-const StyledTrashIcon = styled(TrashAlt)`
-  padding: 4px;
+const StyledTrashIcon = styled(TrashAlt)<{ isError: boolean }>`
+  color: ${({ theme, isError }) =>
+    isError ? theme.colors.red : theme.colors.primary};
+  margin: 4px;
   cursor: pointer;
 `;
 
@@ -84,7 +86,6 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
 
     // while the file is uploading provide updates to the progress
     function onProgressUpdate(e) {
-      console.log(itemKey, e);
       const percentUploaded = Math.round((e.loaded * 100) / e.total);
       setPercentUploaded(percentUploaded);
       setInProgress(true);
@@ -93,7 +94,6 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
     // when the file has finished uploading this function will be called
     function onLoad() {
       setInProgress(false);
-      console.log('loaded', itemKey);
       if (onFileUploaded) {
         onFileUploaded(itemKey, JSON.parse(xhr.responseText));
       }
@@ -136,7 +136,6 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
       <ContentContainer>
         <TextContainer>
           <StyledFileIcon
-            theme={theme}
             size={'lg'}
             color={isError ? theme.colors.red : theme.colors.primary}
           />
@@ -147,7 +146,8 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
         <StyledTrashIcon
           onClick={handleDelete}
           size={'1x'}
-          color={isError ? theme.colors.red : theme.colors.primary}
+          theme={theme}
+          isError={isError}
           inverse
         />
       </ContentContainer>
