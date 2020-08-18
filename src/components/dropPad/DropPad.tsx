@@ -18,7 +18,7 @@ export interface DropPadProps {
   hideDroppad?: boolean;
 
   /** called when the delete icon is clicked on a dropped file */
-  onDelete?: (key: string | number) => Promise<any>;
+  onDelete: (key: string | number) => Promise<any>;
 
   /** called with the response from the server once the file has been uploaded */
   onFileUploaded?: (itemKey: string | number, response: any) => void;
@@ -93,13 +93,14 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
   const handleDelete = React.useCallback(
     async itemKey => {
       // filter out this item from the list of files
-      if (onDelete) {
+      try {
         await onDelete(itemKey);
+      } catch (error) {
+        console.warn(error);
+      } finally {
+        const newFiles = files.filter(f => f.itemKey !== itemKey);
+        setFiles(newFiles);
       }
-
-      const newFiles = files.filter(f => f.itemKey !== itemKey);
-
-      setFiles(newFiles);
     },
     [files, setFiles, onDelete]
   );
