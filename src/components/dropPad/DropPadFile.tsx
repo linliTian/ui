@@ -11,7 +11,7 @@ export interface DropPadFileProps {
   uploadUrl: string;
   itemKey: string | number;
   file: File;
-  onDelete: (itemKey: string | number) => void;
+  onDelete: (itemKey: string | number, isError: boolean) => void;
   onFileUploaded?: (itemKey: string | number, response: any) => void;
 }
 
@@ -76,8 +76,8 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
 
   // handles the deletion of the attachment from the list
   const handleDelete = React.useCallback(() => {
-    onDelete(itemKey);
-  }, [onDelete, itemKey]);
+    onDelete(itemKey, isError);
+  }, [onDelete, itemKey, isError]);
 
   React.useEffect(() => {
     const xhr = new XMLHttpRequest();

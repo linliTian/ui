@@ -18,9 +18,9 @@ export interface DropPadProps {
   hideDroppad?: boolean;
 
   /** called when the delete icon is clicked on a dropped file */
-  onDelete: (key: string | number) => Promise<any>;
+  // onDelete: (key: string | number) => Promise<any>;
 
-  /** called with the response from the server once the file has been uploaded */
+  /** called with the itemKey and response from the server once the file has been uploaded. This is useful if there is meaningful info in the response that may be needed in order to delete the uploaded file. */
   onFileUploaded?: (itemKey: string | number, response: any) => void;
 
   /** if true, the droppad will be hidden. Any dropped files will continue to be shown */
@@ -65,7 +65,7 @@ const StyledPaperClip = styled(PaperClip)`
 export const DropPad: React.FunctionComponent<DropPadProps> = ({
   className,
   hideDroppad,
-  onDelete,
+  // onDelete,
   onFileUploaded,
   uploadUrl,
 }) => {
@@ -91,18 +91,25 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
   );
 
   const handleDelete = React.useCallback(
-    async itemKey => {
-      // filter out this item from the list of files
-      try {
-        await onDelete(itemKey);
-      } catch (error) {
-        console.warn(error);
-      } finally {
-        const newFiles = files.filter(f => f.itemKey !== itemKey);
-        setFiles(newFiles);
-      }
+    itemKey => {
+      const newFiles = files.filter(f => f.itemKey !== itemKey);
+      setFiles(newFiles);
+
+      // if there is an error it means the file wasn't uploaded so instead
+      // we just filter it out. If there is no error than we execute the delete
+      // queury
+      // if (!isError) {
+      //   try {
+      //     await onDelete(itemKey);
+      //     setFiles(newFiles);
+      //   } catch (error) {
+      //     console.warn(error);
+      //   }
+      // } else {
+      //   setFiles(newFiles);
+      // }
     },
-    [files, setFiles, onDelete]
+    [files, setFiles]
   );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
