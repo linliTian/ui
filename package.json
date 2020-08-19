@@ -114,6 +114,7 @@
       "!src/**/*.placeholder.tsx",
       "!src/**/*.components.tsx",
       "!src/**/icons/**",
+      "!src/**/droppad/**",
       "!src/styled/**",
       "!src/theme/**"
     ],

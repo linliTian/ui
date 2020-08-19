@@ -4,6 +4,7 @@ import { shallow, mount } from 'enzyme';
 
 import { DropPad } from '../DropPad';
 
+// Support for more tests for this using enzyme are gated by this: https://github.com/enzymejs/enzyme/issues/2011
 describe('DropPad', () => {
   it('renders', () => {
     const wrapper = shallow(<DropPad uploadUrl="" />);
