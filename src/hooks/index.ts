@@ -2,4 +2,6 @@ import { useAfterMountEffect } from './useAfterMountEffect';
 
 import { useTheme } from './useTheme';
 
-export { useAfterMountEffect, useTheme };
+import { useUploadOnMountEffect } from './useUploadOnMountEffect';
+
+export { useAfterMountEffect, useUploadOnMountEffect, useTheme };
