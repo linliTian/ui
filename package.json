@@ -101,7 +101,8 @@
     "rollup-plugin-typescript2": "0.25.3",
     "styled-components": "5.0.1",
     "ts-loader": "6.2.1",
-    "typescript": "3.6.4"
+    "typescript": "3.6.4",
+    "xhr-mock": "2.5.1"
   },
   "jest": {
     "setupFilesAfterEnv": [
