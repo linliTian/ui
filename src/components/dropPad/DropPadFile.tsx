@@ -6,7 +6,6 @@ import { useTheme } from '../../hooks/useTheme';
 
 import File from '../icons/File';
 import TrashAlt from '../icons/TrashAlt';
-import { DropPad } from '../../../types';
 
 export interface DropPadFileProps {
   /** name of the file */
