@@ -75,7 +75,7 @@ export { Panel, PanelProps } from './components/panel/Panel';
 
 export { Portal, PortalProps } from './components/portal/Portal';
 
-export { useAfterMountEffect, useTheme } from './hooks';
+export { useAfterMountEffect, useTheme, useUploadOnMountEffect } from './hooks';
 
 export { getRelativePosition } from './utils';
 
