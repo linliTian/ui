@@ -75,7 +75,14 @@ export { Panel, PanelProps } from './components/panel/Panel';
 
 export { Portal, PortalProps } from './components/portal/Portal';
 
-export { useAfterMountEffect, useTheme, useUploadOnMountEffect } from './hooks';
+export {
+  useAfterMountEffect,
+  useTheme,
+  useUploadOnMountEffect,
+  UploadOnMountProps,
+  UploadOnMountResult,
+  Header,
+} from './hooks';
 
 export { getRelativePosition } from './utils';
 
@@ -126,7 +133,11 @@ export { Placement } from './components/tooltip/placements';
 
 export { Select, SelectProps } from './components/select/Select';
 
-export { DropPad, DropPadProps } from './components/dropPad/DropPad';
+export {
+  DropPad,
+  DropPadProps,
+  DropPadFunctionComponent,
+} from './components/dropPad/DropPad';
 
 export { DropPadFileProps } from './components/dropPad/DropPadFile';
 

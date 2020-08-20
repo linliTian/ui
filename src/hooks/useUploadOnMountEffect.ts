@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 // Represents a header that can be added to the request
-interface Header {
+export interface Header {
   header: string;
   value: string;
 }
@@ -16,7 +16,7 @@ export interface UploadOnMountProps {
 }
 
 // Represents the result of the hook
-interface UploadOnMountResult {
+export interface UploadOnMountResult {
   percentUploaded: number;
   error?: Error;
 }
