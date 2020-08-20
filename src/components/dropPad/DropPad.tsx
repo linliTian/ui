@@ -7,29 +7,23 @@ import PaperClip from '../icons/PaperClip';
 
 import { useTheme } from '../../hooks/useTheme';
 import { Typography } from '../typography/Typography';
-import { DropPadFile } from './DropPadFile';
 
-export interface DroppedFile {
-  itemKey: string | number;
-  file: File;
-  percentUploaded: number;
+import { DropPadFile, DropPadFileProps } from './DropPadFile';
+
+export interface DropPadFunctionComponent<T>
+  extends React.FunctionComponent<T> {
+  File: React.FunctionComponent<DropPadFileProps>;
 }
 
 export interface DropPadProps {
   /** className for the DropPad component */
   className?: string;
 
-  /** files that have been dropped */
-  files: DroppedFile[];
-
   /** if true, the droppad will be hidden. Any dropped files will continue to be shown */
   hideDroppad?: boolean;
 
   /** called after a file has been dropped on the pad */
   onDrop?: (files: File[]) => void;
-
-  /** called when the delete icon is clicked on a dropped file */
-  onDelete?: (key: string | number) => void;
 }
 
 const Container = styled.div``;
@@ -67,12 +61,11 @@ const StyledPaperClip = styled(PaperClip)`
   margin-right: 8px;
 `;
 
-export const DropPad: React.FunctionComponent<DropPadProps> = ({
+export const DropPad: DropPadFunctionComponent<DropPadProps> = ({
   className,
+  children,
   hideDroppad,
   onDrop,
-  onDelete,
-  files,
 }) => {
   const handleDrop = React.useCallback(
     files => {
@@ -106,23 +99,11 @@ export const DropPad: React.FunctionComponent<DropPadProps> = ({
           </BorderContainer>
         </DropPadContainer>
       )}
-      {files.map(({ itemKey, file, percentUploaded }) => {
-        return (
-          <DropPadFile
-            file={file}
-            key={itemKey}
-            itemKey={itemKey}
-            percentUploaded={percentUploaded}
-            onDelete={onDelete}
-          />
-        );
-      })}
+      {children}
     </Container>
   );
 };
 
-DropPad.defaultProps = {
-  files: [],
-};
+DropPad.File = DropPadFile;
 
 DropPad.displayName = 'DropPad';

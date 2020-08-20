@@ -1,9 +1,8 @@
 /* eslint-disable */
 
 import * as React from 'react';
-import styled from 'styled-components';
 
-import { DropPad, DroppedFile } from '../DropPad';
+import { DropPad } from '../DropPad';
 
 // @ts-ignore
 import mdx from './DropPad.mdx';
@@ -19,13 +18,14 @@ export default {
 };
 
 export const simple = () => {
-  const [files, setFiles] = React.useState<DroppedFile[]>([]);
+  const [files, setFiles] = React.useState<
+    { file: File; itemKey: string | number }[]
+  >([]);
 
   const handleDrop = React.useCallback(recentFiles => {
     const newFiles = recentFiles.map(file => {
       return {
         file,
-        percentUploaded: 0,
         itemKey: file.lastModified,
       };
     });
@@ -33,11 +33,20 @@ export const simple = () => {
     setFiles([...files, ...newFiles]);
   }, []);
 
+  const handleDelete = React.useCallback(itemKey => {
+    setFiles(prevFiles => prevFiles.filter(f => f.itemKey !== itemKey));
+  }, []);
+
   return (
-    <DropPad
-      files={files}
-      onDrop={handleDrop}
-      onDelete={key => console.log(key)}
-    />
+    <DropPad onDrop={handleDrop}>
+      {files.map(({ file, itemKey }) => (
+        <DropPad.File
+          name={file.name}
+          percentUploaded={0}
+          itemKey={itemKey}
+          onDelete={handleDelete}
+        />
+      ))}
+    </DropPad>
   );
 };

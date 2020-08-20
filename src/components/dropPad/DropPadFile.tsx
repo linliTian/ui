@@ -6,11 +6,19 @@ import { useTheme } from '../../hooks/useTheme';
 
 import File from '../icons/File';
 import TrashAlt from '../icons/TrashAlt';
+import { DropPad } from '../../../types';
 
-import { DroppedFile } from './DropPad';
+export interface DropPadFileProps {
+  /** name of the file */
+  name: React.ReactNode;
 
-export interface DropPadFileProps extends DroppedFile {
+  /** unique identifier for the key */
   itemKey: string | number;
+
+  /** percentage that the file is uploaded */
+  percentUploaded: number;
+
+  /** called when the delete icon is clicked */
   onDelete?: (key: string | number) => void;
 }
 
@@ -61,7 +69,7 @@ const LoadingBar = styled.div`
 `;
 
 export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
-  file,
+  name,
   itemKey,
   percentUploaded,
   onDelete,
@@ -80,7 +88,7 @@ export const DropPadFile: React.FunctionComponent<DropPadFileProps> = ({
         <TextContainer>
           <StyledFileIcon theme={theme} size={'lg'} />
           <Typography.Body>
-            <strong>{file.name}</strong>
+            <strong>{name}</strong>
           </Typography.Body>
         </TextContainer>
         <StyledTrashIcon

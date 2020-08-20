@@ -4,12 +4,12 @@ import { DropPad } from '../DropPad';
 
 <Title
   title="DropPad"
-  subtitle="Use DropPad to manage file uploads."
+  subtitle="Use DropPad to get a list of files that can be uploaded"
 />
 
 <SectionTitle>Simple</SectionTitle>
 
-Handle file uploads using this component. The consumer is responsible for implementing their own multipart requests.
+This example provides a simple way to get files that have been dropped or selected from the file picker. It is important to note that these files will not be uploaded. In order to uploaded them, feel free to make use of the handy `useUploadOnMountEffect` hook that we provide.
 
 <Preview>
   <Story id="components-droppad--simple"/>
@@ -17,3 +17,6 @@ Handle file uploads using this component. The consumer is responsible for implem
 
 <SectionTitle>DropPad Props</SectionTitle>
 <Props of={ DropPad } />
+
+<SectionTitle>DropPad.File Props</SectionTitle>
+<Props of={ DropPad.File } />

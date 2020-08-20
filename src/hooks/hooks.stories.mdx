@@ -1,0 +1,50 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks';
+import { Title, SectionTitle, ThemeDisplay } from '../../.storybook/components';
+
+import Logo from '../../.storybook/logo-main.png';
+
+<Meta
+  title="Hooks/useUploadOnMountEffect"
+/>
+
+<Title
+  title="useUploadOnMountEffect"
+  subtitle="Provides any component the ability to upload a file when it mounts"
+/>
+
+This hook is useful for situations where you want to create a component that displays the contents of a file like `name`, `fileSize`, etc. But want to upload that file when the component mounts. Use this hook to enrich your component and do all of the heavy lifting for you!
+
+
+```js
+  import { useUploadOnMountEffect } from "@rtkwlf/ui";
+
+  const MyFileComponent = ({ file }) => {
+
+    const onFileUploaded = React.useCallback((itemKey, response) => {
+      console.log(itemKey, response);
+    }, []);
+
+    const {
+      percentUploaded,
+      error
+    } = useUploadOnMountEffect({
+      file,
+      uploadUrl: "/my-upload-endpoint"
+      itemKey: "1",
+      onFileUploaded,
+      headers: [
+        {
+          header: "Authorization",
+          value: "Bearer <my-token>"
+        }
+      ]
+    });
+
+    return (
+      <div>
+        <p>{file.name}<p>
+      <div>
+    );
+  };
+```
+
