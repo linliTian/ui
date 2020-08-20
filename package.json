@@ -5,6 +5,7 @@
   "module": "dist/ui.es.js",
   "types": "dist/ui.d.ts",
   "license": "MIT",
+  "description": "Arctic Wolf Networks React Component Library",
   "scripts": {
     "check:types": "tsc --noEmit",
     "build:types": "tsc --emitDeclarationOnly",
