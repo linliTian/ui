@@ -45,6 +45,7 @@ export const useUploadOnMountEffect = ({
       if (onFileUploaded) {
         onFileUploaded(itemKey, JSON.parse(xhr.responseText));
       }
+      setPercentUploaded(100);
     };
 
     // if there is an error during the upload, lets let the user know
