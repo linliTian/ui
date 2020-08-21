@@ -37,14 +37,6 @@ const Container = styled.div`
   position: relative;
 `;
 
-const Label = styled(Typography.Label)`
-  color: ${({ theme }) => theme.colors.black};
-  font-size: 14px;
-  font-weight: bold;
-
-  margin-bottom: 4px;
-`;
-
 const StatusContainer = styled.div`
   margin-bottom: 8px;
 `;
@@ -86,7 +78,7 @@ export const FormItem: React.FunctionComponent<FormItemProps> = ({
   const theme = useTheme();
   return (
     <FormItemContainer className={`${className} rtk-form-item`}>
-      <Label theme={theme}>{label}</Label>
+      <Typography.Label>{label}</Typography.Label>
       <Container>
         <FormItemContext.Provider
           value={{
