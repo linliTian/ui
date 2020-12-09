@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { MouseEventHandler } from 'react';
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 import { ButtonType, ShapeType, SizeType } from './Button';
 import { GlobalTheme } from '../../theme/types';
 
