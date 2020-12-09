@@ -8,7 +8,7 @@ import { Badge } from '../Badge';
 import mdx from './Badge.mdx';
 import { Icon } from '../../icons';
 import { useTheme } from '../../../hooks';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const Container = styled.div`
   display: flex;
