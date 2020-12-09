@@ -21,6 +21,7 @@ import Edit from './Edit';
 import Exclamation from './Exclamation';
 import ExclamationCircle from './ExclamationCircle';
 import ExclamationTriangle from './ExclamationTriangle';
+import ExternalLinkAlt from './ExternalLinkAlt';
 import EyeSlash from './EyeSlash';
 import File from './File';
 import FileAlt from './FileAlt';
@@ -30,6 +31,7 @@ import FolderOutline from './FolderOutline';
 import GlobeAmericas from './GlobeAmericas';
 import InfoCircle from './InfoCircle';
 import Loading from './Loading';
+import Lock from './Lock';
 import Minus from './Minus';
 import PaperClip from './PaperClip';
 import Pencil from './Pencil';
@@ -73,6 +75,7 @@ export const Icon = {
   Exclamation,
   ExclamationCircle,
   ExclamationTriangle,
+  ExternalLinkAlt,
   EyeSlash,
   File,
   FileAlt,
@@ -82,6 +85,7 @@ export const Icon = {
   GlobeAmericas,
   InfoCircle,
   Loading,
+  Lock,
   Minus,
   PaperClip,
   Pencil,

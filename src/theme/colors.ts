@@ -8,6 +8,7 @@ export const colors: Colors = {
   bodyDisabled: '#CCCCCC',
   border: '#CCCCCC',
   blue: '#23618E',
+  code: '#c41d7f',
   description: '#707F86',
   disabledBackground: '#CCCCCC',
   gray: '#58595B',

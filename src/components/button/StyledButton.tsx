@@ -35,7 +35,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
     cursor: pointer;
     font-size: ${theme.buttonDefaultFontSize};
     font-weight: ${theme.buttonFontWeight};
-    font-family: inherit;
+    font-family: Lato, sans-serif;
     height: ${theme.buttonDefaultHeight};
     line-height: 1;
     padding: ${theme.buttonPadding};

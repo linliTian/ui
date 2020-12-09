@@ -36,6 +36,9 @@ export interface ModalProps {
   /** Content to show in the Modal */
   children?: React.ReactNode;
 
+  /** className of the Modal */
+  className?: string;
+
   /** If true, the Modal can be closed from top right corner */
   closable?: boolean;
 
@@ -72,6 +75,7 @@ export interface ModalProps {
 
 export const Modal: React.FunctionComponent<ModalProps> = ({
   allowKeyboard,
+  className,
   children,
   cancelButtonProps,
   cancelButtonText,
@@ -221,7 +225,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
       <AnimatePresence>
         {visible && (
           <ModalRoot
-            className={'rtk-modal-root'}
+            className={`${className} rtk-modal-root`}
             exit={{ opacity: 0 }}
             onKeyDown={handleKeyDown}
             transition={{ duration: theme.animationTimeVeryFast }}

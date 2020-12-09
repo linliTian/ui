@@ -38,7 +38,7 @@ export interface NotificationProps {
   notificationType: 'default' | 'success' | 'error' | 'warning' | 'info';
 
   /** the title text of the notification */
-  title: string;
+  title?: string;
 }
 
 export const Notification: React.FunctionComponent<NotificationProps> = ({

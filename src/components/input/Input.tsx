@@ -58,6 +58,9 @@ export interface InputProps {
   /** Ref to be passed to the input */
   ref?: React.Ref<any> | null;
 
+  /** Height of textarea. Only applies to text area */
+  rows?: number;
+
   /** If true, the input will be marked as required in the label */
   required?: boolean;
 
@@ -90,6 +93,7 @@ export const Input: React.FunctionComponent<InputProps> = React.forwardRef<
     borderType,
     readOnly,
     required,
+    rows,
     value,
   } = props;
 
@@ -120,6 +124,7 @@ export const Input: React.FunctionComponent<InputProps> = React.forwardRef<
         borderType={borderType}
         inputSize={size}
         ref={ref}
+        rows={rows}
         readOnly={readOnly}
         theme={theme}
         value={value}

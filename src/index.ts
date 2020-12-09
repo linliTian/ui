@@ -24,6 +24,8 @@ export { Badge, BadgeProps, BadgeColorType } from './components/badge/Badge';
 
 export { Collapse, CollapseProps } from './components/collapse/Collapse';
 
+export { Checkbox, CheckboxProps } from './components/checkbox/Checkbox';
+
 export { Floater, FloaterProps } from './components/floater/Floater';
 
 export { Icon, IconProps, SortState } from './components/icons';
@@ -50,6 +52,8 @@ export {
   FormItemProps,
   Status,
 } from './components/formItem/FormItem';
+
+export { Markdown, MarkdownProps } from './components/markdown/Markdown';
 
 export { Modal, ModalProps } from './components/modal/Modal';
 

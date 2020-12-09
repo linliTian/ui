@@ -189,11 +189,12 @@ const inputStyles = css<StyledInputProps>`
 `;
 
 const InputWithStyles = styled.input<StyledInputProps>`
-  ${inputStyles}
+  ${inputStyles};
 `;
 
 const TextAreaWithStyles = styled.textarea<StyledInputProps>`
-  ${inputStyles}
+  ${inputStyles};
+  height: auto;
 `;
 
 export const StyledInput = (props: StyledInputProps) => {

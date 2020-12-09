@@ -4,6 +4,7 @@ export interface Colors {
   bodyDisabled: string;
   border: string;
   blue: string;
+  code: string;
   description: string;
   disabledBackground: string;
   gray: string;
@@ -231,6 +232,7 @@ export interface GlobalTheme {
   // ---- NotificationBox ---- //
   notificationBoxMinHeight: string;
   notificationBoxMaxWidth: string;
+  notificationBoxColor: string;
   notificationBoxErrorBackground: string;
   notificationBoxSuccessBackground: string;
   notificationBoxWarningBackground: string;

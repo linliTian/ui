@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Times from '../icons/Times';
 
-import { Typography } from '../typography/Typography';
+import { useTheme } from '../../hooks';
 
 const Container = styled.div`
   padding: 4px;
@@ -13,6 +13,8 @@ const Container = styled.div`
 `;
 
 export const CloseIcon: React.FunctionComponent<any> = ({ onClose }) => {
+  const theme = useTheme();
+
   const handleClose = React.useCallback(() => {
     if (onClose) {
       onClose();
@@ -21,9 +23,7 @@ export const CloseIcon: React.FunctionComponent<any> = ({ onClose }) => {
 
   return (
     <Container onClick={handleClose}>
-      <Typography.Body>
-        <Times />
-      </Typography.Body>
+      <Times color={theme.notificationBoxColor} />
     </Container>
   );
 };

@@ -24,27 +24,27 @@ const Spacer = styled.div`
 
 export const simple = () => (
   <React.Fragment>
-    <NotificationBox notificationType="warning">
+    <NotificationBox itemKey={'1'} notificationType="warning">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
       posuere, blandit massa sit amet, rutrum risus.
     </NotificationBox>
     <Spacer />
-    <NotificationBox notificationType="error">
+    <NotificationBox itemKey={'1'} notificationType="error">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
       posuere, blandit massa sit amet, rutrum risus.
     </NotificationBox>
     <Spacer />
-    <NotificationBox notificationType="success">
+    <NotificationBox itemKey={'1'} notificationType="success">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
       posuere, blandit massa sit amet, rutrum risus.
     </NotificationBox>
     <Spacer />
-    <NotificationBox notificationType="info">
+    <NotificationBox itemKey={'1'} notificationType="info">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
       posuere, blandit massa sit amet, rutrum risus.
     </NotificationBox>
     <Spacer />
-    <NotificationBox notificationType="default">
+    <NotificationBox itemKey={'1'} notificationType="default">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
       posuere, blandit massa sit amet, rutrum risus.
     </NotificationBox>

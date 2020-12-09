@@ -1,6 +1,6 @@
 {
   "name": "@rtkwlf/ui",
-  "version": "1.1.8",
+  "version": "1.2.8",
   "main": "dist/ui.cjs.js",
   "module": "dist/ui.es.js",
   "types": "dist/ui.d.ts",
@@ -30,6 +30,7 @@
     "@fortawesome/free-solid-svg-icons": "5.12.1",
     "@fortawesome/react-fontawesome": "0.1.8",
     "framer-motion": "2.9.3",
+    "markdown-it": "11.0.0",
     "polished": "3.4.4",
     "react-dropzone": "11.0.2"
   },

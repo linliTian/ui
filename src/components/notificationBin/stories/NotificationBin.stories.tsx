@@ -9,6 +9,7 @@ import { NotificationBin, NotificationType } from '../NotificationBin';
 
 const Spacer = styled.div`
   height: 16px;
+  width: 16px;
 `;
 
 // @ts-ignore
@@ -28,6 +29,10 @@ export const simple = () => {
   const [notifications, setNotifications] = React.useState<NotificationType[]>(
     []
   );
+
+  const [notificationComponent, setNotificationComponent] = React.useState<
+    'box' | 'default'
+  >('default');
 
   const add = React.useCallback(() => {
     // @ts-ignore
@@ -50,11 +55,29 @@ export const simple = () => {
     });
   }, []);
 
+  const toggleComponent = React.useCallback(() => {
+    setNotificationComponent(current => {
+      if (current === 'default') {
+        return 'box';
+      }
+
+      return 'default';
+    });
+  }, []);
+
   return (
     <div>
-      <Button onClick={add}>Add</Button>
+      <div style={{ display: 'flex' }}>
+        <Button onClick={add}>Add</Button>
+        <Spacer />
+        <Button onClick={toggleComponent}>Toggle Notification Component</Button>
+      </div>
       <Spacer />
-      <NotificationBin notifications={notifications} onRemove={remove} />
+      <NotificationBin
+        notificationComponent={notificationComponent}
+        notifications={notifications}
+        onRemove={remove}
+      />
     </div>
   );
 };

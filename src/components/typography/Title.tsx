@@ -11,65 +11,108 @@ export interface TitleProps {
   level?: Level;
 }
 
+// styles for h1
+export const h1Styles = css`
+  font-family: ${({ theme }) => theme.typographyTitleFontFamily};
+  color: ${({ theme }) => theme.typographyTitle1Color};
+  font-size: ${({ theme }) => theme.typographyTitle1FontSize};
+  font-weight: ${({ theme }) => theme.typographyTitle1FontWeight};
+  letter-spacing: ${({ theme }) => theme.typographyTitle1LetterSpacing};
+  line-height: ${({ theme }) => theme.typographyTitle1LineHeight};
+  user-select: none;
+`;
+
+// styles for h2
+export const h2Styles = css`
+  font-family: ${({ theme }) => theme.typographyTitleFontFamily};
+  color: ${({ theme }) => theme.typographyTitle2Color};
+  font-size: ${({ theme }) => theme.typographyTitle2FontSize};
+  font-weight: ${({ theme }) => theme.typographyTitle2FontWeight};
+  letter-spacing: ${({ theme }) => theme.typographyTitle2LetterSpacing};
+  line-height: ${({ theme }) => theme.typographyTitle2LineHeight};
+  user-select: none;
+`;
+
+// styles for h3
+export const h3Styles = css`
+  font-family: ${({ theme }) => theme.typographyTitleFontFamily};
+  color: ${({ theme }) => theme.typographyTitle3Color};
+  font-size: ${({ theme }) => theme.typographyTitle3FontSize};
+  font-weight: ${({ theme }) => theme.typographyTitle3FontWeight};
+  letter-spacing: ${({ theme }) => theme.typographyTitle3LetterSpacing};
+  line-height: ${({ theme }) => theme.typographyTitle3LineHeight};
+  user-select: none;
+`;
+
+// styles for h4
+export const h4Styles = css`
+  font-family: ${({ theme }) => theme.typographyTitleFontFamily};
+  color: ${({ theme }) => theme.typographyTitle4Color};
+  font-size: ${({ theme }) => theme.typographyTitle4FontSize};
+  font-weight: ${({ theme }) => theme.typographyTitle4FontWeight};
+  letter-spacing: ${({ theme }) => theme.typographyTitle4LetterSpacing};
+  line-height: ${({ theme }) => theme.typographyTitle4LineHeight};
+  user-select: none;
+`;
+
+// styles for h5
+export const h5Styles = css`
+  font-family: ${({ theme }) => theme.typographyTitleFontFamily};
+  color: ${({ theme }) => theme.typographyTitle5Color};
+  font-size: ${({ theme }) => theme.typographyTitle5FontSize};
+  font-weight: ${({ theme }) => theme.typographyTitle5FontWeight};
+  letter-spacing: ${({ theme }) => theme.typographyTitle5LetterSpacing};
+  line-height: ${({ theme }) => theme.typographyTitle5LineHeight};
+  user-select: none;
+`;
+
+// styles for h6
+export const h6Styles = css`
+  font-family: ${({ theme }) => theme.typographyTitleFontFamily};
+  color: ${({ theme }) => theme.typographyTitle6Color};
+  font-size: ${({ theme }) => theme.typographyTitle6FontSize};
+  font-weight: ${({ theme }) => theme.typographyTitle6FontWeight};
+  letter-spacing: ${({ theme }) => theme.typographyTitle6LetterSpacing};
+  line-height: ${({ theme }) => theme.typographyTitle6LineHeight};
+  user-select: none;
+`;
+
 const StyledTitle = styled.div<TitleProps>`
-  ${props => css<TitleProps>`
-    font-family: ${props.theme.typographyTitleFontFamily};
-    user-select: none;
+  ${({ level }) =>
+    level === 1 &&
+    css`
+      ${h1Styles};
+    `}
   
-    ${props.level === 1 &&
-      css`
-        color: ${props.theme.typographyTitle1Color};
-        font-size: ${props.theme.typographyTitle1FontSize};
-        font-weight: ${props.theme.typographyTitle1FontWeight};
-        letter-spacing: ${props.theme.typographyTitle1LetterSpacing};
-        line-height: ${props.theme.typographyTitle1LineHeight};
-      `}
-
-    ${props.level === 2 &&
-      css`
-        color: ${props.theme.typographyTitle2Color};
-        font-size: ${props.theme.typographyTitle2FontSize};
-        font-weight: ${props.theme.typographyTitle2FontWeight};
-        letter-spacing: ${props.theme.typographyTitle2LetterSpacing};
-        line-height: ${props.theme.typographyTitle2LineHeight};
-      `}
-
-    ${props.level === 3 &&
-      css`
-        color: ${props.theme.typographyTitle3Color};
-        font-size: ${props.theme.typographyTitle3FontSize};
-        font-weight: ${props.theme.typographyTitle3FontWeight};
-        letter-spacing: ${props.theme.typographyTitle3LetterSpacing};
-        line-height: ${props.theme.typographyTitle3LineHeight};
-      `}
-
-    ${props.level === 4 &&
-      css`
-        color: ${props.theme.typographyTitle4Color};
-        font-size: ${props.theme.typographyTitle4FontSize};
-        font-weight: ${props.theme.typographyTitle4FontWeight};
-        letter-spacing: ${props.theme.typographyTitle4LetterSpacing};
-        line-height: ${props.theme.typographyTitle4LineHeight};
-      `}
-
-    ${props.level === 5 &&
-      css`
-        color: ${props.theme.typographyTitle5Color};
-        font-size: ${props.theme.typographyTitle5FontSize};
-        font-weight: ${props.theme.typographyTitle5FontWeight};
-        letter-spacing: ${props.theme.typographyTitle5LetterSpacing};
-        line-height: ${props.theme.typographyTitle5LineHeight};
-      `}
-
-    ${props.level === 6 &&
-      css`
-        color: ${props.theme.typographyTitle6Color};
-        font-size: ${props.theme.typographyTitle6FontSize};
-        font-weight: ${props.theme.typographyTitle6FontWeight};
-        letter-spacing: ${props.theme.typographyTitle6LetterSpacing};
-        line-height: ${props.theme.typographyTitle6LineHeight};
-      `}
-  `}
+  ${({ level }) =>
+    level === 2 &&
+    css`
+      ${h2Styles};
+    `}
+  
+  ${({ level }) =>
+    level === 3 &&
+    css`
+      ${h3Styles};
+    `}
+  
+  ${({ level }) =>
+    level === 4 &&
+    css`
+      ${h4Styles};
+    `}
+  
+  ${({ level }) =>
+    level === 5 &&
+    css`
+      ${h5Styles};
+    `}
+      
+  ${({ level }) =>
+    level === 6 &&
+    css`
+      ${h6Styles};
+    `}
 `;
 
 export const Title: React.FunctionComponent<TitleProps> = ({

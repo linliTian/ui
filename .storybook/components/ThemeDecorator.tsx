@@ -43,7 +43,9 @@ const theme2 = createTheme(
     label: '#FFFFFF',
     quaternaryBackground: rgba('#6FA4CB', 0.3),
   },
-  {}
+  {
+    notificationBoxColor: '#000000',
+  }
 );
 
 const themes = {
