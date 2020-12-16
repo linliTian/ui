@@ -35,7 +35,7 @@ interface StyledContainerProps {
   theme: GlobalTheme;
 }
 
-const Container = styled.div<StyledContainerProps>`
+export const Container = styled.div<StyledContainerProps>`
   position: relative;
   background: ${({ theme }) => theme.panelBackground};
   border: ${({ theme }) => theme.panelBorder};

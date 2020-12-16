@@ -22,7 +22,7 @@ describe('Panel', () => {
       </Panel>
     );
 
-    expect(wrapper.find('Panel__Container')).toHaveStyleRule('margin', '0');
+    expect(wrapper.find('Panel__Container').prop('margin')).toBe(undefined);
   });
 
   it('sets the title prop', () => {

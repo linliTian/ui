@@ -51,6 +51,7 @@
     "@babel/preset-env": "7.5.5",
     "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.6.0",
+    "@emotion/jest": "11.1.0",
     "@emotion/react": "11.1.2",
     "@emotion/styled": "11.0.0",
     "@microsoft/api-extractor": "7.7.3",

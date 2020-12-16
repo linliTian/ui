@@ -2,14 +2,14 @@ import * as React from 'react';
 
 import { shallow } from 'enzyme';
 
-import { Badge } from '../Badge';
+import { Badge, StyledBadge } from '../Badge';
 import { Icon } from '../../icons';
 
 describe('Badge', () => {
   it('renders', () => {
     const wrapper = shallow(<Badge>Test</Badge>);
-    expect(wrapper.find('Badge__StyledBadge')).toExist();
-    expect(wrapper.find('Badge__StyledBadge').text()).toBe('Test');
+    expect(wrapper.find(StyledBadge)).toExist();
+    expect(wrapper.find(StyledBadge).text()).toBe('Test');
   });
 
   it('can show an icon', () => {
@@ -22,8 +22,6 @@ describe('Badge', () => {
     const wrapper = shallow(<Badge backgroundColor="green" />); // hello
 
     // @ts-ignore
-    expect(wrapper.find('Badge__StyledBadge').prop('backgroundColor')).toBe(
-      'green'
-    );
+    expect(wrapper.find(StyledBadge).prop('backgroundColor')).toBe('green');
   });
 });

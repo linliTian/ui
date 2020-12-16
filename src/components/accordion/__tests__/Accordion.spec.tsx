@@ -14,7 +14,7 @@ describe('Accordion', () => {
       </Accordion>
     );
 
-    expect(wrapper.exists('Accordion__Container')).toBe(true);
+    expect(wrapper.exists(Accordion.Item)).toBe(true);
   });
 
   it('has the correct display name Accordion', () => {

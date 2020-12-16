@@ -1,10 +1,8 @@
 import * as React from 'react';
 import { MouseEventHandler } from 'react';
 import styled from '@emotion/styled';
-/** @jsx jsx */
-import { css, jsx } from '@emotion/react';
+import { css } from '@emotion/react';
 
-// import styled, { css } from 'styled-components';
 import { ButtonType, ShapeType, SizeType } from './Button';
 import { GlobalTheme } from '../../theme/types';
 
@@ -24,7 +22,7 @@ interface StyledButtonProps {
   type?: string;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   ref?: React.Ref<HTMLButtonElement>;
-  theme?: GlobalTheme;
+  theme: GlobalTheme;
 }
 
 const KEY_VALUES = {
@@ -33,7 +31,7 @@ const KEY_VALUES = {
   default: 'Default',
 };
 
-const getTheKey = (key) => KEY_VALUES[key] || KEY_VALUES.default;
+const getTheKey = key => KEY_VALUES[key] || KEY_VALUES.default;
 
 const getSizeCss = ({ key, theme }) => css`
   font-size: ${theme[`button${key}FontSize`]};
@@ -49,16 +47,20 @@ const getCircleShap = ({ customProps, theme, key }) => {
       border-radius: 50%;
 
       ${customProps.loading &&
-      css`
-        span {
-          display: none;
-        }
-      `};
+        css`
+          span {
+            display: none;
+          }
+        `};
     `;
   }
 };
 
-const getStyleForType = ({ buttonType, customProps, theme }) => {
+const getStyleForType = ({
+  buttonType,
+  customProps,
+  theme,
+}: StyledButtonProps) => {
   switch (buttonType) {
     case 'primary':
       return css`
@@ -79,35 +81,35 @@ const getStyleForType = ({ buttonType, customProps, theme }) => {
         }
 
         ${customProps.ghost &&
-        css`
-          background: ${theme.buttonGhostBackground};
-          border: ${theme.buttonGhostBorder};
-          border-color: ${theme.buttonPrimaryBackground};
-          color: ${theme.buttonPrimaryBackground};
-
-          &:hover,
-          &:focus {
-            background: ${theme.buttonPrimaryBackground};
-            border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
-
-          ${customProps.loading &&
           css`
+            background: ${theme.buttonGhostBackground};
+            border: ${theme.buttonGhostBorder};
+            border-color: ${theme.buttonPrimaryBackground};
+            color: ${theme.buttonPrimaryBackground};
+
             &:hover,
             &:focus {
-              background: ${theme.buttonGhostBackground};
+              background: ${theme.buttonPrimaryBackground};
               border: ${theme.buttonGhostBorder};
-              border-color: ${theme.buttonPrimaryBackground};
-              color: ${theme.buttonPrimaryBackground};
+              border-color: transparent;
+            }
+
+            ${customProps.loading &&
+              css`
+                &:hover,
+                &:focus {
+                  background: ${theme.buttonGhostBackground};
+                  border: ${theme.buttonGhostBorder};
+                  border-color: ${theme.buttonPrimaryBackground};
+                  color: ${theme.buttonPrimaryBackground};
+                }
+              `}
+
+            &:active {
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
             }
           `}
-
-          &:active {
-            border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
-        `}
       `;
     case 'secondary':
       return css`
@@ -128,24 +130,24 @@ const getStyleForType = ({ buttonType, customProps, theme }) => {
         }
 
         ${customProps.ghost &&
-        css`
-          background: ${theme.buttonGhostBackground};
-          border: ${theme.buttonGhostBorder};
-          border-color: ${theme.buttonSecondaryBackground};
-          color: ${theme.buttonSecondaryBackground};
-
-          &:hover,
-          &:focus {
-            background: ${theme.buttonSecondaryBackground};
+          css`
+            background: ${theme.buttonGhostBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
+            border-color: ${theme.buttonSecondaryBackground};
+            color: ${theme.buttonSecondaryBackground};
 
-          &:active {
-            border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
-        `}
+            &:hover,
+            &:focus {
+              background: ${theme.buttonSecondaryBackground};
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+
+            &:active {
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+          `}
       `;
     case 'tertiary':
       return css`
@@ -166,24 +168,24 @@ const getStyleForType = ({ buttonType, customProps, theme }) => {
         }
 
         ${customProps.ghost &&
-        css`
-          background: ${theme.buttonGhostBackground};
-          border: ${theme.buttonGhostBorder};
-          border-color: ${theme.buttonTertiaryBackground};
-          color: ${theme.buttonTertiaryBackground};
-
-          &:hover,
-          &:focus {
-            background: ${theme.buttonTertiaryBackground};
+          css`
+            background: ${theme.buttonGhostBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
+            border-color: ${theme.buttonTertiaryBackground};
+            color: ${theme.buttonTertiaryBackground};
 
-          &:active {
-            border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
-        `}
+            &:hover,
+            &:focus {
+              background: ${theme.buttonTertiaryBackground};
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+
+            &:active {
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+          `}
       `;
     case 'danger':
       return css`
@@ -204,24 +206,24 @@ const getStyleForType = ({ buttonType, customProps, theme }) => {
         }
 
         ${customProps.ghost &&
-        css`
-          background: ${theme.buttonGhostBackground};
-          border: ${theme.buttonGhostBorder};
-          border-color: ${theme.buttonDangerBackground};
-          color: ${theme.buttonDangerBackground};
-
-          &:hover,
-          &:focus {
-            background: ${theme.buttonDangerBackground};
+          css`
+            background: ${theme.buttonGhostBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
+            border-color: ${theme.buttonDangerBackground};
+            color: ${theme.buttonDangerBackground};
 
-          &:active {
-            border: ${theme.buttonGhostBorder};
-            border-color: transparent;
-          }
-        `};
+            &:hover,
+            &:focus {
+              background: ${theme.buttonDangerBackground};
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+
+            &:active {
+              border: ${theme.buttonGhostBorder};
+              border-color: transparent;
+            }
+          `};
       `;
     case 'link':
       return css`
@@ -249,7 +251,12 @@ const getStyleForType = ({ buttonType, customProps, theme }) => {
   }
 };
 
-const getTheCSSStyle = ({ buttonType, customProps, disabled, theme }) => {
+const getTheCSSStyle = ({
+  buttonType,
+  customProps,
+  disabled,
+  theme,
+}: StyledButtonProps) => {
   const { size } = customProps;
   const key = getTheKey(size);
 
@@ -283,10 +290,10 @@ const getTheCSSStyle = ({ buttonType, customProps, disabled, theme }) => {
     ${getStyleForType({ buttonType, customProps, theme })}
 
     ${(disabled || customProps.loading) &&
-    css`
-      pointer-events: none;
-      opacity: 0.5;
-    `}
+      css`
+        pointer-events: none;
+        opacity: 0.5;
+      `}
 
     span {
       pointer-events: none;
@@ -298,6 +305,6 @@ const getTheCSSStyle = ({ buttonType, customProps, disabled, theme }) => {
   `;
 };
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.button<StyledButtonProps>`
   ${getTheCSSStyle};
 `;
