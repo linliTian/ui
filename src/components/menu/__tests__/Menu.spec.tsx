@@ -8,7 +8,7 @@ describe('Menu', () => {
   it('renders', () => {
     const wrapper = shallow(<Menu></Menu>);
 
-    expect(wrapper.exists('Menu__Container')).toBe(true);
+    expect(wrapper.exists('ContextProvider')).toBe(true);
   });
 
   it('has the correct display names', () => {
@@ -95,7 +95,7 @@ describe('Menu', () => {
     );
 
     wrapper
-      .find('MenuItem__Container')
+      .find('MenuItem')
       .at(0)
       .simulate('click');
     expect(onClickMock).toBeCalledWith('1');
@@ -116,7 +116,7 @@ describe('Menu', () => {
     );
 
     wrapper
-      .find('MenuItem__Container')
+      .find('MenuItem')
       .at(0)
       .simulate('click');
     expect(onClickMock).toBeCalledTimes(0);

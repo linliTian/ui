@@ -8,21 +8,19 @@ describe('Toggle', () => {
   it('renders', () => {
     const wrapper = shallow(<Toggle />);
 
-    expect(wrapper.exists('Toggle__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
   });
 
   it('sets the isOn prop', () => {
     const wrapper = mount(<Toggle isOn />);
 
-    expect(wrapper.find('Toggle__ToggleCircleContainer').prop('animate')).toBe(
-      'on'
-    );
+    expect(wrapper.find('ToggleCircleContainer').prop('animate')).toBe('on');
   });
 
   it('sets the disabled prop', () => {
     const wrapper = mount(<Toggle disabled />);
 
-    expect(wrapper.find('Toggle__Container').prop('disabled')).toBe(true);
+    expect(wrapper.find('Container').prop('disabled')).toBe(true);
   });
 
   it('calls the onClick callback', () => {
@@ -30,7 +28,7 @@ describe('Toggle', () => {
 
     const wrapper = mount(<Toggle onClick={onClickMock} />);
 
-    wrapper.find('Toggle__Container').simulate('click');
+    wrapper.find('Container').simulate('click');
 
     expect(onClickMock).toHaveBeenCalled();
   });

@@ -26,7 +26,7 @@ describe('Typography', () => {
   it('renders Title', () => {
     const wrapper = shallow(<Typography.Title>Title</Typography.Title>);
 
-    expect(wrapper.exists('Title__StyledTitle')).toBe(true);
+    expect(wrapper.exists('StyledTitle')).toBe(true);
   });
 
   it('sets the level prop', () => {
@@ -34,7 +34,7 @@ describe('Typography', () => {
       <Typography.Title level={2}>Title</Typography.Title>
     );
 
-    expect(wrapper.find('Title__StyledTitle').prop('level')).toEqual(2);
+    expect(wrapper.find('StyledTitle').prop('level')).toEqual(2);
   });
 
   it('renders Subtitle', () => {
@@ -42,13 +42,13 @@ describe('Typography', () => {
       <Typography.Subtitle>Subtitle</Typography.Subtitle>
     );
 
-    expect(wrapper.exists('Subtitle__StyledSubtitle')).toBe(true);
+    expect(wrapper.exists('StyledSubtitle')).toBe(true);
   });
 
   it('renders Body', () => {
     const wrapper = shallow(<Typography.Body>Body</Typography.Body>);
 
-    expect(wrapper.exists('Body__StyledBody')).toBe(true);
+    expect(wrapper.exists('StyledBody')).toBe(true);
   });
 
   it('renders Description', () => {
@@ -56,12 +56,12 @@ describe('Typography', () => {
       <Typography.Description>Description</Typography.Description>
     );
 
-    expect(wrapper.exists('Description__StyledDescription')).toBe(true);
+    expect(wrapper.exists('StyledDescription')).toBe(true);
   });
 
   it('renders Label', () => {
     const wrapper = shallow(<Typography.Label>Label</Typography.Label>);
 
-    expect(wrapper.exists('Label__StyledLabel')).toBe(true);
+    expect(wrapper.exists('StyledLabel')).toBe(true);
   });
 });

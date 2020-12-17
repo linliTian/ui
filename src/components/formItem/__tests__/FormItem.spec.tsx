@@ -13,7 +13,7 @@ describe('FormItem', () => {
       </FormItem>
     );
 
-    expect(wrapper.exists('FormItem__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
   });
 
   it('renders children', () => {
@@ -33,7 +33,7 @@ describe('FormItem', () => {
       </FormItem>
     );
 
-    expect(wrapper.exists('FormItem__StatusMessage')).toBe(true);
+    expect(wrapper.exists('StatusMessage')).toBe(true);
   });
 
   it('sets the status prop', () => {
@@ -61,34 +61,34 @@ describe('FormItemIcon', () => {
   it('renders', () => {
     const wrapper = shallow(<FormItemIcon status="error" />);
 
-    expect(wrapper.exists('FormItemIcon__IconContainer')).toBe(true);
+    expect(wrapper.exists('IconContainer')).toBe(true);
   });
 
   it('renders with error status', () => {
     const wrapper = shallow(<FormItemIcon status="error" />);
 
-    expect(wrapper.exists('FormItemIcon__IconContainer')).toBe(true);
+    expect(wrapper.exists('IconContainer')).toBe(true);
     expect(wrapper.exists('TimesCircle')).toBe(true);
   });
 
   it('renders with warning status', () => {
     const wrapper = shallow(<FormItemIcon status="warning" />);
 
-    expect(wrapper.exists('FormItemIcon__IconContainer')).toBe(true);
+    expect(wrapper.exists('IconContainer')).toBe(true);
     expect(wrapper.exists('ExclamationCircle')).toBe(true);
   });
 
   it('renders with success status', () => {
     const wrapper = shallow(<FormItemIcon status="success" />);
 
-    expect(wrapper.exists('FormItemIcon__IconContainer')).toBe(true);
+    expect(wrapper.exists('IconContainer')).toBe(true);
     expect(wrapper.exists('CheckCircle')).toBe(true);
   });
 
   it('renders with loading status', () => {
     const wrapper = shallow(<FormItemIcon status="loading" />);
 
-    expect(wrapper.exists('FormItemIcon__IconContainer')).toBe(true);
+    expect(wrapper.exists('IconContainer')).toBe(true);
     expect(wrapper.exists('Loading')).toBe(true);
   });
 });

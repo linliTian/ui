@@ -8,7 +8,7 @@ describe('DropPad', () => {
   it('renders', () => {
     const wrapper = shallow(<DropPad />);
 
-    expect(wrapper.exists('DropPad__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
   });
 
   it('renders with children', () => {
@@ -24,7 +24,7 @@ describe('DropPad', () => {
   it('hides the droppad when hideDroppad prop is true', () => {
     const wrapper = mount(<DropPad hideDroppad />);
 
-    expect(wrapper.exists('DropPad__DropPadContainer')).toBe(false);
+    expect(wrapper.exists('DropPadContainer')).toBe(false);
   });
 });
 
@@ -33,7 +33,7 @@ describe('DropPad.File', () => {
     const wrapper = shallow(
       <DropPad.File name="name" itemKey="1" percentUploaded={0} />
     );
-    expect(wrapper.exists('DropPadFile__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
   });
 
   it('calls onDelete callback with the itemKey', () => {
@@ -48,7 +48,7 @@ describe('DropPad.File', () => {
       />
     );
 
-    wrapper.find('DropPadFile__StyledTrashIcon').simulate('click');
+    wrapper.find('StyledTrashIcon').simulate('click');
 
     expect(handleDeleteMock).toHaveBeenCalledWith('1');
   });

@@ -88,7 +88,7 @@ describe('Tabs', () => {
     );
 
     wrapper
-      .find('TabsItem__Container')
+      .find('TabsItem')
       .at(1)
       .simulate('click');
 

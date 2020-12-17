@@ -22,7 +22,7 @@ describe('Panel', () => {
       </Panel>
     );
 
-    expect(wrapper.find('Panel__Container').prop('margin')).toBe(undefined);
+    expect(wrapper.find('Container').prop('margin')).toBe(undefined);
   });
 
   it('sets the title prop', () => {
@@ -32,7 +32,7 @@ describe('Panel', () => {
       </Panel>
     );
 
-    expect(wrapper.exists('Panel__Title')).toBe(true);
+    expect(wrapper.exists('Title')).toBe(true);
   });
 
   it('sets the titleLevel prop', () => {
@@ -42,7 +42,7 @@ describe('Panel', () => {
       </Panel>
     );
 
-    expect(wrapper.find('Panel__Title').prop('level')).toBe(5);
+    expect(wrapper.find('Title').prop('level')).toBe(5);
   });
 
   it('has the correct display name', () => {

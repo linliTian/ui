@@ -10,7 +10,7 @@ describe('Notification', () => {
       <Notification itemKey="1" notificationType="info" title="title" />
     );
 
-    expect(wrapper.exists('StyledNotification__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
     expect(wrapper.find('NotificationTitle').children()).toHaveText('title');
   });
 
@@ -19,9 +19,9 @@ describe('Notification', () => {
       <Notification itemKey="1" notificationType="success" title="" />
     );
 
-    expect(
-      wrapper.find('StyledNotification__Container').prop('notificationType')
-    ).toStrictEqual('success');
+    expect(wrapper.find('Container').prop('notificationType')).toStrictEqual(
+      'success'
+    );
   });
 
   it('hides the close button', () => {
@@ -49,7 +49,7 @@ describe('Notification', () => {
       />
     );
 
-    wrapper.find('CloseIcon__Container').simulate('click');
+    wrapper.find('CloseIcon').simulate('click');
 
     expect(onCloseMock).toBeCalledTimes(1);
   });

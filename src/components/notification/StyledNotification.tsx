@@ -15,6 +15,34 @@ interface ContainerProps {
   notificationType: 'default' | 'success' | 'error' | 'warning' | 'info';
 }
 
+const getBorderLeftColor = ({ notificationType, theme }) => {
+  switch (notificationType) {
+    case 'error':
+      return css`
+        border-left-color: ${theme.colors.red};
+      `;
+    case 'warning':
+      return css`
+        border-left-color: ${theme.colors.yellow};
+      `;
+    case 'success':
+      return css`
+        border-left-color: ${theme.colors.green};
+      `;
+    case 'info':
+      return css`
+        border-left-color: ${theme.colors.blue};
+      `;
+    case 'default':
+      return css`
+        border-left-color: ${theme.colors.gray};
+      `;
+
+    default:
+      break;
+  }
+};
+
 export const Container = styled(motion.div)<ContainerProps>`
   min-height: ${({ theme }) => theme.notificationMinHeight};
 
@@ -25,43 +53,15 @@ export const Container = styled(motion.div)<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   background: ${({ theme }) => theme.notificationBackground};
   border-left: 8px solid;
 
   border-radius: ${({ theme }) => theme.notificationBorderRadius};
 
   margin-bottom: 16px;
-  
-  ${({ notificationType }) =>
-    notificationType === 'error' &&
-    css`
-      border-left-color: ${({ theme }) => theme.colors.red};
-    `}
 
-  ${({ notificationType }) =>
-    notificationType === 'warning' &&
-    css`
-      border-left-color: ${({ theme }) => theme.colors.yellow};
-    `}
-
-  ${({ notificationType }) =>
-    notificationType === 'success' &&
-    css`
-      border-left-color: ${({ theme }) => theme.colors.green};
-    `}
-
-  ${({ notificationType }) =>
-    notificationType === 'info' &&
-    css`
-      border-left-color: ${({ theme }) => theme.colors.blue};
-    `}
-  
-  ${({ notificationType }) =>
-    notificationType === 'default' &&
-    css`
-      border-left-color: ${({ theme }) => theme.colors.gray};
-    `}
+  ${getBorderLeftColor}
 
   box-shadow: ${({ theme }) => theme.notificationBoxBoxShadow};
 

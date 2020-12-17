@@ -50,7 +50,7 @@ describe('Accordion', () => {
     );
 
     // target the headers to click
-    const accordionItemHeader = wrapper.find('Header__StyledHeader');
+    const accordionItemHeader = wrapper.find('StyledHeader');
 
     // click items 1 and 2
     accordionItemHeader.at(0).simulate('click');
@@ -77,7 +77,7 @@ describe('Accordion', () => {
     );
 
     // target the headers to click
-    const accordionItemHeader = wrapper.find('Header__StyledHeader');
+    const accordionItemHeader = wrapper.find('StyledHeader');
 
     // click items 1 and 2
     accordionItemHeader.at(0).simulate('click');

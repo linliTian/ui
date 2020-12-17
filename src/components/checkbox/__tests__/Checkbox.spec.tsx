@@ -8,7 +8,7 @@ describe('Checkbox', () => {
   it('renders', () => {
     const wrapper = shallow(<Checkbox />);
 
-    expect(wrapper.exists('Checkbox__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
   });
 
   it('sets the checked prop', () => {
@@ -34,6 +34,6 @@ describe('Checkbox', () => {
   it('sets the disabled prop', () => {
     const wrapper = shallow(<Checkbox name="test" disabled />);
 
-    expect(wrapper.find('Checkbox__Container').prop('disabled')).toBe(true);
+    expect(wrapper.find('Container').prop('disabled')).toBe(true);
   });
 });
