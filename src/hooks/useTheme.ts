@@ -5,8 +5,8 @@ import { ThemeContext } from '@emotion/react';
 import { createTheme } from '../theme';
 
 export const useTheme = () => {
-  const defaultTheme = createTheme({}, {});
   const customizedTheme = React.useContext(ThemeContext);
+  const theme = createTheme({}, customizedTheme);
 
-  return { ...defaultTheme, ...customizedTheme };
+  return theme;
 };

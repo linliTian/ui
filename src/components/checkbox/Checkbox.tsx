@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/react';
 
 import { useTheme } from '../../hooks';
+import { GlobalTheme } from '../../theme/types';
 
 export interface CheckboxProps {
   /** if true, the checkbox will be checked */
@@ -23,21 +24,25 @@ interface ContainerProps {
   disabled?: boolean;
 }
 
-const Container = styled.div<ContainerProps>`
-  ${({ disabled }) =>
-    disabled &&
-    css`
+const getContainerStyle = ({ disabled }: ContainerProps) => {
+  if (disabled) {
+    return css`
       pointer-events: none;
       opacity: 0.6;
-    `}
+    `;
+  }
+};
+
+const Container = styled.div<ContainerProps>`
+  ${getContainerStyle}
 `;
 
-const StyledLabel = styled.label`
+const getLabelStyle = ({ theme }) => css`
   position: relative;
   display: inline-block;
 
-  line-height: ${({ theme }) => theme.checkboxLineHeight};
-  margin: ${({ theme }) => theme.checkboxMargin};
+  line-height: ${theme.checkboxLineHeight};
+  margin: ${theme.checkboxMargin};
 
   font-family: 'Lato', sans-serif;
 
@@ -46,9 +51,9 @@ const StyledLabel = styled.label`
   }
 
   span {
-    font-size: ${({ theme }) => theme.checkboxFontSize};
-    color: ${({ theme }) => theme.checkboxFontColor};
-    transition: all ${({ theme }) => theme.animationTimeVeryFast}s ease-in-out;
+    font-size: ${theme.checkboxFontSize};
+    color: ${theme.checkboxFontColor};
+    transition: all ${theme.animationTimeVeryFast}s ease-in-out;
     padding-left: 24px;
 
     &::before {
@@ -61,10 +66,10 @@ const StyledLabel = styled.label`
 
       height: 16px;
       width: 16px;
-      border: ${({ theme }) => theme.checkboxBorder};
-      border-radius: ${({ theme }) => theme.checkboxBorderRadius};
+      border: ${theme.checkboxBorder};
+      border-radius: ${theme.checkboxBorderRadius};
       box-sizing: border-box;
-      transition: all ${({ theme }) => theme.animationTimeVeryFast}s ease-in-out;
+      transition: all ${theme.animationTimeVeryFast}s ease-in-out;
     }
 
     &::after {
@@ -80,27 +85,31 @@ const StyledLabel = styled.label`
       border-width: 0 3px 3px 0;
       transform: rotate(45deg);
 
-      transition: all ${({ theme }) => theme.animationTimeVeryFast}s ease-in-out;
+      transition: all ${theme.animationTimeVeryFast}s ease-in-out;
       visibility: hidden;
     }
   }
 
   input[type='checkbox']:hover + span {
     &::before {
-      border: ${({ theme }) => theme.checkboxHoverBorder};
+      border: ${theme.checkboxHoverBorder};
     }
   }
 
   input[type='checkbox']:checked + span {
     &::before {
-      background: ${({ theme }) => theme.checkboxCheckedBackground};
-      border-color: ${({ theme }) => theme.checkboxCheckedBorderColor};
+      background: ${theme.checkboxCheckedBackground};
+      border-color: ${theme.checkboxCheckedBorderColor};
     }
 
     &::after {
       visibility: visible;
     }
   }
+`;
+
+const StyledLabel = styled.label`
+  ${getLabelStyle}
 `;
 
 export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
@@ -110,10 +119,10 @@ export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
   name,
   onChange,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme() as GlobalTheme;
 
   const handleChange = React.useCallback(
-    e => {
+    (e) => {
       const { name, checked } = e.target;
 
       if (onChange) {

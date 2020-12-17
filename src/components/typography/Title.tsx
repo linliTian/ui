@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/react';
 
 import { useTheme } from '../../hooks';
+import { GlobalTheme } from '../../theme/types';
 
 export type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -13,8 +14,12 @@ export interface TitleProps {
   level?: Level;
 }
 
+type Theme = { theme: GlobalTheme };
+
+type TitleStyleProps = TitleProps & Theme;
+
 // styles for h1
-export const h1Styles = theme => css`
+export const h1Styles = ({ theme }) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle1Color};
   font-size: ${theme.typographyTitle1FontSize};
@@ -25,7 +30,7 @@ export const h1Styles = theme => css`
 `;
 
 // styles for h2
-export const h2Styles = theme => css`
+export const h2Styles = ({ theme }) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle2Color};
   font-size: ${theme.typographyTitle2FontSize};
@@ -36,7 +41,7 @@ export const h2Styles = theme => css`
 `;
 
 // styles for h3
-export const h3Styles = theme => css`
+export const h3Styles = ({ theme }) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle3Color};
   font-size: ${theme.typographyTitle3FontSize};
@@ -47,7 +52,7 @@ export const h3Styles = theme => css`
 `;
 
 // styles for h4
-export const h4Styles = theme => css`
+export const h4Styles = ({ theme }) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle4Color};
   font-size: ${theme.typographyTitle4FontSize};
@@ -58,7 +63,7 @@ export const h4Styles = theme => css`
 `;
 
 // styles for h5
-export const h5Styles = theme => css`
+export const h5Styles = ({ theme }) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle5Color};
   font-size: ${theme.typographyTitle5FontSize};
@@ -69,7 +74,7 @@ export const h5Styles = theme => css`
 `;
 
 // styles for h6
-export const h6Styles = theme => css`
+export const h6Styles = ({ theme }: Theme) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle6Color};
   font-size: ${theme.typographyTitle6FontSize};
@@ -79,27 +84,27 @@ export const h6Styles = theme => css`
   user-select: none;
 `;
 
-const getTitleStyle = ({ level, theme }) => {
+const getTitleStyle = ({ level, theme }: TitleStyleProps) => {
   switch (level) {
     case 1:
-      return h1Styles(theme);
+      return h1Styles({ theme });
     case 2:
-      return h2Styles(theme);
+      return h2Styles({ theme });
     case 3:
-      return h3Styles(theme);
+      return h3Styles({ theme });
     case 4:
-      return h4Styles(theme);
+      return h4Styles({ theme });
     case 5:
-      return h5Styles(theme);
+      return h5Styles({ theme });
     case 6:
-      return h6Styles(theme);
+      return h6Styles({ theme });
 
     default:
       break;
   }
 };
 
-const StyledTitle = styled.div<TitleProps>`
+const StyledTitle = styled.div<TitleStyleProps>`
   ${getTitleStyle}
 `;
 

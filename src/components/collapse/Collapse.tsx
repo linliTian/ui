@@ -13,9 +13,9 @@ import {
   ContentFooter,
 } from './Content';
 
-import { useAfterMountEffect } from '../../hooks';
+import { useAfterMountEffect, useTheme } from '../../hooks';
 
-import { useTheme } from '../../hooks';
+import { GlobalTheme } from '../../theme/types';
 
 export interface CollapseProps {
   /** If true, collapse expand state will not be able to change when header is clicked */
@@ -52,12 +52,11 @@ export interface CollapseProps {
   onChange?: (itemKey?: string | number) => void;
 }
 
-const Container = styled.div<{ disabled?: boolean }>`
-  ${({ disabled, theme }) => css<{ disabled?: boolean }>`
-    ${disabled &&
-      css`
-        pointer-events: none;
-      `}
+type ContainerPropsType = { disabled?: boolean; theme: GlobalTheme };
+
+const getContainerStyle = ({ disabled, theme }: ContainerPropsType) => css`
+    pointer-events: ${disabled ? 'none' : 'default'}
+
     &:hover,
     :focus-within {
       .rtk-collapse-header {
@@ -69,8 +68,10 @@ const Container = styled.div<{ disabled?: boolean }>`
         background: ${theme.collapseContentFooterHoverColor};
       }
     }
-  `};
-  }
+  `;
+
+const Container = styled.div<ContainerPropsType>`
+  ${getContainerStyle}
 `;
 
 export const Collapse: React.FunctionComponent<CollapseProps> = ({

@@ -11,6 +11,7 @@ import { FormItemContext } from './FormItemContext';
 import { Typography } from '../typography/Typography';
 
 import { FormItemIcon } from './FormItemIcon';
+import { GlobalTheme } from '../../theme/types';
 
 export type Status = 'error' | 'success' | 'warning' | 'loading';
 
@@ -43,30 +44,34 @@ const StatusContainer = styled.div`
   margin-bottom: 8px;
 `;
 
+const getMessageStyle = ({ theme, otherProps }) => {
+  const { status } = otherProps;
+
+  switch (status) {
+    case 'error':
+      return css`
+        color: ${theme.colors.red};
+      `;
+    case 'warning':
+      return css`
+        color: ${theme.colors.orange};
+      `;
+    case 'success':
+      return css`
+        color: ${theme.colors.green};
+      `;
+    case 'loading':
+      return css`
+        color: ${theme.colors.primary};
+      `;
+
+    default:
+      break;
+  }
+};
+
 const StatusMessage = styled(Typography.Description)`
-  ${({ theme, otherProps }) =>
-    otherProps.status === 'error' &&
-    css`
-      color: ${theme.colors.red};
-    `}
-
-  ${({ theme, otherProps }) =>
-    otherProps.status === 'warning' &&
-    css`
-      color: ${theme.colors.orange};
-    `}
-
-  ${({ theme, otherProps }) =>
-    otherProps.status === 'success' &&
-    css`
-      color: ${theme.colors.green};
-    `}
-
-  ${({ theme, otherProps }) =>
-    otherProps.status === 'loading' &&
-    css`
-      color: ${theme.colors.primary};
-    `}
+  ${getMessageStyle}
 `;
 
 export const FormItem: React.FunctionComponent<FormItemProps> = ({
@@ -77,7 +82,7 @@ export const FormItem: React.FunctionComponent<FormItemProps> = ({
   message,
   status,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme() as GlobalTheme;
   return (
     <FormItemContainer className={`${className} rtk-form-item`}>
       <Typography.Label>{label}</Typography.Label>
