@@ -1,7 +1,7 @@
 /* eslint-disable */
 
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Button } from '../../button/Button';
 import { Input } from '../../input/Input';

@@ -1,5 +1,7 @@
 import { Component, Orientation } from './Divider';
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 
 interface CustomProps {
   component?: Component;

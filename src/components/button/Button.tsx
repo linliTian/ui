@@ -1,14 +1,12 @@
 import * as React from 'react';
 
-import { StyledButton } from './StyledButton';
-
 import { motion } from 'framer-motion';
+import { MouseEventHandler } from 'react';
+import { StyledButton } from './StyledButton';
 
 import { Icon } from '../icons';
 
 import { useTheme } from '../../hooks';
-
-import { MouseEventHandler } from 'react';
 
 export type ButtonType =
   | 'primary'
@@ -111,7 +109,7 @@ export const Button: React.FunctionComponent<ButtonProps> = React.forwardRef<
         <>
           <Icon.Loading color={getTypeStyle(type, ghost, theme)} />
           <motion.div
-            key={'loading'}
+            key="loading"
             animate={{
               marginRight: shape === 'circle' ? 0 : 5,
               transition: { type: 'tween' },

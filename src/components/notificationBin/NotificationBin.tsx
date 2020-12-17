@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { AnimatePresence } from 'framer-motion';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { Notification, NotificationProps } from '../notification/Notification';
 

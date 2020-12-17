@@ -2,7 +2,9 @@ import * as React from 'react';
 
 import { AnimatePresence, motion } from 'framer-motion';
 
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 
 import { GlobalTheme } from '../../theme/types';
 

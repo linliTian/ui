@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { Props, ValueType } from 'react-select';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 import { useTheme } from '../../hooks/useTheme';
 import CaretDown from '../icons/CaretDown';

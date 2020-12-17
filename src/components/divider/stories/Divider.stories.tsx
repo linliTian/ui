@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 import { Modal } from '../../modal/Modal';
 import { withKnobs, select } from '@storybook/addon-knobs';
 

@@ -1,4 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from '@emotion/styled';
+/** @jsx jsx */
+import { css, jsx } from '@emotion/react';
 
 import { motion } from 'framer-motion';
 
