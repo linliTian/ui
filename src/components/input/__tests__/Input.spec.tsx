@@ -3,13 +3,12 @@ import * as React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import { Input } from '../Input';
-import { colors } from '../../../theme/colors';
 
 describe('Input', () => {
   it('renders input', () => {
     const wrapper = shallow(<Input />);
 
-    expect(wrapper.find('StyledInput__Container')).toExist();
+    expect(wrapper.find('Container')).toExist();
   });
 
   it('has the correct display name', () => {
@@ -40,13 +39,13 @@ describe('Input', () => {
   });
 
   it('sets the borderType prop to none', () => {
-    const wrapper = shallow(<Input borderType={'none'} />);
+    const wrapper = shallow(<Input borderType="none" />);
 
     expect(wrapper.find('StyledInput').prop('borderType')).toBe('none');
   });
 
   it('sets the borderType prop to bottom', () => {
-    const wrapper = shallow(<Input borderType={'bottom'} />);
+    const wrapper = shallow(<Input borderType="bottom" />);
 
     expect(wrapper.find('StyledInput').prop('borderType')).toBe('bottom');
   });
@@ -59,11 +58,11 @@ describe('Input', () => {
   });
 
   it('sets the label prop', () => {
-    const wrapper = shallow(<Input label={'label'} />);
+    const wrapper = shallow(<Input label="label" />);
 
     expect(
       wrapper
-        .find('StyledInput__Label')
+        .find('Label')
         .children()
         .first()
         .text()
@@ -71,11 +70,11 @@ describe('Input', () => {
   });
 
   it('sets the description prop', () => {
-    const wrapper = shallow(<Input description={'description'} />);
+    const wrapper = shallow(<Input description="description" />);
 
     expect(
       wrapper
-        .find('StyledInput__Description')
+        .find('Description')
         .children()
         .first()
         .text()
@@ -83,33 +82,33 @@ describe('Input', () => {
   });
 
   it('sets the htmlType prop', () => {
-    const wrapper = mount(<Input htmlType={'password'} />);
+    const wrapper = mount(<Input htmlType="password" />);
 
     // @ts-ignore
     expect(wrapper.find('input').getDOMNode().type).toBe('password');
   });
 
   it('renders a text area tag when set by htmlType', () => {
-    const wrapper = mount(<Input htmlType={'textarea'} />);
+    const wrapper = mount(<Input htmlType="textarea" />);
     expect(wrapper.find('textarea')).toExist();
   });
 
   it('sets the inputSize prop', () => {
-    const wrapper = shallow(<Input size={'large'} />);
+    const wrapper = shallow(<Input size="large" />);
 
     expect(wrapper.find('StyledInput').prop('inputSize')).toBe('large');
   });
 
   it('sets the value prop', () => {
     const onChangeMock = jest.fn();
-    const wrapper = mount(<Input value={'test'} onChange={onChangeMock} />);
+    const wrapper = mount(<Input value="test" onChange={onChangeMock} />);
 
     // @ts-ignore
     expect(wrapper.find('input').getDOMNode().value).toBe('test');
   });
 
   it('sets the defaultValue prop', () => {
-    const wrapper = mount(<Input defaultValue={'test'} />);
+    const wrapper = mount(<Input defaultValue="test" />);
 
     // @ts-ignore
     expect(wrapper.find('input').getDOMNode().value).toBe('test');
@@ -148,7 +147,7 @@ describe('Input', () => {
 
   it('calls onChange handler', () => {
     const onChangeMock = jest.fn(e => e);
-    const wrapper = mount(<Input onChange={onChangeMock} value={'value'} />);
+    const wrapper = mount(<Input onChange={onChangeMock} value="value" />);
 
     wrapper.find('input').simulate('change');
 

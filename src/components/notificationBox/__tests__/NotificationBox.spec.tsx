@@ -7,26 +7,26 @@ import { NotificationBox } from '../NotificationBox';
 describe('NotificationBox', () => {
   it('renders', () => {
     const wrapper = shallow(
-      <NotificationBox itemKey={'1'} notificationType="info" />
+      <NotificationBox itemKey="1" notificationType="info" />
     );
 
-    expect(wrapper.exists('StyledNotificationBox__Container')).toBe(true);
+    expect(wrapper.exists('Container')).toBe(true);
   });
 
   it('sets the notificationType prop', () => {
     const wrapper = shallow(
-      <NotificationBox itemKey={'1'} notificationType="success" />
+      <NotificationBox itemKey="1" notificationType="success" />
     );
 
-    expect(
-      wrapper.find('StyledNotificationBox__Container').prop('notificationType')
-    ).toStrictEqual('success');
+    expect(wrapper.find('Container').prop('notificationType')).toStrictEqual(
+      'success'
+    );
   });
 
   it('hides the close button', () => {
     const wrapper = shallow(
       <NotificationBox
-        itemKey={'1'}
+        itemKey="1"
         notificationType="success"
         allowClose={false}
       />
@@ -40,13 +40,13 @@ describe('NotificationBox', () => {
 
     const wrapper = mount(
       <NotificationBox
-        itemKey={'1'}
+        itemKey="1"
         notificationType="error"
         onClose={onCloseMock}
       />
     );
 
-    wrapper.find('CloseIcon__Container').simulate('click');
+    wrapper.find('CloseIcon').simulate('click');
 
     expect(onCloseMock).toBeCalledTimes(1);
   });

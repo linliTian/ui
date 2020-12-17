@@ -85,7 +85,7 @@ describe('Collapse', () => {
       </Collapse>
     );
 
-    expect(wrapper.find('Collapse__Container').prop('disabled')).toBe(true);
+    expect(wrapper.find('Container').prop('disabled')).toBe(true);
     expect(wrapper.find('CollapseHeader').prop('disabled')).toBe(true);
   });
 
@@ -97,7 +97,7 @@ describe('Collapse', () => {
       </Collapse>
     );
 
-    wrapper.find('Header__StyledHeader').simulate('click');
+    wrapper.find('StyledHeader').simulate('click');
     expect(onChangeMock).toBeCalledTimes(0);
   });
 

@@ -51,7 +51,7 @@ describe('Table', () => {
 
     expect(
       wrapper
-        .find('Body__StyledBody')
+        .find('StyledBody')
         .at(1)
         .childAt(0)
         .text()
@@ -115,21 +115,21 @@ describe('Table', () => {
     );
 
     wrapper
-      .find('HeaderCell__StyledCell')
+      .find('StyledCell')
       .at(0)
       .simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'asc');
 
     wrapper
-      .find('HeaderCell__StyledCell')
+      .find('StyledCell')
       .at(0)
       .simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'dsc');
 
     wrapper
-      .find('HeaderCell__StyledCell')
+      .find('StyledCell')
       .at(0)
       .simulate('click');
 
@@ -144,7 +144,7 @@ describe('Table', () => {
 
       expect(
         wrapper
-          .find('HeaderCell__SubtitleContent')
+          .find('SubtitleContent')
           .at(0)
           .childAt(0)
           .text()
@@ -171,13 +171,13 @@ describe('Table', () => {
 
       expect(
         wrapper
-          .find('HeaderCell__StyledCell')
+          .find('StyledCell')
           .at(0)
           .prop('sortable')
       ).toBe(true);
       expect(
         wrapper
-          .find('HeaderCell__StyledCell')
+          .find('StyledCell')
           .at(0)
           .find('Sort')
       ).toExist();

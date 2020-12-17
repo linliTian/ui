@@ -23,23 +23,19 @@ interface StyledBodyProps {
   theme: GlobalTheme;
 }
 
-export const bodyStyles = css<StyledBodyProps>`
-  color: ${({ theme }) => theme.typographyBodyColor};
-  font-family: ${({ theme }) => theme.typographyBodyFontFamily};
-  font-size: ${({ theme }) => theme.typographyBodyFontSize};
-  font-weight: ${({ theme }) => theme.typographyBodyFontWeight};
-  letter-spacing: ${({ theme }) => theme.typographyBodyLetterSpacing};
-  line-height: ${({ theme }) => theme.typographyBodyLineHeight};
-
-  ${({ disabled }) =>
-    disabled &&
-    css`
-      color: ${({ theme }) => theme.typographyBodyDisabledColor};
-    `}
+export const bodyStyles = ({ theme, disabled }) => css`
+  color: ${disabled
+    ? theme.typographyBodyDisabledColor
+    : theme.typographyBodyColor};
+  font-family: ${theme.typographyBodyFontFamily};
+  font-size: ${theme.typographyBodyFontSize};
+  font-weight: ${theme.typographyBodyFontWeight};
+  letter-spacing: ${theme.typographyBodyLetterSpacing};
+  line-height: ${theme.typographyBodyLineHeight};
 `;
 
 const StyledBody = styled.div<StyledBodyProps>`
-  ${bodyStyles};
+  ${bodyStyles}
 `;
 
 export const Body: React.FunctionComponent<BodyProps> = React.forwardRef<

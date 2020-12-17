@@ -1,13 +1,5 @@
-import * as styledComponents from 'styled-components';
+import * as emotionReact from '@emotion/react';
 
-import { GlobalTheme } from '../theme/types';
-
-const {
-  css,
-  ThemeProvider,
-  ThemeContext,
-} = styledComponents as styledComponents.ThemedStyledComponentsModule<
-  GlobalTheme
->;
+const { css, ThemeProvider, ThemeContext } = emotionReact;
 
 export { css, ThemeProvider, ThemeContext };

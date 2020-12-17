@@ -4,15 +4,43 @@ import { css, jsx } from '@emotion/react';
 
 import { motion } from 'framer-motion';
 
+import * as React from 'react';
 import { GlobalTheme } from '../../theme/types';
 
 import { Typography } from '../typography/Typography';
-import * as React from 'react';
 
 interface ContainerProps {
   theme: GlobalTheme;
   notificationType: 'default' | 'success' | 'error' | 'warning' | 'info';
 }
+
+const getBackgroundColor = ({ notificationType, theme }) => {
+  switch (notificationType) {
+    case 'error':
+      return css`
+        background: ${theme.notificationBoxErrorBackground};
+      `;
+    case 'warning':
+      return css`
+        background: ${theme.notificationBoxWarningBackground};
+      `;
+    case 'success':
+      return css`
+        background: ${theme.notificationBoxSuccessBackground};
+      `;
+    case 'info':
+      return css`
+        background: ${theme.notificationBoxInfoBackground};
+      `;
+    case 'default':
+      return css`
+        background: ${theme.notificationBoxDefaultBackground};
+      `;
+
+    default:
+      break;
+  }
+};
 
 export const Container = styled(motion.div)<ContainerProps>`
   min-height: ${({ theme }) => theme.notificationBoxMinHeight};
@@ -23,38 +51,10 @@ export const Container = styled(motion.div)<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
+
   margin-bottom: 16px;
 
-  ${({ notificationType }) =>
-    notificationType === 'error' &&
-    css`
-      background: ${({ theme }) => theme.notificationBoxErrorBackground};
-    `}
-
-  ${({ notificationType }) =>
-    notificationType === 'warning' &&
-    css`
-      background: ${({ theme }) => theme.notificationBoxWarningBackground};
-    `}
-
-  ${({ notificationType }) =>
-    notificationType === 'success' &&
-    css`
-      background: ${({ theme }) => theme.notificationBoxSuccessBackground};
-    `}
-
-  ${({ notificationType }) =>
-    notificationType === 'info' &&
-    css`
-      background: ${({ theme }) => theme.notificationBoxInfoBackground};
-    `}
-  
-  ${({ notificationType }) =>
-    notificationType === 'default' &&
-    css`
-      background: ${({ theme }) => theme.notificationBoxDefaultBackground};
-    `}
+  ${getBackgroundColor}
 
   border-radius: ${({ theme }) => theme.notificationBoxBorderRadius};
   box-shadow: ${({ theme }) => theme.notificationBoxBoxShadow};

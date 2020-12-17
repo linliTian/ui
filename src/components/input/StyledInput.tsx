@@ -88,38 +88,37 @@ export const FeedbackMessage = styled.div`
   height: ${({ theme }) => theme.inputStatusMessageHeight};
 `;
 
-const inputStyles = css<StyledInputProps>`
-  ${({ borderType, theme, type, inputSize, status }) => css<StyledInputProps>`
-    height: ${theme.inputDefaultHeight};               
-    font-size: ${theme.inputDefaultFontSize}px;
-    
-    width: 100%;
-    -webkit-appearance: none;
-    font-family: ${theme.inputFontFamily};
-    
-    background: ${theme.inputBackground};
-    color: ${theme.inputColor};
-    
-    padding: ${theme.inputPadding};
-    border: ${theme.inputBorder};
-    border-color: ${theme.inputBorderColor};
-    border-radius: ${theme.inputBorderRadius};
-    border-color: ${theme.inputBorderColor};
-    box-sizing: border-box;
-    
-    transition: border ${theme.animationTimeFast}s;
-    
-    ${inputSize === 'small' &&
-      css`
-        height: ${theme.inputSmallHeight};
-        font-size: ${theme.inputSmallFontSize}px;
-      `}
-    
-    ${inputSize === 'large' &&
-      css`
-        height: ${theme.inputLargeHeight};
-        font-size: ${theme.inputLargeFontSize}px;
-      `}
+const inputStyles = ({ borderType, theme, type, inputSize, status }) => css`
+  height: ${theme.inputDefaultHeight};
+  font-size: ${theme.inputDefaultFontSize}px;
+
+  width: 100%;
+  -webkit-appearance: none;
+  font-family: ${theme.inputFontFamily};
+
+  background: ${theme.inputBackground};
+  color: ${theme.inputColor};
+
+  padding: ${theme.inputPadding};
+  border: ${theme.inputBorder};
+  border-color: ${theme.inputBorderColor};
+  border-radius: ${theme.inputBorderRadius};
+  border-color: ${theme.inputBorderColor};
+  box-sizing: border-box;
+
+  transition: border ${theme.animationTimeFast}s;
+
+  ${inputSize === 'small' &&
+    css`
+      height: ${theme.inputSmallHeight};
+      font-size: ${theme.inputSmallFontSize}px;
+    `}
+
+  ${inputSize === 'large' &&
+    css`
+      height: ${theme.inputLargeHeight};
+      font-size: ${theme.inputLargeFontSize}px;
+    `}
     ${type === 'textarea' &&
       css`
         height: 6em;
@@ -136,58 +135,57 @@ const inputStyles = css<StyledInputProps>`
         border-bottom: ${theme.inputBorder};
         border-color: ${theme.inputBorderColor};
       `};
-    
+
+  ${borderType === 'none' &&
+    css`
+      padding: 10px 0;
+      background: transparent;
+      border: none;
+      color: ${theme.inputColor};
+    `};
+  ${status === 'error' &&
+    css`
+      border-color: ${theme.inputStatusErrorBorderColor};
+    `};
+  ${status === 'success' &&
+    css`
+      border-color: ${theme.inputStatusSuccessBorderColor};
+    `};
+
+  ${status === 'warning' &&
+    css`
+      border-color: ${theme.inputStatusWarningBorderColor};
+    `};
+
+  ${status === 'loading' &&
+    css`
+      border-color: ${theme.inputStatusLoadingBorderColor};
+    `};
+  &:read-only {
+    cursor: pointer;
+  }
+  &::placeholder {
+    color: ${theme.inputPlaceholderColor};
+  }
+  &:disabled {
+    background: ${theme.inputDisabledBackground};
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+  &:focus {
+    border-color: ${theme.inputFocusBorderColor};
+    ${borderType === 'bottom' &&
+      css`
+        border: none;
+        border-bottom: 1px solid ${theme.inputFocusBorderColor};
+        border-radius: 0;
+      `};
     ${borderType === 'none' &&
       css`
-        padding: 10px 0;
-        background: transparent;
         border: none;
-        color: ${theme.inputColor};
       `};
-    ${status === 'error' &&
-      css`
-        border-color: ${theme.inputStatusErrorBorderColor};
-      `};
-    ${status === 'success' &&
-      css`
-        border-color: ${theme.inputStatusSuccessBorderColor};
-      `};
-      
-    ${status === 'warning' &&
-      css`
-        border-color: ${theme.inputStatusWarningBorderColor};
-      `};
-    
-    ${status === 'loading' &&
-      css`
-        border-color: ${theme.inputStatusLoadingBorderColor};
-      `};
-    &:read-only {
-      cursor: pointer;
-    }
-    &::placeholder {
-      color: ${theme.inputPlaceholderColor};
-    }
-    &:disabled {
-      background: ${theme.inputDisabledBackground};
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-    &:focus {
-      border-color: ${theme.inputFocusBorderColor};
-      ${borderType === 'bottom' &&
-        css`
-          border: none;
-          border-bottom: 1px solid ${theme.inputFocusBorderColor};
-          border-radius: 0;
-        `};
-      ${borderType === 'none' &&
-        css`
-          border: none;
-        `};
-      outline: none;
-    }
-  `};
+    outline: none;
+  }
 `;
 
 const InputWithStyles = styled.input<StyledInputProps>`

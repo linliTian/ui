@@ -1,14 +1,12 @@
 import * as React from 'react';
 
+import { ThemeContext } from '@emotion/react';
+
 import { createTheme } from '../theme';
 
-import { GlobalTheme } from '../theme/types';
-
-import { ThemeContext } from '../styled';
-
-// theme hook to get the current theme;
 export const useTheme = () => {
-  const theme = createTheme({}, {});
+  const defaultTheme = createTheme({}, {});
+  const customizedTheme = React.useContext(ThemeContext);
 
-  return React.useContext<GlobalTheme>(ThemeContext) || theme;
+  return { ...defaultTheme, ...customizedTheme };
 };
