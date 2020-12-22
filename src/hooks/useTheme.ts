@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ThemeContext } from '@emotion/react';
+import { ThemeContext } from '../styled/index';
 
 import { createTheme } from '../theme';
 
