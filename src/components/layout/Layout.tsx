@@ -12,7 +12,7 @@ import { Footer, FooterProps } from './Footer';
 
 import { Sider, SiderProps } from './Sider';
 
-export { HeaderProps, ContentProps, FooterProps, SiderProps };
+export type { HeaderProps, ContentProps, FooterProps, SiderProps };
 
 export interface LayoutComponent<T> extends React.FunctionComponent<T> {
   Header: React.FunctionComponent<HeaderProps>;
@@ -43,9 +43,9 @@ const StyledLayout = styled.div<StyledLayoutProps>`
     min-height: 0px;
 
     ${hasSider &&
-      css`
-        flex-direction: row;
-      `}
+    css`
+      flex-direction: row;
+    `}
   `}
 `;
 
@@ -53,13 +53,11 @@ export const Layout: LayoutComponent<LayoutProps> = ({
   children,
   className,
   hasSider,
-}) => {
-  return (
-    <StyledLayout className={`${className} rtk-layout`} hasSider={hasSider}>
-      {children}
-    </StyledLayout>
-  );
-};
+}) => (
+  <StyledLayout className={`${className} rtk-layout`} hasSider={hasSider}>
+    {children}
+  </StyledLayout>
+);
 
 Layout.displayName = 'Layout';
 

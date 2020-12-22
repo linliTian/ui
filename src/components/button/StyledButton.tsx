@@ -25,33 +25,49 @@ interface StyledButtonProps {
   theme: GlobalTheme;
 }
 
-const KEY_VALUES = {
-  small: 'Small',
-  large: 'Large',
-  default: 'Default',
+const getSizeCss = ({ size, theme }) => {
+  switch (size) {
+    case 'small':
+      return css`
+        font-size: ${theme.buttonSmallFontSize};
+        height: ${theme.buttonSmallHeight};
+      `;
+    case 'large':
+      return css`
+        font-size: ${theme.buttonLargeFontSize};
+        height: ${theme.buttonLargeHeight};
+      `;
+
+    default:
+      return css`
+        font-size: ${theme.buttonDefaultFontSize};
+        height: ${theme.buttonDefaultHeight};
+      `;
+  }
 };
 
-const getTheKey = key => KEY_VALUES[key] || KEY_VALUES.default;
+const getCircleShap = ({ customProps, theme, size }) => {
+  let minWidth = theme.buttonDefaultHeight;
 
-const getSizeCss = ({ key, theme }) => css`
-  font-size: ${theme[`button${key}FontSize`]};
-  height: ${theme[`button${key}Height`]};
-`;
+  if (size === 'small') {
+    minWidth = theme.buttonSmallHeight;
+  } else if (size === 'large') {
+    minWidth = theme.buttonLargeHeight;
+  }
 
-const getCircleShap = ({ customProps, theme, key }) => {
   if (customProps.shape === 'circle') {
     return css`
       padding: 0;
-      min-width: ${theme[`button${key}Height`]};
+      min-width: ${minWidth};
       text-align: center;
       border-radius: 50%;
 
       ${customProps.loading &&
-        css`
-          span {
-            display: none;
-          }
-        `};
+      css`
+        span {
+          display: none;
+        }
+      `};
     `;
   }
 };
@@ -81,35 +97,35 @@ const getStyleForType = ({
         }
 
         ${customProps.ghost &&
-          css`
-            background: ${theme.buttonGhostBackground};
-            border: ${theme.buttonGhostBorder};
-            border-color: ${theme.buttonPrimaryBackground};
-            color: ${theme.buttonPrimaryBackground};
+        css`
+          background: ${theme.buttonGhostBackground};
+          border: ${theme.buttonGhostBorder};
+          border-color: ${theme.buttonPrimaryBackground};
+          color: ${theme.buttonPrimaryBackground};
 
+          &:hover,
+          &:focus {
+            background: ${theme.buttonPrimaryBackground};
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+
+          ${customProps.loading &&
+          css`
             &:hover,
             &:focus {
-              background: ${theme.buttonPrimaryBackground};
+              background: ${theme.buttonGhostBackground};
               border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-
-            ${customProps.loading &&
-              css`
-                &:hover,
-                &:focus {
-                  background: ${theme.buttonGhostBackground};
-                  border: ${theme.buttonGhostBorder};
-                  border-color: ${theme.buttonPrimaryBackground};
-                  color: ${theme.buttonPrimaryBackground};
-                }
-              `}
-
-            &:active {
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
+              border-color: ${theme.buttonPrimaryBackground};
+              color: ${theme.buttonPrimaryBackground};
             }
           `}
+
+          &:active {
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+        `}
       `;
     case 'secondary':
       return css`
@@ -130,24 +146,24 @@ const getStyleForType = ({
         }
 
         ${customProps.ghost &&
-          css`
-            background: ${theme.buttonGhostBackground};
+        css`
+          background: ${theme.buttonGhostBackground};
+          border: ${theme.buttonGhostBorder};
+          border-color: ${theme.buttonSecondaryBackground};
+          color: ${theme.buttonSecondaryBackground};
+
+          &:hover,
+          &:focus {
+            background: ${theme.buttonSecondaryBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: ${theme.buttonSecondaryBackground};
-            color: ${theme.buttonSecondaryBackground};
+            border-color: transparent;
+          }
 
-            &:hover,
-            &:focus {
-              background: ${theme.buttonSecondaryBackground};
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-
-            &:active {
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-          `}
+          &:active {
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+        `}
       `;
     case 'tertiary':
       return css`
@@ -168,24 +184,24 @@ const getStyleForType = ({
         }
 
         ${customProps.ghost &&
-          css`
-            background: ${theme.buttonGhostBackground};
+        css`
+          background: ${theme.buttonGhostBackground};
+          border: ${theme.buttonGhostBorder};
+          border-color: ${theme.buttonTertiaryBackground};
+          color: ${theme.buttonTertiaryBackground};
+
+          &:hover,
+          &:focus {
+            background: ${theme.buttonTertiaryBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: ${theme.buttonTertiaryBackground};
-            color: ${theme.buttonTertiaryBackground};
+            border-color: transparent;
+          }
 
-            &:hover,
-            &:focus {
-              background: ${theme.buttonTertiaryBackground};
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-
-            &:active {
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-          `}
+          &:active {
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+        `}
       `;
     case 'danger':
       return css`
@@ -206,24 +222,24 @@ const getStyleForType = ({
         }
 
         ${customProps.ghost &&
-          css`
-            background: ${theme.buttonGhostBackground};
+        css`
+          background: ${theme.buttonGhostBackground};
+          border: ${theme.buttonGhostBorder};
+          border-color: ${theme.buttonDangerBackground};
+          color: ${theme.buttonDangerBackground};
+
+          &:hover,
+          &:focus {
+            background: ${theme.buttonDangerBackground};
             border: ${theme.buttonGhostBorder};
-            border-color: ${theme.buttonDangerBackground};
-            color: ${theme.buttonDangerBackground};
+            border-color: transparent;
+          }
 
-            &:hover,
-            &:focus {
-              background: ${theme.buttonDangerBackground};
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-
-            &:active {
-              border: ${theme.buttonGhostBorder};
-              border-color: transparent;
-            }
-          `};
+          &:active {
+            border: ${theme.buttonGhostBorder};
+            border-color: transparent;
+          }
+        `};
       `;
     case 'link':
       return css`
@@ -258,7 +274,7 @@ const getTheCSSStyle = ({
   theme,
 }: StyledButtonProps) => {
   const { size } = customProps;
-  const key = getTheKey(size);
+  // const key = getTheKey(size);
 
   return css`
     display: flex;
@@ -283,17 +299,17 @@ const getTheCSSStyle = ({
 
     -webkit-tap-highlight-color: transparent;
 
-    ${getSizeCss({ key, theme })}
+    ${getSizeCss({ size, theme })}
 
-    ${getCircleShap({ customProps, theme, key })}
+    ${getCircleShap({ customProps, theme, size })}
 
     ${getStyleForType({ buttonType, customProps, theme })}
 
     ${(disabled || customProps.loading) &&
-      css`
-        pointer-events: none;
-        opacity: 0.5;
-      `}
+    css`
+      pointer-events: none;
+      opacity: 0.5;
+    `}
 
     span {
       pointer-events: none;

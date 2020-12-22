@@ -9,11 +9,6 @@ import {
   Header,
 } from './useUploadOnMountEffect';
 
-export {
-  useAfterMountEffect,
-  useTheme,
-  useUploadOnMountEffect,
-  UploadOnMountProps,
-  UploadOnMountResult,
-  Header,
-};
+export { useAfterMountEffect, useTheme, useUploadOnMountEffect };
+
+export type { Header, UploadOnMountProps, UploadOnMountResult };

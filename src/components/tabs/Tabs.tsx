@@ -47,10 +47,10 @@ const Container = styled.div`
 const TabsContainer = styled.div<StyledTabsContainerProps>`
   ${({ placement }) => css`
     ${placement === 'top' &&
-      css`
-        display: flex;
-        align-items: center;
-      `}
+    css`
+      display: flex;
+      align-items: center;
+    `}
   `}
 `;
 
@@ -77,7 +77,7 @@ export const Tabs: TabsFunctionComponent<TabsProps> = ({
   const theme = useTheme();
 
   const handleTabClick = React.useCallback(
-    key => {
+    (key) => {
       // prevents onTabClick from being called when the tab item is already selected
       if (activeItem && activeItem.itemKey !== key && onTabClick) {
         onTabClick(key);
@@ -124,4 +124,4 @@ Tabs.defaultProps = {
   placement: 'top',
 };
 
-export { TabsItemProps };
+export type { TabsItemProps };

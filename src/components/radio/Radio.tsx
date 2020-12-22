@@ -6,7 +6,7 @@ import { RadioContext } from './context';
 
 import { RadioItem, RadioItemProps } from './RadioItem';
 
-export { RadioItemProps } from './RadioItem';
+export type { RadioItemProps } from './RadioItem';
 
 export interface RadioFunctionComponent<T = {}>
   extends React.FunctionComponent<T> {
@@ -31,20 +31,18 @@ export const Radio: RadioFunctionComponent<RadioProps> = ({
   className,
   name,
   onSelect,
-}) => {
-  return (
-    <Container className={`${className} rtk-radio`}>
-      <RadioContext.Provider
-        value={{
-          name,
-          onSelect,
-        }}
-      >
-        {children}
-      </RadioContext.Provider>
-    </Container>
-  );
-};
+}) => (
+  <Container className={`${className} rtk-radio`}>
+    <RadioContext.Provider
+      value={{
+        name,
+        onSelect,
+      }}
+    >
+      {children}
+    </RadioContext.Provider>
+  </Container>
+);
 
 Radio.Item = RadioItem;
 

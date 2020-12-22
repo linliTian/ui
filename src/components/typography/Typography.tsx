@@ -16,7 +16,7 @@ export const Typography = {
   Label,
 };
 
-export {
+export type {
   TitleProps,
   SubtitleProps,
   BodyProps,

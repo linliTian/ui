@@ -24,92 +24,88 @@ interface ContainerProps {
   disabled?: boolean;
 }
 
-const getContainerStyle = ({ disabled }: ContainerProps) => {
-  if (disabled) {
-    return css`
-      pointer-events: none;
-      opacity: 0.6;
-    `;
-  }
-};
-
 const Container = styled.div<ContainerProps>`
-  ${getContainerStyle}
-`;
-
-const getLabelStyle = ({ theme }) => css`
-  position: relative;
-  display: inline-block;
-
-  line-height: ${theme.checkboxLineHeight};
-  margin: ${theme.checkboxMargin};
-
-  font-family: 'Lato', sans-serif;
-
-  input {
-    display: none;
-  }
-
-  span {
-    font-size: ${theme.checkboxFontSize};
-    color: ${theme.checkboxFontColor};
-    transition: all ${theme.animationTimeVeryFast}s ease-in-out;
-    padding-left: 24px;
-
-    &::before {
-      content: '';
-
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-
-      height: 16px;
-      width: 16px;
-      border: ${theme.checkboxBorder};
-      border-radius: ${theme.checkboxBorderRadius};
-      box-sizing: border-box;
-      transition: all ${theme.animationTimeVeryFast}s ease-in-out;
+  ${({ disabled }: ContainerProps) => {
+    if (disabled) {
+      return css`
+        pointer-events: none;
+        opacity: 0.6;
+      `;
     }
-
-    &::after {
-      content: '';
-
-      position: absolute;
-      display: block;
-      left: 5px;
-      top: 2px;
-      width: 3px;
-      height: 7px;
-      border: solid white;
-      border-width: 0 3px 3px 0;
-      transform: rotate(45deg);
-
-      transition: all ${theme.animationTimeVeryFast}s ease-in-out;
-      visibility: hidden;
-    }
-  }
-
-  input[type='checkbox']:hover + span {
-    &::before {
-      border: ${theme.checkboxHoverBorder};
-    }
-  }
-
-  input[type='checkbox']:checked + span {
-    &::before {
-      background: ${theme.checkboxCheckedBackground};
-      border-color: ${theme.checkboxCheckedBorderColor};
-    }
-
-    &::after {
-      visibility: visible;
-    }
-  }
+  }}
 `;
 
 const StyledLabel = styled.label`
-  ${getLabelStyle}
+  ${({ theme }: { theme: GlobalTheme }) => css`
+    position: relative;
+    display: inline-block;
+
+    line-height: ${theme.checkboxLineHeight};
+    margin: ${theme.checkboxMargin};
+
+    font-family: 'Lato', sans-serif;
+
+    input {
+      display: none;
+    }
+
+    span {
+      font-size: ${theme.checkboxFontSize};
+      color: ${theme.checkboxFontColor};
+      transition: all ${theme.animationTimeVeryFast}s ease-in-out;
+      padding-left: 24px;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+
+        height: 16px;
+        width: 16px;
+        border: ${theme.checkboxBorder};
+        border-radius: ${theme.checkboxBorderRadius};
+        box-sizing: border-box;
+        transition: all ${theme.animationTimeVeryFast}s ease-in-out;
+      }
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        display: block;
+        left: 5px;
+        top: 2px;
+        width: 3px;
+        height: 7px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+
+        transition: all ${theme.animationTimeVeryFast}s ease-in-out;
+        visibility: hidden;
+      }
+    }
+
+    input[type='checkbox']:hover + span {
+      &::before {
+        border: ${theme.checkboxHoverBorder};
+      }
+    }
+
+    input[type='checkbox']:checked + span {
+      &::before {
+        background: ${theme.checkboxCheckedBackground};
+        border-color: ${theme.checkboxCheckedBorderColor};
+      }
+
+      &::after {
+        visibility: visible;
+      }
+    }
+  `}
 `;
 
 export const Checkbox: React.FunctionComponent<CheckboxProps> = ({
