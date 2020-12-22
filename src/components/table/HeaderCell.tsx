@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { Typography } from '../typography/Typography';
@@ -49,12 +50,12 @@ const StyledCell = styled(Cell)<StyledCellProps>`
     transition: background ${theme.animationTimeFast}s ease-in-out;
 
     ${sortable &&
-      css`
-        &:hover {
-          cursor: pointer;
-          background: ${theme.colors.hoverBackground};
-        }
-      `}
+    css`
+      &:hover {
+        cursor: pointer;
+        background: ${theme.colors.hoverBackground};
+      }
+    `}
   `}
 `;
 

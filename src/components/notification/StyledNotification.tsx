@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { GlobalTheme } from '../../theme/types';

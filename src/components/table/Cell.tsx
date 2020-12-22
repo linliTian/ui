@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { useTheme } from '../../hooks/useTheme';
@@ -33,9 +34,9 @@ const StyledCell = styled.div<StyledCellProps>`
     padding: ${theme.tableBodyCellPadding};
 
     ${header &&
-      css`
-        padding: ${theme.tableHeadCellPadding};
-      `}
+    css`
+      padding: ${theme.tableHeadCellPadding};
+    `}
   `}
 `;
 
@@ -48,7 +49,7 @@ export const Cell: React.FunctionComponent<CellProps> = ({
   const theme = useTheme();
 
   const handleClick = React.useCallback(
-    e => {
+    (e) => {
       if (onClick) {
         onClick(e);
       }

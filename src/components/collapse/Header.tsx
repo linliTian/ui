@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { GlobalTheme } from '../../theme/types';
@@ -71,10 +72,10 @@ const StyledHeader = styled.div<StyledHeaderProps>`
     }
 
     ${customProps.expanded &&
-      css`
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      `};
+    css`
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    `};
   `};
 `;
 

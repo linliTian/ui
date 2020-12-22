@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { Typography } from '../typography/Typography';
@@ -42,9 +43,9 @@ const Container = styled.div`
     opacity: 0.7;
 
     ${isSelected &&
-      css`
-        opacity: 1;
-      `}
+    css`
+      opacity: 1;
+    `}
 
     &:hover {
       opacity: 1;
@@ -75,7 +76,7 @@ export const TabsItem: React.FunctionComponent<TabsItemProps> = ({
   } = React.useContext(TabsContext);
 
   const handleClick = React.useCallback(
-    e => {
+    (e) => {
       if (onClick) {
         onClick(itemKey, e);
       }

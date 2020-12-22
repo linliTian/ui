@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { Typography } from '../typography/Typography';
@@ -44,17 +45,17 @@ const Container = styled.div`
     }
 
     ${isSelected &&
-      css`
-        .rtk-type-body {
-          color: ${theme.menuItemHoverColor};
-        }
-      `}
+    css`
+      .rtk-type-body {
+        color: ${theme.menuItemHoverColor};
+      }
+    `}
 
     ${disabled &&
-      css`
-        cursor: default;
-        pointer-events: none;
-      `}
+    css`
+      cursor: default;
+      pointer-events: none;
+    `}
   `}
 `;
 

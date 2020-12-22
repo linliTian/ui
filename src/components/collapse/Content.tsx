@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 
 import styled from '@emotion/styled';
 /** @jsx jsx */
+// eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
 import { GlobalTheme } from '../../theme/types';
@@ -61,15 +62,19 @@ const StyledContentBody = styled.div<ContentBodyProps>`
   ${({ theme, hasFooter }) => css<ContentBodyProps>`
     padding: ${theme.collapseContentPadding};
     background: ${theme.collapseContentBackground};
-    ${!hasFooter &&
+    ${
+      !hasFooter &&
       css`
         border-radius: 0 0 ${theme.collapseBorderRadius}
           ${theme.collapseBorderRadius};
-      `}}
+      `
+    }}
   `};
 `;
 
-export const ContentBody: React.FunctionComponent<ContentBodyProps> = props => {
+export const ContentBody: React.FunctionComponent<ContentBodyProps> = (
+  props
+) => {
   const { children } = props;
 
   return (
@@ -94,7 +99,9 @@ const StyledFooter = styled.div<ContentFooterProps>`
   `};
 `;
 
-export const ContentFooter: React.FunctionComponent<ContentFooterProps> = props => {
+export const ContentFooter: React.FunctionComponent<ContentFooterProps> = (
+  props
+) => {
   const { children } = props;
 
   return (
@@ -122,7 +129,7 @@ const StyledContent = styled.div<ContentProps>`
   `};
 `;
 
-export const Content: React.FunctionComponent<ContentProps> = props => {
+export const Content: React.FunctionComponent<ContentProps> = (props) => {
   const { children } = props;
 
   return (
