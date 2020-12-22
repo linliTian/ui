@@ -6,7 +6,7 @@ import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 
 import { IconProps } from './types';
 
-const SortUp: React.FunctionComponent<IconProps> = props => {
+const SortUp: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faSortUp} {...props} />;
 };
 

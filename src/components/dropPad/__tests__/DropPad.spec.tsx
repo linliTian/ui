@@ -44,7 +44,7 @@ describe('DropPad.File', () => {
         name="name"
         itemKey="1"
         percentUploaded={0}
-        onDelete={key => handleDeleteMock(key)}
+        onDelete={(key) => handleDeleteMock(key)}
       />
     );
 

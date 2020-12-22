@@ -34,9 +34,9 @@ export const change = () => {
 
   const handleChange = React.useCallback(({ name, checked }) => {
     if (checked) {
-      setSelected(currentState => [...currentState, name]);
+      setSelected((currentState) => [...currentState, name]);
     } else {
-      setSelected(currentState => currentState.filter(n => n !== name));
+      setSelected((currentState) => currentState.filter((n) => n !== name));
     }
   }, []);
 
@@ -56,7 +56,7 @@ export const change = () => {
       </Checkbox>
       Checked Items:
       <div>
-        {selected.map(name => (
+        {selected.map((name) => (
           <span key={name}>{name} &nbsp;</span>
         ))}
       </div>

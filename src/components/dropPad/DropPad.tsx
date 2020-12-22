@@ -68,7 +68,7 @@ export const DropPad: DropPadFunctionComponent<DropPadProps> = ({
   onDrop,
 }) => {
   const handleDrop = React.useCallback(
-    files => {
+    (files) => {
       if (onDrop) {
         onDrop(files);
       }

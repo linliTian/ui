@@ -6,7 +6,7 @@ import { faUndo } from '@fortawesome/free-solid-svg-icons/faUndo';
 
 import { IconProps } from './types';
 
-const Undo: React.FunctionComponent<IconProps> = props => {
+const Undo: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faUndo} {...props} />;
 };
 

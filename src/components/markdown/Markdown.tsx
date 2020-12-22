@@ -64,7 +64,7 @@ export const Markdown = ({ children }: MarkdownProps) => {
 
   return (
     <div className="markdown">
-      {React.Children.map(children, child => {
+      {React.Children.map(children, (child) => {
         if (typeof child === 'string') {
           return (
             <Span

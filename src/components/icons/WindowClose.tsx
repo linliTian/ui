@@ -6,7 +6,7 @@ import { faWindowClose } from '@fortawesome/free-solid-svg-icons/faWindowClose';
 
 import { IconProps } from './types';
 
-const WindowClose: React.FunctionComponent<IconProps> = props => {
+const WindowClose: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faWindowClose} {...props} />;
 };
 

@@ -6,7 +6,7 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons/faCaretDown';
 
 import { IconProps } from './types';
 
-const CaretDown: React.FunctionComponent<IconProps> = props => {
+const CaretDown: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faCaretDown} {...props} />;
 };
 

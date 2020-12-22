@@ -6,7 +6,7 @@ import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons/faExternalL
 
 import { IconProps } from './types';
 
-const ExternalLinkAlt: React.FunctionComponent<IconProps> = props => {
+const ExternalLinkAlt: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faExternalLinkAlt} {...props} />;
 };
 

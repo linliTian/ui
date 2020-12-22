@@ -77,7 +77,7 @@ export const external = () => {
   const [selectedItems, setSelectedItems] = React.useState<any>([]);
 
   const handleOnChange = React.useCallback(
-    key => {
+    (key) => {
       const items = selectedItems.includes(key)
         ? selectedItems.filter((i: ItemKeyType) => i !== key)
         : selectedItems.concat(key);

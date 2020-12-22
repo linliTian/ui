@@ -46,7 +46,7 @@ describe('Tooltip', () => {
         <div id="test"></div>
       </Tooltip>
     );
-    const promise = new Promise<ReactWrapper<any>>(resolve => {
+    const promise = new Promise<ReactWrapper<any>>((resolve) => {
       wrapper.update();
 
       // wait for the animation to finish

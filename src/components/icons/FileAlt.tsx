@@ -6,7 +6,7 @@ import { faFileAlt } from '@fortawesome/free-solid-svg-icons/faFileAlt';
 
 import { IconProps } from './types';
 
-const FileAlt: React.FunctionComponent<IconProps> = props => {
+const FileAlt: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faFileAlt} {...props} />;
 };
 

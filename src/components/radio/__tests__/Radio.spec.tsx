@@ -23,7 +23,7 @@ describe('Radio', () => {
     const onSelectMock = jest.fn();
 
     const wrapper = mount(
-      <Radio name="radio" onSelect={itemKey => onSelectMock(itemKey)}>
+      <Radio name="radio" onSelect={(itemKey) => onSelectMock(itemKey)}>
         <Radio.Item itemKey="item1">Item 1</Radio.Item>
         <Radio.Item itemKey="item2">Item 2</Radio.Item>
         <Radio.Item itemKey="item3" disabled>
@@ -32,10 +32,7 @@ describe('Radio', () => {
       </Radio>
     );
 
-    wrapper
-      .find('input')
-      .first()
-      .simulate('click');
+    wrapper.find('input').first().simulate('click');
 
     expect(onSelectMock).toBeCalledWith('item1');
   });

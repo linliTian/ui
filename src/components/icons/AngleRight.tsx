@@ -6,7 +6,7 @@ import { faAngleRight } from '@fortawesome/free-solid-svg-icons/faAngleRight';
 
 import { IconProps } from './types';
 
-const AngleRight: React.FunctionComponent<IconProps> = props => {
+const AngleRight: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faAngleRight} {...props} />;
 };
 

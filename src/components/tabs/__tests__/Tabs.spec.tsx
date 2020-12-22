@@ -80,17 +80,14 @@ describe('Tabs', () => {
     const onTabClickMock = jest.fn();
 
     const wrapper = mount(
-      <Tabs onTabClick={key => onTabClickMock(key)} defaultSelectedItem="1">
+      <Tabs onTabClick={(key) => onTabClickMock(key)} defaultSelectedItem="1">
         <Tabs.Item title={<div id="1" />} itemKey="1" />
         <Tabs.Item title={<div id="2" />} itemKey="2" />
         <Tabs.Item title={<div id="3" />} itemKey="3" />
       </Tabs>
     );
 
-    wrapper
-      .find('TabsItem')
-      .at(1)
-      .simulate('click');
+    wrapper.find('TabsItem').at(1).simulate('click');
 
     expect(onTabClickMock).toBeCalledWith('2');
   });

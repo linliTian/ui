@@ -6,7 +6,7 @@ import { faPaperclip } from '@fortawesome/free-solid-svg-icons/faPaperclip';
 
 import { IconProps } from './types';
 
-const PaperClip: React.FunctionComponent<IconProps> = props => {
+const PaperClip: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faPaperclip} {...props} />;
 };
 

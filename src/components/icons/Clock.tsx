@@ -6,7 +6,7 @@ import { faClock } from '@fortawesome/free-solid-svg-icons/faClock';
 
 import { IconProps } from './types';
 
-const Clock: React.FunctionComponent<IconProps> = props => {
+const Clock: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faClock} {...props} />;
 };
 

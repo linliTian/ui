@@ -46,7 +46,7 @@ describe('Floater', () => {
   it('sets the open prop to false', async () => {
     const wrapper = mount(<Floater {...defaultProps} open={true} />);
 
-    const promise = new Promise<ReactWrapper<any>>(resolve => {
+    const promise = new Promise<ReactWrapper<any>>((resolve) => {
       wrapper.setProps({ open: false });
       wrapper.update();
 

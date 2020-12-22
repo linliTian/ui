@@ -22,8 +22,8 @@ export const simple = () => {
     { file: File; itemKey: string | number }[]
   >([]);
 
-  const handleDrop = React.useCallback(recentFiles => {
-    const newFiles = recentFiles.map(file => {
+  const handleDrop = React.useCallback((recentFiles) => {
+    const newFiles = recentFiles.map((file) => {
       return {
         file,
         itemKey: file.lastModified,
@@ -33,8 +33,8 @@ export const simple = () => {
     setFiles([...files, ...newFiles]);
   }, []);
 
-  const handleDelete = React.useCallback(itemKey => {
-    setFiles(prevFiles => prevFiles.filter(f => f.itemKey !== itemKey));
+  const handleDelete = React.useCallback((itemKey) => {
+    setFiles((prevFiles) => prevFiles.filter((f) => f.itemKey !== itemKey));
   }, []);
 
   return (

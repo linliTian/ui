@@ -6,7 +6,7 @@ import { faMinus } from '@fortawesome/free-solid-svg-icons/faMinus';
 
 import { IconProps } from './types';
 
-const Minus: React.FunctionComponent<IconProps> = props => {
+const Minus: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faMinus} {...props} />;
 };
 

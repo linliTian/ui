@@ -6,7 +6,7 @@ import { faBan } from '@fortawesome/free-solid-svg-icons/faBan';
 
 import { IconProps } from './types';
 
-const Ban: React.FunctionComponent<IconProps> = props => {
+const Ban: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faBan} {...props} />;
 };
 

@@ -36,7 +36,7 @@ export const simple = () => {
 
   const add = React.useCallback(() => {
     // @ts-ignore
-    setNotifications(currentNotifications => {
+    setNotifications((currentNotifications) => {
       const randomNumber = Math.floor(Math.random() * 999);
       const newNotifcation = {
         itemKey: randomNumber,
@@ -49,14 +49,14 @@ export const simple = () => {
     });
   }, []);
 
-  const remove = React.useCallback(key => {
-    setNotifications(currentNotifications => {
-      return currentNotifications.filter(n => n.itemKey !== key);
+  const remove = React.useCallback((key) => {
+    setNotifications((currentNotifications) => {
+      return currentNotifications.filter((n) => n.itemKey !== key);
     });
   }, []);
 
   const toggleComponent = React.useCallback(() => {
-    setNotificationComponent(current => {
+    setNotificationComponent((current) => {
       if (current === 'default') {
         return 'box';
       }

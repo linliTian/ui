@@ -142,7 +142,7 @@ describe('Collapse', () => {
 
     // creating a promise with a setTimeout so we can wait for the animation of the collapse
     // closing to finish before checking the dom
-    const promise = new Promise<ReactWrapper<any>>(resolve => {
+    const promise = new Promise<ReactWrapper<any>>((resolve) => {
       wrapper.setProps({ expanded: false });
       wrapper.update();
 
@@ -168,7 +168,7 @@ describe('Collapse', () => {
     // need to mount to the DOM in order for event to propagate
     const wrapper = mount(
       <Collapse
-        onChange={key => onChangeMock(key)}
+        onChange={(key) => onChangeMock(key)}
         itemKey={'test'}
         header={'Header'}
       >

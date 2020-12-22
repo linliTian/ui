@@ -6,7 +6,7 @@ import { faLock } from '@fortawesome/free-solid-svg-icons/faLock';
 
 import { IconProps } from './types';
 
-const Lock: React.FunctionComponent<IconProps> = props => {
+const Lock: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faLock} {...props} />;
 };
 

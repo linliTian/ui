@@ -12,7 +12,7 @@ export interface PortalProps {
   disablePortal?: boolean;
 }
 
-export const Portal: React.FunctionComponent<PortalProps> = props => {
+export const Portal: React.FunctionComponent<PortalProps> = (props) => {
   const { children, container, disablePortal } = props;
 
   const [mountNode, setMountNode] = React.useState<HTMLElement | null>(null);

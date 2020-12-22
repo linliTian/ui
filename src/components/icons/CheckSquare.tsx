@@ -6,7 +6,7 @@ import { faCheckSquare } from '@fortawesome/free-solid-svg-icons/faCheckSquare';
 
 import { IconProps } from './types';
 
-const CheckSquare: React.FunctionComponent<IconProps> = props => {
+const CheckSquare: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faCheckSquare} {...props} />;
 };
 

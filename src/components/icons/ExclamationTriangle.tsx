@@ -6,7 +6,7 @@ import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons/faExcla
 
 import { IconProps } from './types';
 
-const ExclamationTriangle: React.FunctionComponent<IconProps> = props => {
+const ExclamationTriangle: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faExclamationTriangle} {...props} />;
 };
 

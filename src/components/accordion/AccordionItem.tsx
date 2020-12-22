@@ -42,13 +42,15 @@ export interface AccordionItemProps {
 }
 
 const CollapseSpacer = styled.div<CollapseSpacerProps>`
-  height: ${props => `${props.itemGap}px`};
+  height: ${(props) => `${props.itemGap}px`};
 `;
 
 /** Accordion.Item */
-export const AccordionItem: React.FunctionComponent<AccordionItemProps> = props => (
+export const AccordionItem: React.FunctionComponent<AccordionItemProps> = (
+  props
+) => (
   <AccordionContext.Consumer>
-    {value => {
+    {(value) => {
       const { itemKey } = props;
 
       const isExpanded = value.expandedItems.includes(itemKey);

@@ -42,10 +42,10 @@ export interface FloaterProps {
 }
 
 const Container = styled.div<{ portalVisibility: boolean }>`
-  visibility: ${props => (props.portalVisibility ? 'visible' : 'hidden')};
+  visibility: ${(props) => (props.portalVisibility ? 'visible' : 'hidden')};
 `;
 
-export const Floater: React.FunctionComponent<FloaterProps> = props => {
+export const Floater: React.FunctionComponent<FloaterProps> = (props) => {
   const {
     anchorElement,
     animationProps,
@@ -70,7 +70,7 @@ export const Floater: React.FunctionComponent<FloaterProps> = props => {
 
   // set the ref when react calls it back
   const handleRef = React.useCallback(
-    ref => {
+    (ref) => {
       setPortalElement(ref);
     },
     [setPortalElement]

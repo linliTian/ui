@@ -51,7 +51,7 @@ export const Accordion: AccordionFunctionComponent<AccordionProps> = ({
   );
 
   const onCollapseChange = React.useCallback(
-    key => {
+    (key) => {
       // if there is no external control of items
       if (customExpandedItems == null) {
         function getItems(key: ItemKeyType) {

@@ -6,7 +6,7 @@ import { faFolder } from '@fortawesome/free-regular-svg-icons/faFolder';
 
 import { IconProps } from './types';
 
-const FolderOutline: React.FunctionComponent<IconProps> = props => {
+const FolderOutline: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faFolder} {...props} />;
 };
 

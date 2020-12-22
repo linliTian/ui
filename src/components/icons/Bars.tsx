@@ -6,7 +6,7 @@ import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
 
 import { IconProps } from './types';
 
-const Bars: React.FunctionComponent<IconProps> = props => {
+const Bars: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faBars} {...props} />;
 };
 

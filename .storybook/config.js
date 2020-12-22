@@ -15,7 +15,7 @@ addParameters({
   },
 });
 
-addDecorator(story => ThemeDecorator(story));
+addDecorator((story) => ThemeDecorator(story));
 
 configure(
   [

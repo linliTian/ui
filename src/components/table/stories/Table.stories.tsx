@@ -175,7 +175,7 @@ export const sortable = () => {
     },
   ];
 
-  const sortAlpabetical = reverse => {
+  const sortAlpabetical = (reverse) => {
     if (reverse) {
       return tableData.sort((b, a) => {
         return a.name.localeCompare(b.name);
@@ -186,7 +186,7 @@ export const sortable = () => {
     });
   };
 
-  const sortNumerical = reverse => {
+  const sortNumerical = (reverse) => {
     if (reverse) {
       return tableData.sort((a, b) => b.age - a.age);
     }

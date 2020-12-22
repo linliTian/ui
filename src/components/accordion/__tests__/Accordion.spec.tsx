@@ -98,12 +98,7 @@ describe('Accordion', () => {
       </Accordion>
     );
 
-    expect(
-      wrapper
-        .find('Collapse')
-        .at(0)
-        .prop('expanded')
-    ).toBe(true);
+    expect(wrapper.find('Collapse').at(0).prop('expanded')).toBe(true);
   });
 
   it('opens items that are passed in as external props', () => {
@@ -117,17 +112,7 @@ describe('Accordion', () => {
 
     wrapper.setProps({ expandedItems: ['2'] });
 
-    expect(
-      wrapper
-        .find('Collapse')
-        .at(0)
-        .prop('expanded')
-    ).toBe(false);
-    expect(
-      wrapper
-        .find('Collapse')
-        .at(1)
-        .prop('expanded')
-    ).toBe(true);
+    expect(wrapper.find('Collapse').at(0).prop('expanded')).toBe(false);
+    expect(wrapper.find('Collapse').at(1).prop('expanded')).toBe(true);
   });
 });

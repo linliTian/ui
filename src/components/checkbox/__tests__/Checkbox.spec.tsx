@@ -21,7 +21,7 @@ describe('Checkbox', () => {
     const onChangeMock = jest.fn();
 
     const wrapper = shallow(
-      <Checkbox name="test" onChange={args => onChangeMock(args)} />
+      <Checkbox name="test" onChange={(args) => onChangeMock(args)} />
     );
 
     wrapper

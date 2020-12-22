@@ -6,7 +6,7 @@ import { faSyncAlt } from '@fortawesome/free-solid-svg-icons/faSyncAlt';
 
 import { IconProps } from './types';
 
-const SyncAlt: React.FunctionComponent<IconProps> = props => {
+const SyncAlt: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faSyncAlt} {...props} />;
 };
 

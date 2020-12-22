@@ -6,7 +6,7 @@ import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons/faChevron
 
 import { IconProps } from './types';
 
-const ChevronCircleDown: React.FunctionComponent<IconProps> = props => {
+const ChevronCircleDown: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faChevronCircleDown} {...props} />;
 };
 

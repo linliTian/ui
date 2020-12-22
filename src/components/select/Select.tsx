@@ -109,25 +109,25 @@ const getCustomStyles = (theme: GlobalTheme) => ({
       ...defaultStyles,
     };
   },
-  menu: provided => {
+  menu: (provided) => {
     return {
       ...provided,
       background: theme.selectMenuBackground,
     };
   },
-  multiValueLabel: provided => {
+  multiValueLabel: (provided) => {
     return {
       ...provided,
       color: theme.selectMultiValueLabelColor,
     };
   },
-  multiValue: provided => {
+  multiValue: (provided) => {
     return {
       ...provided,
       background: theme.selectMultiValueBackground,
     };
   },
-  singleValue: provided => {
+  singleValue: (provided) => {
     return {
       ...provided,
       color: theme.selectSingleValueColor,
@@ -189,14 +189,14 @@ export const Select: React.FunctionComponent<SelectProps> = ({
               <CaretDown color={theme.colors.body} />
             </SelectIcon>
           ),
-          ClearIndicator: props => {
+          ClearIndicator: (props) => {
             return (
               <SelectIcon onClick={props.clearValue}>
                 <Times color={theme.colors.body} />
               </SelectIcon>
             );
           },
-          MultiValueRemove: props => {
+          MultiValueRemove: (props) => {
             return (
               <span {...props.innerProps}>
                 <Times color={theme.colors.tag} />

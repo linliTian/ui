@@ -61,12 +61,9 @@ describe('Modal', () => {
       </Modal>
     );
 
-    expect(
-      wrapper
-        .find('DefaultModalFooter')
-        .childAt(1)
-        .prop('shape')
-    ).toEqual('circle');
+    expect(wrapper.find('DefaultModalFooter').childAt(1).prop('shape')).toEqual(
+      'circle'
+    );
   });
 
   it('sets the cancelButtonText prop', () => {
@@ -77,11 +74,7 @@ describe('Modal', () => {
     );
 
     expect(
-      wrapper
-        .find('DefaultModalFooter')
-        .childAt(1)
-        .find('button')
-        .text()
+      wrapper.find('DefaultModalFooter').childAt(1).find('button').text()
     ).toEqual('Leave');
   });
 
@@ -104,11 +97,7 @@ describe('Modal', () => {
     );
 
     expect(
-      wrapper
-        .find('DefaultModalFooter')
-        .childAt(0)
-        .find('button')
-        .text()
+      wrapper.find('DefaultModalFooter').childAt(0).find('button').text()
     ).toEqual('Add');
   });
 
@@ -123,12 +112,9 @@ describe('Modal', () => {
       </Modal>
     );
 
-    expect(
-      wrapper
-        .find('DefaultModalFooter')
-        .childAt(0)
-        .prop('shape')
-    ).toEqual('circle');
+    expect(wrapper.find('DefaultModalFooter').childAt(0).prop('shape')).toEqual(
+      'circle'
+    );
   });
 
   it('sets the title prop', () => {
@@ -138,12 +124,7 @@ describe('Modal', () => {
       </Modal>
     );
 
-    expect(
-      wrapper
-        .find('ModalHeader')
-        .childAt(0)
-        .text()
-    ).toEqual('Title');
+    expect(wrapper.find('ModalHeader').childAt(0).text()).toEqual('Title');
   });
 
   it('sets the visible prop', () => {

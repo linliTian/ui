@@ -6,7 +6,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 import { IconProps } from './types';
 
-const Search: React.FunctionComponent<IconProps> = props => {
+const Search: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faSearch} {...props} />;
 };
 

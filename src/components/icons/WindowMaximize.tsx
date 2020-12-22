@@ -6,7 +6,7 @@ import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons/faWindowMaxi
 
 import { IconProps } from './types';
 
-const WindowMaximize: React.FunctionComponent<IconProps> = props => {
+const WindowMaximize: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faWindowMaximize} {...props} />;
 };
 

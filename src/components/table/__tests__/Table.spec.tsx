@@ -49,13 +49,9 @@ describe('Table', () => {
       <Table dataUniqueKey={'name'} columns={columns} data={data} />
     );
 
-    expect(
-      wrapper
-        .find('StyledBody')
-        .at(1)
-        .childAt(0)
-        .text()
-    ).toStrictEqual('61');
+    expect(wrapper.find('StyledBody').at(1).childAt(0).text()).toStrictEqual(
+      '61'
+    );
   });
 
   it('renders a custom renderer', () => {
@@ -114,24 +110,15 @@ describe('Table', () => {
       />
     );
 
-    wrapper
-      .find('StyledCell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('StyledCell').at(0).simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'asc');
 
-    wrapper
-      .find('StyledCell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('StyledCell').at(0).simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'dsc');
 
-    wrapper
-      .find('StyledCell')
-      .at(0)
-      .simulate('click');
+    wrapper.find('StyledCell').at(0).simulate('click');
 
     expect(onSortMock).toBeCalledWith('name', 'none');
   });
@@ -143,11 +130,7 @@ describe('Table', () => {
       );
 
       expect(
-        wrapper
-          .find('SubtitleContent')
-          .at(0)
-          .childAt(0)
-          .text()
+        wrapper.find('SubtitleContent').at(0).childAt(0).text()
       ).toStrictEqual('Name');
     });
 
@@ -156,12 +139,7 @@ describe('Table', () => {
         <Table dataUniqueKey={'name'} columns={columns} data={data} />
       );
 
-      expect(
-        wrapper
-          .find('th')
-          .at(0)
-          .prop('width')
-      ).toStrictEqual(10);
+      expect(wrapper.find('th').at(0).prop('width')).toStrictEqual(10);
     });
 
     it('sets the sortable prop', () => {
@@ -169,18 +147,8 @@ describe('Table', () => {
         <Table dataUniqueKey={'name'} columns={columns} data={data} />
       );
 
-      expect(
-        wrapper
-          .find('StyledCell')
-          .at(0)
-          .prop('sortable')
-      ).toBe(true);
-      expect(
-        wrapper
-          .find('StyledCell')
-          .at(0)
-          .find('Sort')
-      ).toExist();
+      expect(wrapper.find('StyledCell').at(0).prop('sortable')).toBe(true);
+      expect(wrapper.find('StyledCell').at(0).find('Sort')).toExist();
     });
   });
 });

@@ -38,7 +38,7 @@ export const simple = () => {
       <Tabs
         defaultSelectedItem="2"
         selectedItem={selectedTab}
-        onTabClick={key => setSelectedTab(key)}
+        onTabClick={(key) => setSelectedTab(key)}
       >
         <Tabs.Item title="Home" itemKey="1" />
         <Tabs.Item title="Incidents" itemKey="2" />

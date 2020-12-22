@@ -6,7 +6,7 @@ import { faPencilAlt } from '@fortawesome/free-solid-svg-icons/faPencilAlt';
 
 import { IconProps } from './types';
 
-const Pencil: React.FunctionComponent<IconProps> = props => {
+const Pencil: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faPencilAlt} {...props} />;
 };
 

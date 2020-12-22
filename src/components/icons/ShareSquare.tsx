@@ -6,7 +6,7 @@ import { faShareSquare } from '@fortawesome/free-solid-svg-icons/faShareSquare';
 
 import { IconProps } from './types';
 
-const ShareSquare: React.FunctionComponent<IconProps> = props => {
+const ShareSquare: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faShareSquare} {...props} />;
 };
 

@@ -6,7 +6,7 @@ import { faFolderOpen } from '@fortawesome/free-solid-svg-icons/faFolderOpen';
 
 import { IconProps } from './types';
 
-const FolderOpen: React.FunctionComponent<IconProps> = props => {
+const FolderOpen: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faFolderOpen} {...props} />;
 };
 

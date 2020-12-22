@@ -6,7 +6,7 @@ import { faCog } from '@fortawesome/free-solid-svg-icons/faCog';
 
 import { IconProps } from './types';
 
-const Cog: React.FunctionComponent<IconProps> = props => {
+const Cog: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faCog} {...props} />;
 };
 

@@ -60,25 +60,15 @@ describe('Input', () => {
   it('sets the label prop', () => {
     const wrapper = shallow(<Input label="label" />);
 
-    expect(
-      wrapper
-        .find('Label')
-        .children()
-        .first()
-        .text()
-    ).toBe('label');
+    expect(wrapper.find('Label').children().first().text()).toBe('label');
   });
 
   it('sets the description prop', () => {
     const wrapper = shallow(<Input description="description" />);
 
-    expect(
-      wrapper
-        .find('Description')
-        .children()
-        .first()
-        .text()
-    ).toBe('description');
+    expect(wrapper.find('Description').children().first().text()).toBe(
+      'description'
+    );
   });
 
   it('sets the htmlType prop', () => {
@@ -146,7 +136,7 @@ describe('Input', () => {
   });
 
   it('calls onChange handler', () => {
-    const onChangeMock = jest.fn(e => e);
+    const onChangeMock = jest.fn((e) => e);
     const wrapper = mount(<Input onChange={onChangeMock} value="value" />);
 
     wrapper.find('input').simulate('change');

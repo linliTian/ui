@@ -6,7 +6,7 @@ import { faGlobeAmericas } from '@fortawesome/free-solid-svg-icons/faGlobeAmeric
 
 import { IconProps } from './types';
 
-const GlobeAmericas: React.FunctionComponent<IconProps> = props => {
+const GlobeAmericas: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faGlobeAmericas} {...props} />;
 };
 

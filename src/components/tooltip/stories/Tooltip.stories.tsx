@@ -78,7 +78,7 @@ export const visible = () => {
   const [visible, setVisible] = React.useState(false);
 
   const overlay = (
-    <Menu onClick={key => console.log(key)} defaultSelectedItem="1">
+    <Menu onClick={(key) => console.log(key)} defaultSelectedItem="1">
       <Menu.Item itemKey="1">Item 1</Menu.Item>
       <Menu.Item itemKey="2">Item 2</Menu.Item>
     </Menu>

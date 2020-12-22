@@ -6,7 +6,7 @@ import { faStickyNote } from '@fortawesome/free-solid-svg-icons/faStickyNote';
 
 import { IconProps } from './types';
 
-const StickyNote: React.FunctionComponent<IconProps> = props => {
+const StickyNote: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faStickyNote} {...props} />;
 };
 

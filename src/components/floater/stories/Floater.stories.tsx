@@ -44,7 +44,7 @@ export const simple = () => {
   }, [setOpen, open]);
 
   const handleRef = React.useCallback(
-    node => {
+    (node) => {
       setRef(node);
     },
     [setRef]
@@ -93,15 +93,15 @@ export const complex = () => {
   return (
     <div>
       <ButtonContainer>
-        <Button onClick={e => handleButtonClick(e, ['tc', 'bc'])}>
+        <Button onClick={(e) => handleButtonClick(e, ['tc', 'bc'])}>
           Move to Top
         </Button>
         <span style={{ display: 'inline-block', width: '20px' }} />
-        <Button onClick={e => handleButtonClick(e, ['bc', 'tc'])}>
+        <Button onClick={(e) => handleButtonClick(e, ['bc', 'tc'])}>
           Move to Bottom
         </Button>
         <span style={{ display: 'inline-block', width: '20px' }} />
-        <Button onClick={e => handleButtonClick(e, ['cr', 'cl'])}>
+        <Button onClick={(e) => handleButtonClick(e, ['cr', 'cl'])}>
           Move to Right
         </Button>
       </ButtonContainer>

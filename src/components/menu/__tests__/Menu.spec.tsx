@@ -84,7 +84,7 @@ describe('Menu', () => {
     const onClickMock = jest.fn();
 
     const wrapper = mount(
-      <Menu onClick={key => onClickMock(key)}>
+      <Menu onClick={(key) => onClickMock(key)}>
         <Menu.Item itemKey="1">
           <div id="item-1" />
         </Menu.Item>
@@ -94,10 +94,7 @@ describe('Menu', () => {
       </Menu>
     );
 
-    wrapper
-      .find('MenuItem')
-      .at(0)
-      .simulate('click');
+    wrapper.find('MenuItem').at(0).simulate('click');
     expect(onClickMock).toBeCalledWith('1');
   });
 
@@ -115,10 +112,7 @@ describe('Menu', () => {
       </Menu>
     );
 
-    wrapper
-      .find('MenuItem')
-      .at(0)
-      .simulate('click');
+    wrapper.find('MenuItem').at(0).simulate('click');
     expect(onClickMock).toBeCalledTimes(0);
   });
 });

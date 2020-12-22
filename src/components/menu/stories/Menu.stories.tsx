@@ -26,7 +26,7 @@ export default {
 
 export const simple = () => (
   <Container>
-    <Menu onClick={key => console.log(key)}>
+    <Menu onClick={(key) => console.log(key)}>
       <Menu.Item itemKey={'1'}>Item 1</Menu.Item>
       <Menu.Item itemKey={'2'}>Item 2</Menu.Item>
       <Menu.Item itemKey={'3'}>Item 3</Menu.Item>
@@ -36,7 +36,7 @@ export const simple = () => (
 
 export const groups = () => (
   <Container>
-    <Menu onClick={key => console.log(key)}>
+    <Menu onClick={(key) => console.log(key)}>
       <Menu.ItemGroup title="Group 1">
         <Menu.Item itemKey={'1-1'} disabled>
           Sub Item 1

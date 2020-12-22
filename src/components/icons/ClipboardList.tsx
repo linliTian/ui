@@ -6,7 +6,7 @@ import { faClipboardList } from '@fortawesome/free-solid-svg-icons/faClipboardLi
 
 import { IconProps } from './types';
 
-const ClipboardList: React.FunctionComponent<IconProps> = props => {
+const ClipboardList: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faClipboardList} {...props} />;
 };
 

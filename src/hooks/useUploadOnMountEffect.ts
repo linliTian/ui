@@ -35,7 +35,7 @@ export const useUploadOnMountEffect = ({
     const xhr = new XMLHttpRequest();
 
     // while the file is uploading provide updates to the progress
-    const onProgressUpdate = e => {
+    const onProgressUpdate = (e) => {
       const percentUploaded = Math.round((e.loaded * 100) / e.total);
       setPercentUploaded(percentUploaded);
     };
@@ -49,7 +49,7 @@ export const useUploadOnMountEffect = ({
     };
 
     // if there is an error during the upload, lets let the user know
-    const onError = e => {
+    const onError = (e) => {
       setError(e);
     };
 
@@ -60,7 +60,7 @@ export const useUploadOnMountEffect = ({
     xhr.open('POST', uploadUrl, true);
 
     if (headers) {
-      headers.forEach(h => {
+      headers.forEach((h) => {
         xhr.setRequestHeader(h.header, h.value);
       });
     }

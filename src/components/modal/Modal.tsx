@@ -127,7 +127,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
 
   // handle closing the modal when the masked element is clicked
   const handleMaskClick = React.useCallback(
-    e => {
+    (e) => {
       if (e.target === e.currentTarget && !modalMouseDown.current) {
         handleClose();
       }
@@ -153,7 +153,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
 
   // handle keydown events for accessibility behaviours
   const handleKeyDown = React.useCallback(
-    e => {
+    (e) => {
       const activeElement = document.activeElement;
 
       if (!(modalSentinelEnd.current && modalSentinelStart.current)) {
@@ -192,7 +192,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
 
   // In order to support clicking the mask to close we need to stop click events on
   // the modal container from bubbling up.
-  const handleWrapClick = React.useCallback(e => {
+  const handleWrapClick = React.useCallback((e) => {
     e.stopPropagation();
   }, []);
 

@@ -34,7 +34,7 @@ export const simple = () => {
   >();
 
   const handleCheck = React.useCallback(
-    type => {
+    (type) => {
       if (type === status) {
         setStatus(undefined);
       } else {
