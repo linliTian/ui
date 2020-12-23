@@ -1,9 +1,7 @@
-import * as React from 'react';
-
-import styled from '@emotion/styled';
 /** @jsx jsx */
 // eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
+import styled from '@emotion/styled';
 
 import { SortState } from '../icons';
 
