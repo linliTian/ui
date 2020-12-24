@@ -274,7 +274,6 @@ const getTheCSSStyle = ({
   theme,
 }: StyledButtonProps) => {
   const { size } = customProps;
-  // const key = getTheKey(size);
 
   return css`
     display: flex;
