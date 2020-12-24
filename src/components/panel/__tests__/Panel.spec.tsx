@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 
 import { Panel } from '../Panel';
 
@@ -23,16 +23,18 @@ describe('Panel', () => {
     );
 
     expect(wrapper.find('Container').prop('margin')).toBe(undefined);
+    expect(wrapper.find('Container')).toHaveStyleRule('position', 'relative');
   });
 
   it('sets the title prop', () => {
-    const wrapper = shallow(
-      <Panel title="Title">
+    const wrapper = mount(
+      <Panel title="Title" titleLevel={3}>
         <div id={'test1'} />
       </Panel>
     );
 
     expect(wrapper.exists('Title')).toBe(true);
+    expect(wrapper.find('Title')).toHaveStyleRule('top', '-15px');
   });
 
   it('sets the titleLevel prop', () => {

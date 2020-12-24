@@ -3,7 +3,6 @@ import * as React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import { Button } from '../Button';
-import { defaultTheme } from 'react-select/src/theme';
 
 describe('Button', () => {
   it('renders without children', () => {
@@ -82,6 +81,12 @@ describe('Button', () => {
     );
 
     expect(wrapper.exists('Loading')).toBe(true);
+  });
+
+  it('renders with small size', () => {
+    const wrapper = shallow(<Button size="small">Test Button</Button>);
+    // @ts-ignore
+    expect(wrapper.find('StyledButton').prop('customProps').size).toBe('small');
   });
 
   it('sets the shape prop', () => {

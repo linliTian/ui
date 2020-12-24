@@ -20,8 +20,17 @@ describe('Badge', () => {
 
   it('can set the backgroundColor prop ', () => {
     const wrapper = shallow(<Badge backgroundColor="green" />); // hello
-
     // @ts-ignore
     expect(wrapper.find(StyledBadge).prop('backgroundColor')).toBe('green');
+  });
+
+  it('can set the backgroundColor prop ', () => {
+    const exampleIcon = <Icon.Check />;
+    const wrapper = shallow(
+      <Badge rightChildren={exampleIcon} backgroundColor="gray" />
+    );
+    expect(wrapper.find('Check')).toExist();
+    expect(wrapper.find(StyledBadge)).toHaveStyleRule('color', '#FFFFFF');
+    expect(wrapper.find(StyledBadge)).toHaveStyleRule('background', '#58595B');
   });
 });
