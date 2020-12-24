@@ -11,6 +11,7 @@ import {
 
 import { NotificationIcon } from './NotificationIcon';
 import { CloseIcon } from './CloseIcon';
+import { GlobalTheme } from '../../theme/types';
 
 export interface NotificationBoxProps {
   /** If true, the close icon will appear on the notification for interaction */
@@ -52,7 +53,7 @@ export const NotificationBox: React.FunctionComponent<NotificationBoxProps> = ({
   duration,
   title,
 }) => {
-  const theme = useTheme();
+  const theme = useTheme() as GlobalTheme;
 
   // Remove the notification
   const close = React.useCallback(() => {
@@ -103,8 +104,8 @@ export const NotificationBox: React.FunctionComponent<NotificationBoxProps> = ({
     >
       <NotificationIcon notificationType={notificationType} />
       <NotificationTextContainer>
-        <NotificationTitle>{title}</NotificationTitle>
-        <NotificationText>{children}</NotificationText>
+        <NotificationTitle theme={theme}>{title}</NotificationTitle>
+        <NotificationText theme={theme}>{children}</NotificationText>
       </NotificationTextContainer>
       {allowClose && <CloseIcon onClose={close} />}
     </Container>

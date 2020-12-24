@@ -20,7 +20,7 @@ type Theme = { theme: GlobalTheme };
 type TitleStyleProps = TitleProps & Theme;
 
 // styles for h1
-export const h1Styles = ({ theme }) => css`
+export const h1Styles = ({ theme }: Theme) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle1Color};
   font-size: ${theme.typographyTitle1FontSize};
@@ -31,7 +31,7 @@ export const h1Styles = ({ theme }) => css`
 `;
 
 // styles for h2
-export const h2Styles = ({ theme }) => css`
+export const h2Styles = ({ theme }: Theme) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle2Color};
   font-size: ${theme.typographyTitle2FontSize};
@@ -42,7 +42,7 @@ export const h2Styles = ({ theme }) => css`
 `;
 
 // styles for h3
-export const h3Styles = ({ theme }) => css`
+export const h3Styles = ({ theme }: Theme) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle3Color};
   font-size: ${theme.typographyTitle3FontSize};
@@ -53,7 +53,7 @@ export const h3Styles = ({ theme }) => css`
 `;
 
 // styles for h4
-export const h4Styles = ({ theme }) => css`
+export const h4Styles = ({ theme }: Theme) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle4Color};
   font-size: ${theme.typographyTitle4FontSize};
@@ -64,7 +64,7 @@ export const h4Styles = ({ theme }) => css`
 `;
 
 // styles for h5
-export const h5Styles = ({ theme }) => css`
+export const h5Styles = ({ theme }: Theme) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle5Color};
   font-size: ${theme.typographyTitle5FontSize};

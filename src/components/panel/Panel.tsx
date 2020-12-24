@@ -71,7 +71,7 @@ export const Container = styled.div<StyledContainerProps>`
     `}
 `;
 
-const Title = styled(Typography.Title)<{ level?: number }>`
+const Title = styled(Typography.Title)<{ level?: number; theme: GlobalTheme }>`
   position: absolute;
   background: inherit;
 

@@ -13,7 +13,7 @@ import { Cell } from './Cell';
 
 import { ColumnProps, OnRowProps } from './Table';
 
-import { GlobalTheme } from '../../theme/types';
+import { GlobalTheme, Theme } from '../../theme/types';
 
 interface BodyProps<T> {
   columns: ColumnProps<T>[];
@@ -42,16 +42,13 @@ const TR = styled.tr<{
 
     &:hover {
       ${!selected &&
-      css<{ theme: GlobalTheme }>`
+      css`
         background: ${theme.colors.hoverBackground};
       `}
     }
 
     ${selected &&
-    css<{
-      theme: GlobalTheme;
-      selected: boolean;
-    }>`
+    css`
       background: ${theme.colors.quaternaryBackground};
     `};
 
@@ -69,7 +66,7 @@ const BodyText = styled(Typography.Body)<{
   font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 `;
 
-const EmptyContentContainer = styled.div`
+const EmptyContentContainer = styled.div<Theme>`
   ${({ theme }) => css`
     height: ${theme.tableEmptyContainerHeight};
 
@@ -116,9 +113,9 @@ export const Body = <T extends {}>(props: BodyProps<T>) => {
     if (data.length === 0) {
       return (
         <tr>
-          <TD colSpan={columns.length}>
+          <TD colSpan={columns.length} theme={theme}>
             <EmptyContentContainer theme={theme}>
-              <BodyText>
+              <BodyText theme={theme}>
                 {emptyComponent == null ? 'No Data' : emptyComponent}
               </BodyText>
             </EmptyContentContainer>
@@ -140,6 +137,7 @@ export const Body = <T extends {}>(props: BodyProps<T>) => {
             <TD key={c.key} theme={theme}>
               <Cell justify={c.justify}>
                 <BodyText
+                  theme={theme}
                   selected={
                     selectedRowKey ? selectedRowKey === d[dataUniqueKey] : false
                   }

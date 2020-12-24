@@ -7,17 +7,17 @@ import { css, jsx } from '@emotion/react';
 
 import { Icon } from '../icons';
 
-import { GlobalTheme } from '../../theme/types';
+import { GlobalTheme, Theme } from '../../theme/types';
 
 interface HeaderProps {
   children?: React.ReactNode;
   closable?: boolean;
   closeIcon?: React.ReactNode;
   onCancel?: () => void;
-  theme?: GlobalTheme;
+  theme: GlobalTheme;
 }
 
-const Container = styled.div`
+const Container = styled.div<Theme>`
   ${({ theme }) => css`
     width: 100%;
 
@@ -42,7 +42,7 @@ const Title = styled.div`
   flex: 1;
 `;
 
-const Close = styled.div`
+const Close = styled.div<Theme>`
   ${({ theme }) => css`
     display: flex;
     align-items: center;

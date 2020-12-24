@@ -6,9 +6,9 @@ import { css, jsx } from '@emotion/react';
 import { motion } from 'framer-motion';
 
 import * as React from 'react';
-import { GlobalTheme } from '../../theme/types';
+import { GlobalTheme, Theme } from '../../theme/types';
 
-import { Typography } from '../typography/Typography';
+import { TitleProps, Typography } from '../typography/Typography';
 
 interface ContainerProps {
   theme: GlobalTheme;
@@ -68,15 +68,20 @@ export const NotificationTextContainer = styled.div`
   padding: 0 24px;
 `;
 
-export const NotificationText = styled(Typography.Body)`
+export const NotificationText = styled(Typography.Body)<TitleProps & Theme>`
   text-align: left;
   color: ${({ theme }) => theme.notificationBoxColor};
 `;
 
-const StyledTitle = styled(Typography.Title)`
+const StyledTitle = styled(Typography.Title)<TitleProps & Theme>`
   color: ${({ theme }) => theme.notificationBoxColor};
 `;
 
-export const NotificationTitle: React.FunctionComponent = ({ children }) => (
-  <StyledTitle level={5}>{children}</StyledTitle>
+export const NotificationTitle: React.FunctionComponent<TitleProps & Theme> = ({
+  children,
+  theme,
+}) => (
+  <StyledTitle level={5} theme={theme}>
+    {children}
+  </StyledTitle>
 );

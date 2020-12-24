@@ -11,7 +11,7 @@ import { Icon, SortState } from '../icons';
 
 import { ColumnProps } from './Table';
 
-import { GlobalTheme } from '../../theme/types';
+import { GlobalTheme, Theme } from '../../theme/types';
 
 import { Cell } from './Cell';
 
@@ -46,7 +46,7 @@ const getSortState = (currentState: string): SortState => {
 };
 
 const StyledCell = styled(Cell)<StyledCellProps>`
-  ${({ theme, sortable }) => css<StyledCellProps>`
+  ${({ theme, sortable }) => css`
     transition: background ${theme.animationTimeFast}s ease-in-out;
 
     ${sortable &&
@@ -59,9 +59,7 @@ const StyledCell = styled(Cell)<StyledCellProps>`
   `}
 `;
 
-const StyledSubtitle = styled(Typography.Subtitle)<{
-  theme: GlobalTheme;
-}>`
+const StyledSubtitle = styled(Typography.Subtitle)<Theme>`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.tableHeadFontColor};
@@ -102,7 +100,7 @@ export const HeaderCell = <T extends any = any>(props: HeaderCellProps<T>) => {
       header={header}
       theme={theme}
     >
-      <StyledSubtitle>
+      <StyledSubtitle theme={theme}>
         <SubtitleContent sortable={column.sortable}>
           {column.title}
         </SubtitleContent>

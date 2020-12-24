@@ -24,7 +24,7 @@ interface StyledBodyProps {
   theme: GlobalTheme;
 }
 
-export const bodyStyles = ({ theme, disabled }) => css`
+export const bodyStyles = ({ theme, disabled }: StyledBodyProps) => css`
   color: ${disabled
     ? theme.typographyBodyDisabledColor
     : theme.typographyBodyColor};
@@ -35,7 +35,7 @@ export const bodyStyles = ({ theme, disabled }) => css`
   line-height: ${theme.typographyBodyLineHeight};
 `;
 
-const StyledBody = styled.div<StyledBodyProps>`
+const StyledBody = styled.div`
   ${bodyStyles}
 `;
 

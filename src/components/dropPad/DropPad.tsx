@@ -9,6 +9,7 @@ import { useTheme } from '../../hooks/useTheme';
 import { Typography } from '../typography/Typography';
 
 import { DropPadFile, DropPadFileProps } from './DropPadFile';
+import { GlobalTheme } from '../../theme/types';
 
 export interface DropPadFunctionComponent<T>
   extends React.FunctionComponent<T> {
@@ -26,9 +27,14 @@ export interface DropPadProps {
   onDrop?: (files: File[]) => void;
 }
 
+interface ContainerProps {
+  isDragActive: boolean;
+  theme: GlobalTheme;
+}
+
 const Container = styled.div``;
 
-const DropPadContainer = styled.div<{ isDragActive: boolean }>`
+const DropPadContainer = styled.div<ContainerProps>`
   min-height: 100px;
   background: ${({ theme, isDragActive }) =>
     isDragActive ? theme.dropPadHoverBackground : theme.dropPadBackground};
@@ -43,7 +49,7 @@ const DropPadContainer = styled.div<{ isDragActive: boolean }>`
   cursor: pointer;
 `;
 
-const BorderContainer = styled.div<{ isDragActive: boolean }>`
+const BorderContainer = styled.div<ContainerProps>`
   height: 100%;
   width: 100%;
 

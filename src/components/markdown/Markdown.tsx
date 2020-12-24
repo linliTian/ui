@@ -12,12 +12,13 @@ import {
 
 import { bodyStyles } from '../typography/Body';
 import { useTheme } from '../../hooks';
+import { GlobalTheme, Theme } from '../../theme/types';
 
 export type MarkdownProps = {
   children?: React.ReactNode;
 };
 
-const Span = styled.span`
+const Span = styled.span<Theme>`
   h1 {
     ${h1Styles};
   }
@@ -60,7 +61,7 @@ export const Markdown = ({ children }: MarkdownProps) => {
   // eslint-disable-next-line @typescript-eslint/no-var-requires
   const md = require('markdown-it')();
 
-  const theme = useTheme();
+  const theme = useTheme() as GlobalTheme;
 
   return (
     <div className="markdown">

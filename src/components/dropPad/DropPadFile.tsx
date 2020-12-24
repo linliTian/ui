@@ -6,6 +6,7 @@ import { useTheme } from '../../hooks/useTheme';
 
 import File from '../icons/File';
 import TrashAlt from '../icons/TrashAlt';
+import { Theme } from '../../theme/types';
 
 export interface DropPadFileProps {
   /** name of the file */
@@ -21,7 +22,7 @@ export interface DropPadFileProps {
   onDelete?: (key: string | number) => void;
 }
 
-const Container = styled.div`
+const Container = styled.div<Theme>`
   padding: 8px;
   background: ${({ theme }) => theme.dropPadBackground};
   border-radius: ${({ theme }) => theme.dropPadBorderRadius};
@@ -40,18 +41,18 @@ const TextContainer = styled.div`
   align-items: center;
 `;
 
-const StyledFileIcon = styled(File)`
+const StyledFileIcon = styled(File)<Theme>`
   margin-right: 8px;
   color: ${({ theme }) => theme.colors.primary};
 `;
 
-const StyledTrashIcon = styled(TrashAlt)`
+const StyledTrashIcon = styled(TrashAlt)<Theme>`
   color: ${({ theme }) => theme.colors.primary};
   padding: 4px;
   cursor: pointer;
 `;
 
-const LoadingBarContainer = styled.div`
+const LoadingBarContainer = styled.div<Theme>`
   position: relative;
   background: ${({ theme }) => theme.dropPadFileLoadingBackground};
   height: 4px;
@@ -60,7 +61,7 @@ const LoadingBarContainer = styled.div`
   margin-top: 8px;
 `;
 
-const LoadingBar = styled.div`
+const LoadingBar = styled.div<Theme>`
   position: absolute;
   background: ${({ theme }) => theme.dropPadFileLoadingBarBackground};
   height: 4px;
