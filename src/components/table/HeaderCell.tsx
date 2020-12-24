@@ -58,6 +58,7 @@ const StyledCell = styled(Cell)<StyledCellProps>`
     `}
   `}
 `;
+StyledCell.displayName = 'StyledCell';
 
 const StyledSubtitle = styled(Typography.Subtitle)<Theme>`
   display: flex;
@@ -71,6 +72,7 @@ const SubtitleContent = styled.span<StyledSubtitleContentProps>`
     margin-right: ${sortable ? '8px' : 0};
   `}
 `;
+SubtitleContent.displayName = 'SubtitleContent';
 
 export const HeaderCell = <T extends any = any>(props: HeaderCellProps<T>) => {
   const { column, header, onClick, sortedColumn, theme } = props;

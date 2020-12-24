@@ -324,3 +324,5 @@ const getTheCSSStyle = ({
 export const StyledButton = styled.button<StyledButtonProps>`
   ${getTheCSSStyle};
 `;
+
+StyledButton.displayName = 'StyledButton';

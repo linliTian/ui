@@ -35,9 +35,10 @@ export const bodyStyles = ({ theme, disabled }: StyledBodyProps) => css`
   line-height: ${theme.typographyBodyLineHeight};
 `;
 
-const StyledBody = styled.div`
+const StyledBody = styled.div<StyledBodyProps>`
   ${bodyStyles}
 `;
+StyledBody.displayName = 'StyledBody';
 
 export const Body: React.FunctionComponent<BodyProps> = React.forwardRef<
   HTMLDivElement,

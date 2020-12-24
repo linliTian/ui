@@ -3,6 +3,7 @@ import * as React from 'react';
 import { mount, shallow } from 'enzyme';
 
 import { Button } from '../Button';
+import { defaultTheme } from 'react-select/src/theme';
 
 describe('Button', () => {
   it('renders without children', () => {
@@ -89,6 +90,10 @@ describe('Button', () => {
     // @ts-ignore
     expect(wrapper.find('StyledButton').prop('customProps').shape).toBe(
       'circle'
+    );
+    expect(wrapper.find('StyledButton')).toHaveStyleRule(
+      'border-radius',
+      '50%'
     );
   });
 

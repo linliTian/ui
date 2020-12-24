@@ -164,6 +164,8 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   inputLargeHeight: '44px',
   inputLargeFontSize: 18,
   inputPadding: '0 10px',
+  inputPrefixLeft: 'auto',
+  inputStatusMessageHeight: 'auto',
   inputTextAreaPadding: '10px 10px',
   inputPlaceholderColor: `${rgba(themeColors.body, 0.7)}`,
 
@@ -193,6 +195,7 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   modalHeaderMarginTop: '24px',
   modalHeaderPadding: '0 32px',
   modalMaskBackground: `${rgba(themeColors.black, 0.45)}`,
+  modalHeaderHeight: 'auto',
   modalMinHeight: '200px',
   modalMinWidth: '520px',
 

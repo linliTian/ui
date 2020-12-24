@@ -147,3 +147,4 @@ export const StyledDivider = styled.hr<StyledDividerProps>`
     `};
   `};
 `;
+StyledDivider.displayName = 'StyledDivider';

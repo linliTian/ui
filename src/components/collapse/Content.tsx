@@ -53,6 +53,7 @@ export const ContentContainer: React.FunctionComponent<ContentContainerProps> = 
   );
 };
 
+ContentContainer.displayName = 'ContentContainer';
 interface ContentBodyProps {
   theme: GlobalTheme;
   hasFooter: boolean;

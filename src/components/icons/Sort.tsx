@@ -53,4 +53,6 @@ export const Sort: React.FunctionComponent<SortProps> = ({ state }) => {
   );
 };
 
+Sort.displayName = 'Sort';
+
 export default Sort;
