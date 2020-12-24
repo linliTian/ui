@@ -53,11 +53,13 @@ const Container = styled.div<ContainerProps>`
       background: ${theme.toggleDisabledBackground};
     `}
 `;
+Container.displayName = 'Container';
 
 const ToggleCircleContainer = styled(motion.div)<Theme>`
   position: absolute;
   top: ${({ theme }) => theme.toggleCircleTop};
 `;
+ToggleCircleContainer.displayName = 'ToggleCircleContainer';
 
 const ToggleCircle = styled.div<Theme>`
   background: ${({ theme }) => theme.toggleCircleBackground};

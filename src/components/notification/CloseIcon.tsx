@@ -34,3 +34,5 @@ export const CloseIcon: React.FunctionComponent<CloseIconProps> = ({
     </Container>
   );
 };
+
+CloseIcon.displayName = 'CloseIcon';

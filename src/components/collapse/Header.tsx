@@ -78,6 +78,7 @@ const StyledHeader = styled.div<StyledHeaderProps>`
     `};
   `};
 `;
+StyledHeader.displayName = 'StyledHeader';
 
 const HeaderIcon: React.FunctionComponent<HeaderIconProps> = ({
   icon,

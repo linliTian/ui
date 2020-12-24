@@ -74,6 +74,7 @@ const getContainerStyle = ({ disabled, theme }: ContainerPropsType) => css`
 const Container = styled.div<ContainerPropsType>`
   ${getContainerStyle}
 `;
+Container.displayName = 'Container';
 
 export const Collapse: React.FunctionComponent<CollapseProps> = ({
   disabled,

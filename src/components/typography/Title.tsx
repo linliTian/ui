@@ -108,6 +108,7 @@ const getTitleStyle = ({ level, theme }: TitleStyleProps) => {
 const StyledTitle = styled.div<TitleStyleProps>`
   ${getTitleStyle}
 `;
+StyledTitle.displayName = 'StyledTitle';
 
 export const Title: React.FunctionComponent<TitleProps> = ({
   children,

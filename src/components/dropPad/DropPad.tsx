@@ -33,6 +33,7 @@ interface ContainerProps {
 }
 
 const Container = styled.div``;
+Container.displayName = 'Container';
 
 const DropPadContainer = styled.div<ContainerProps>`
   min-height: 100px;

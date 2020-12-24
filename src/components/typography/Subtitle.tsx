@@ -24,6 +24,7 @@ const StyledSubtitle = styled.div<Theme>`
     line-height: ${theme.typographySubtitleLineHeight};
   `}
 `;
+StyledSubtitle.displayName = 'StyledSubtitle';
 
 export const Subtitle: React.FunctionComponent<SubtitleProps> = ({
   children,

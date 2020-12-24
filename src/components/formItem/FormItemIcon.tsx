@@ -21,6 +21,7 @@ const IconContainer = styled(motion.span)`
   display: flex;
   align-items: center;
 `;
+IconContainer.displayName = 'IconContainer';
 
 export const FormItemIcon: React.FunctionComponent<FormItemIconProps> = ({
   status,
@@ -56,3 +57,5 @@ export const FormItemIcon: React.FunctionComponent<FormItemIconProps> = ({
     </IconContainer>
   );
 };
+
+FormItemIcon.displayName = 'FormItemIcon';

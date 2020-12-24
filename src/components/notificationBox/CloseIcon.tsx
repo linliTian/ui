@@ -27,3 +27,5 @@ export const CloseIcon: React.FunctionComponent<any> = ({ onClose }) => {
     </Container>
   );
 };
+
+CloseIcon.displayName = 'CloseIcon';

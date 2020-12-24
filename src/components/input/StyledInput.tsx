@@ -34,6 +34,7 @@ type PrefixProps = {
 export const Container = styled.div`
   width: 100%;
 `;
+Container.displayName = 'Container';
 
 export const Label = styled(Typography.Label)<LabelProps>`
   ${({ theme, required }: LabelProps) => css`
@@ -46,12 +47,14 @@ export const Label = styled(Typography.Label)<LabelProps>`
     `}
   `};
 `;
+Label.displayName = 'Label';
 
 export const Description = styled(Typography.Description)`
   ${() => css`
     margin-bottom: 4px;
   `};
 `;
+Description.displayName = 'Description';
 
 export const AffixContainer = styled.div`
   position: relative;
@@ -220,3 +223,4 @@ export const StyledInput: React.FunctionComponent<StyledInputProps> = (
 
   return <InputWithStyles {...props} />;
 };
+StyledInput.displayName = 'StyledInput';

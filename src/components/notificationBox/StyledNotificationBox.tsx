@@ -62,6 +62,7 @@ export const Container = styled(motion.div)<ContainerProps>`
 
   padding: ${({ theme }) => theme.notificationBoxPadding};
 `;
+Container.displayName = 'Container';
 
 export const NotificationTextContainer = styled.div`
   flex: 1;

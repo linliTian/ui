@@ -9,5 +9,5 @@ import { IconProps } from './types';
 const ExclamationCircle: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faExclamationCircle} {...props} />;
 };
-
+ExclamationCircle.displayName = 'ExclamationCircle';
 export default ExclamationCircle;
