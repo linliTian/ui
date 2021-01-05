@@ -7,7 +7,7 @@ import { css, jsx } from '@emotion/react';
 
 import { Button, ButtonProps } from '../button/Button';
 
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 interface FooterProps {
   cancelButtonProps?: ButtonProps;
@@ -19,7 +19,7 @@ interface FooterProps {
   theme: GlobalTheme;
 }
 
-export const Footer = styled.div<Theme>`
+export const Footer = styled.div`
   ${({ theme }) => css`
     width: 100%;
     height: ${theme.modalFooterHeight};

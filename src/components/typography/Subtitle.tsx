@@ -6,13 +6,12 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/react';
 
 import { useTheme } from '../../hooks';
-import { Theme } from '../../theme/types';
 
 export interface SubtitleProps {
   className?: string;
 }
 
-const StyledSubtitle = styled.div<Theme>`
+const StyledSubtitle = styled.div`
   ${({ theme }) => css`
     user-select: none;
 

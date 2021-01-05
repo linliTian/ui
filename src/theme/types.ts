@@ -395,7 +395,3 @@ export interface GlobalTheme {
 
   colors: Colors;
 }
-
-export type Theme = {
-  theme: GlobalTheme;
-};

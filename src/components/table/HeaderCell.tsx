@@ -11,7 +11,7 @@ import { Icon, SortState } from '../icons';
 
 import { ColumnProps } from './Table';
 
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 import { Cell } from './Cell';
 
@@ -60,7 +60,7 @@ const StyledCell = styled(Cell)<StyledCellProps>`
 `;
 StyledCell.displayName = 'StyledCell';
 
-const StyledSubtitle = styled(Typography.Subtitle)<Theme>`
+const StyledSubtitle = styled(Typography.Subtitle)`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.tableHeadFontColor};

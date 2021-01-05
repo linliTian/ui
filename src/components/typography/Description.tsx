@@ -6,7 +6,6 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/react';
 
 import { useTheme } from '../../hooks';
-import { Theme } from '../../theme/types';
 
 export interface DescriptionProps {
   className?: string;
@@ -14,7 +13,7 @@ export interface DescriptionProps {
 }
 
 const StyledDescription = styled.div`
-  ${({ theme }: Theme) => css`
+  ${({ theme }) => css`
     user-select: none;
 
     color: ${theme.typographyDescriptionColor};

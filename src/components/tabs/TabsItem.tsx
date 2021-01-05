@@ -11,8 +11,6 @@ import { TabsContext } from './TabsContext';
 
 import { useTheme } from '../../hooks/useTheme';
 
-import { Theme } from '../../theme/types';
-
 export interface TabsItemProps {
   /** className of the tabs item component */
   className?: string;
@@ -26,7 +24,7 @@ export interface TabsItemProps {
 
 type ContainerProps = {
   isSelected: boolean;
-} & Theme;
+};
 
 const Container = styled.div<ContainerProps>`
   ${({ theme, isSelected }) => css`
@@ -51,7 +49,7 @@ const Container = styled.div<ContainerProps>`
   `}
 `;
 
-const TabBody = styled(Typography.Body)<Theme>`
+const TabBody = styled(Typography.Body)`
   ${({ theme }) => css`
     color: ${theme.tabsItemColor};
   `}

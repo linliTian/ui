@@ -6,7 +6,7 @@ import { css, jsx } from '@emotion/react';
 import { motion } from 'framer-motion';
 
 import * as React from 'react';
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 import { TitleProps, Typography } from '../typography/Typography';
 
@@ -69,20 +69,15 @@ export const NotificationTextContainer = styled.div`
   padding: 0 24px;
 `;
 
-export const NotificationText = styled(Typography.Body)<TitleProps & Theme>`
+export const NotificationText = styled(Typography.Body)`
   text-align: left;
   color: ${({ theme }) => theme.notificationBoxColor};
 `;
 
-const StyledTitle = styled(Typography.Title)<TitleProps & Theme>`
+const StyledTitle = styled(Typography.Title)`
   color: ${({ theme }) => theme.notificationBoxColor};
 `;
 
-export const NotificationTitle: React.FunctionComponent<TitleProps & Theme> = ({
+export const NotificationTitle: React.FunctionComponent<TitleProps> = ({
   children,
-  theme,
-}) => (
-  <StyledTitle level={5} theme={theme}>
-    {children}
-  </StyledTitle>
-);
+}) => <StyledTitle level={5}>{children}</StyledTitle>;

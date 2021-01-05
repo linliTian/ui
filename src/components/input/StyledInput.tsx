@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 // eslint-disable-next-line
 import { css, jsx } from '@emotion/react';
 
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 import { InputProps, InputSize, BorderType, HtmlType } from './Input';
 
@@ -94,7 +94,7 @@ export const Prefix = styled.div<PrefixProps>`
 `;
 
 export const FeedbackMessage = styled.div`
-  height: ${({ theme }: Theme) => theme.inputStatusMessageHeight};
+  height: ${({ theme }) => theme.inputStatusMessageHeight};
 `;
 
 const inputStyles = ({

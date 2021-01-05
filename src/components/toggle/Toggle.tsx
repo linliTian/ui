@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 import { useTheme } from '../../hooks/useTheme';
 
 import { ToggleIcon } from './ToggleIcon';
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 export interface ToggleProps {
   /** className of the Toggle component */
@@ -55,13 +55,13 @@ const Container = styled.div<ContainerProps>`
 `;
 Container.displayName = 'Container';
 
-const ToggleCircleContainer = styled(motion.div)<Theme>`
+const ToggleCircleContainer = styled(motion.div)`
   position: absolute;
   top: ${({ theme }) => theme.toggleCircleTop};
 `;
 ToggleCircleContainer.displayName = 'ToggleCircleContainer';
 
-const ToggleCircle = styled.div<Theme>`
+const ToggleCircle = styled.div`
   background: ${({ theme }) => theme.toggleCircleBackground};
 
   height: ${({ theme }) => theme.toggleCircleHeight};

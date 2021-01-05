@@ -6,7 +6,7 @@ import styled from '@emotion/styled';
 import { useTheme } from '../../hooks/useTheme';
 import CaretDown from '../icons/CaretDown';
 import Times from '../icons/Times';
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 import WindowedSelect from 'react-windowed-select';
 
 export type OptionType = {
@@ -137,7 +137,7 @@ const getCustomStyles = (theme: GlobalTheme) => ({
 });
 
 // some of the styles couldn't be overriden by the styles object
-const Container = styled.div<Theme>`
+const Container = styled.div`
   font-family: 'Lato';
   font-size: 14px;
 

@@ -147,11 +147,6 @@ describe('Table', () => {
         <Table dataUniqueKey={'name'} columns={columns} data={data} />
       );
 
-      console.log(
-        'wrapper.find().length :>> ',
-        wrapper.find('StyledCell').length
-      );
-
       expect(wrapper.find('StyledCell').at(0).prop('sortable')).toBe(true);
       expect(wrapper.find('StyledCell').at(0).find('Sort')).toExist();
     });

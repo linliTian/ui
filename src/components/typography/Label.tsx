@@ -6,13 +6,12 @@ import styled from '@emotion/styled';
 import { css, jsx } from '@emotion/react';
 
 import { useTheme } from '../../hooks';
-import { Theme } from '../../theme/types';
 
 export interface LabelProps {
   className?: string;
 }
 
-const StyledLabel = styled.label<Theme>`
+const StyledLabel = styled.label`
   ${({ theme }) => css`
     user-select: none;
 

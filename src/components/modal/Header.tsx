@@ -7,7 +7,7 @@ import { css, jsx } from '@emotion/react';
 
 import { Icon } from '../icons';
 
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 interface HeaderProps {
   children?: React.ReactNode;
@@ -17,7 +17,7 @@ interface HeaderProps {
   theme: GlobalTheme;
 }
 
-const Container = styled.div<Theme>`
+const Container = styled.div`
   ${({ theme }) => css`
     width: 100%;
 
@@ -42,7 +42,7 @@ const Title = styled.div`
   flex: 1;
 `;
 
-const Close = styled.div<Theme>`
+const Close = styled.div`
   ${({ theme }) => css`
     display: flex;
     align-items: center;

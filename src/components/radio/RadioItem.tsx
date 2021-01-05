@@ -6,7 +6,6 @@ import { css, jsx } from '@emotion/react';
 
 import { RadioContext } from './context';
 import { useTheme } from '../../hooks';
-import { Theme } from '../../theme/types';
 
 export interface RadioItemProps {
   /** if true, the radio item will not be interactable */
@@ -33,7 +32,7 @@ const StyledLabel = styled.label`
   position: relative;
   display: inline-block;
 
-  line-height: ${({ theme }: Theme) => theme.radioItemLineHeight};
+  line-height: ${({ theme }) => theme.radioItemLineHeight};
   margin: ${({ theme }) => theme.radioItemMargin};
 
   font-family: 'Lato', sans-serif;

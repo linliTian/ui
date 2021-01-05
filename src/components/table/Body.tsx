@@ -13,7 +13,7 @@ import { Cell } from './Cell';
 
 import { ColumnProps, OnRowProps } from './Table';
 
-import { GlobalTheme, Theme } from '../../theme/types';
+import { GlobalTheme } from '../../theme/types';
 
 interface BodyProps<T> {
   columns: ColumnProps<T>[];
@@ -66,7 +66,7 @@ const BodyText = styled(Typography.Body)<{
   font-weight: ${({ selected }) => (selected ? 'bold' : 'normal')};
 `;
 
-const EmptyContentContainer = styled.div<Theme>`
+const EmptyContentContainer = styled.div`
   ${({ theme }) => css`
     height: ${theme.tableEmptyContainerHeight};
 
