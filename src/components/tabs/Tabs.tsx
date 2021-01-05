@@ -125,4 +125,4 @@ Tabs.defaultProps = {
   placement: 'top',
 };
 
-export type { TabsItemProps };
+export { TabsItemProps };

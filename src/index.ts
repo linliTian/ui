@@ -60,43 +60,44 @@ export { DropPad } from './components/dropPad/DropPad';
 
 export { Divider } from './components/divider/Divider';
 
-export type {
+export {
   AccordionProps,
   AccordionFunctionComponent,
 } from './components/accordion/Accordion';
 
-export type { AccordionItemProps } from './components/accordion/AccordionItem';
+export { AccordionItemProps } from './components/accordion/AccordionItem';
 
-export type {
+export {
   ItemGapType,
   ItemKeyType,
   ExpandedItemsType,
 } from './components/accordion/types';
 
-export type {
+export {
   ButtonProps,
   ButtonType,
   ShapeType,
   SizeType,
 } from './components/button/Button';
 
-export type { BadgeProps, BadgeColorType } from './components/badge/Badge';
+export { BadgeProps, BadgeColorType } from './components/badge/Badge';
 
-export type { CollapseProps } from './components/collapse/Collapse';
+export { CollapseProps } from './components/collapse/Collapse';
 
-export type { CheckboxProps } from './components/checkbox/Checkbox';
+export { CheckboxProps } from './components/checkbox/Checkbox';
 
-export type { FloaterProps } from './components/floater/Floater';
+export { FloaterProps } from './components/floater/Floater';
 
-export type { IconProps, SortState } from './components/icons';
+export { IconProps, SortState } from './components/icons';
 
-export type {
+export {
   InputProps,
   BorderType,
   InputSize,
+  HtmlType,
 } from './components/input/Input';
 
-export type {
+export {
   LayoutProps,
   LayoutComponent,
   HeaderProps,
@@ -105,60 +106,60 @@ export type {
   SiderProps,
 } from './components/layout/Layout';
 
-export type { FormItemProps, Status } from './components/formItem/FormItem';
+export { FormItemProps, Status } from './components/formItem/FormItem';
 
-export type { MarkdownProps } from './components/markdown/Markdown';
+export { MarkdownProps } from './components/markdown/Markdown';
 
-export type { ModalProps } from './components/modal/Modal';
+export { ModalProps } from './components/modal/Modal';
 
-export type {
+export {
   MenuFunctionComponent,
   MenuProps,
   MenuItemProps,
   MenuItemGroupProps,
 } from './components/menu/Menu';
 
-export type { NotificationBoxProps } from './components/notificationBox/NotificationBox';
+export { NotificationBoxProps } from './components/notificationBox/NotificationBox';
 
-export type { NotificationProps } from './components/notification/Notification';
+export { NotificationProps } from './components/notification/Notification';
 
-export type {
+export {
   NotificationBinProps,
   NotificationType,
 } from './components/notificationBin/NotificationBin';
 
-export type { PanelProps } from './components/panel/Panel';
+export { PanelProps } from './components/panel/Panel';
 
-export type { PortalProps } from './components/portal/Portal';
+export { PortalProps } from './components/portal/Portal';
 
-export type { Header, UploadOnMountProps, UploadOnMountResult } from './hooks';
+export { Header, UploadOnMountProps, UploadOnMountResult } from './hooks';
 
-export type { Position } from './utils/getRelativePosition';
+export { Position } from './utils/getRelativePosition';
 
-export type { GlobalTheme, Colors } from './theme/types';
+export { GlobalTheme, Colors } from './theme/types';
 
-export type {
+export {
   RadioProps,
   RadioItemProps,
   RadioFunctionComponent,
 } from './components/radio/Radio';
 
-export type {
+export {
   TableProps,
   ColumnProps,
   Justify,
   OnRowProps,
 } from './components/table/Table';
 
-export type {
+export {
   TabsProps,
   TabsItemProps,
   TabsFunctionComponent,
 } from './components/tabs/Tabs';
 
-export type { ToggleProps } from './components/toggle/Toggle';
+export { ToggleProps } from './components/toggle/Toggle';
 
-export type {
+export {
   BodyProps,
   Level,
   DescriptionProps,
@@ -167,20 +168,20 @@ export type {
   LabelProps,
 } from './components/typography/Typography';
 
-export type { TooltipProps } from './components/tooltip/Tooltip';
+export { TooltipProps } from './components/tooltip/Tooltip';
 
-export type { Placement } from './components/tooltip/placements';
+export { Placement } from './components/tooltip/placements';
 
-export type { SelectProps } from './components/select/Select';
+export { SelectProps } from './components/select/Select';
 
-export type {
+export {
   DropPadProps,
   DropPadFunctionComponent,
 } from './components/dropPad/DropPad';
 
-export type { DropPadFileProps } from './components/dropPad/DropPadFile';
+export { DropPadFileProps } from './components/dropPad/DropPadFile';
 
-export type {
+export {
   Component,
   Orientation,
   DividerProps,

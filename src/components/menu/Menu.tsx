@@ -8,7 +8,7 @@ import { MenuContext } from './MenuContext';
 
 import { MenuItemGroup, MenuItemGroupProps } from './MenuItemGroup';
 
-export type { MenuItemProps, MenuItemGroupProps };
+export { MenuItemProps, MenuItemGroupProps };
 
 export interface MenuFunctionComponent<T> extends React.FunctionComponent<T> {
   Item: React.FunctionComponent<MenuItemProps>;
