@@ -162,6 +162,7 @@ const Container = styled.div`
 const SelectIcon = styled.span`
   padding: 8px;
 `;
+SelectIcon.displayName = 'SelectIcon';
 
 export const Select: React.FunctionComponent<SelectProps> = ({
   className,

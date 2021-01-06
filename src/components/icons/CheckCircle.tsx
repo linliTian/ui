@@ -9,5 +9,6 @@ import { IconProps } from './types';
 const CheckCircle: React.FunctionComponent<IconProps> = (props) => {
   return <FontAwesomeIcon icon={faCheckCircle} {...props} />;
 };
+CheckCircle.displayName = 'CheckCircle';
 
 export default CheckCircle;

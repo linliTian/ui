@@ -31,7 +31,7 @@ interface ContainerProps {
 }
 
 const Container = styled.div`
-  ${({ disabled, theme, isSelected }: ContainerProps) => css<ContainerProps>`
+  ${({ disabled, theme, isSelected }: ContainerProps) => css`
     padding: ${theme.menuItemPadding};
 
     cursor: pointer;

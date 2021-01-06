@@ -46,7 +46,7 @@ const getSortState = (currentState: string): SortState => {
 };
 
 const StyledCell = styled(Cell)<StyledCellProps>`
-  ${({ theme, sortable }) => css<StyledCellProps>`
+  ${({ theme, sortable }) => css`
     transition: background ${theme.animationTimeFast}s ease-in-out;
 
     ${sortable &&
@@ -58,10 +58,9 @@ const StyledCell = styled(Cell)<StyledCellProps>`
     `}
   `}
 `;
+StyledCell.displayName = 'StyledCell';
 
-const StyledSubtitle = styled(Typography.Subtitle)<{
-  theme: GlobalTheme;
-}>`
+const StyledSubtitle = styled(Typography.Subtitle)`
   display: flex;
   align-items: center;
   color: ${({ theme }) => theme.tableHeadFontColor};
@@ -73,6 +72,7 @@ const SubtitleContent = styled.span<StyledSubtitleContentProps>`
     margin-right: ${sortable ? '8px' : 0};
   `}
 `;
+SubtitleContent.displayName = 'SubtitleContent';
 
 export const HeaderCell = <T extends any = any>(props: HeaderCellProps<T>) => {
   const { column, header, onClick, sortedColumn, theme } = props;
@@ -102,7 +102,7 @@ export const HeaderCell = <T extends any = any>(props: HeaderCellProps<T>) => {
       header={header}
       theme={theme}
     >
-      <StyledSubtitle>
+      <StyledSubtitle theme={theme}>
         <SubtitleContent sortable={column.sortable}>
           {column.title}
         </SubtitleContent>

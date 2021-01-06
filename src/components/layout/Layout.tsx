@@ -13,7 +13,7 @@ import { Footer, FooterProps } from './Footer';
 
 import { Sider, SiderProps } from './Sider';
 
-export type { HeaderProps, ContentProps, FooterProps, SiderProps };
+export { HeaderProps, ContentProps, FooterProps, SiderProps };
 
 export interface LayoutComponent<T> extends React.FunctionComponent<T> {
   Header: React.FunctionComponent<HeaderProps>;

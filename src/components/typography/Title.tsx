@@ -15,9 +15,11 @@ export interface TitleProps {
   level?: Level;
 }
 
-type Theme = { theme: GlobalTheme };
-
-type TitleStyleProps = TitleProps & Theme;
+export interface TitleStyleProps {
+  className?: string;
+  level?: Level;
+  theme: GlobalTheme;
+}
 
 // styles for h1
 export const h1Styles = ({ theme }) => css`
@@ -75,7 +77,7 @@ export const h5Styles = ({ theme }) => css`
 `;
 
 // styles for h6
-export const h6Styles = ({ theme }: Theme) => css`
+export const h6Styles = ({ theme }) => css`
   font-family: ${theme.typographyTitleFontFamily};
   color: ${theme.typographyTitle6Color};
   font-size: ${theme.typographyTitle6FontSize};
@@ -105,9 +107,10 @@ const getTitleStyle = ({ level, theme }: TitleStyleProps) => {
   }
 };
 
-const StyledTitle = styled.div<TitleStyleProps>`
+const StyledTitle = styled.div<TitleProps>`
   ${getTitleStyle}
 `;
+StyledTitle.displayName = 'StyledTitle';
 
 export const Title: React.FunctionComponent<TitleProps> = ({
   children,

@@ -179,8 +179,10 @@ export interface GlobalTheme {
   inputLargeHeight: string;
   inputLargeFontSize: number;
   inputPadding: string;
-  inputTextAreaPadding: string;
   inputPlaceholderColor: string;
+  inputPrefixLeft: string;
+  inputStatusMessageHeight: string;
+  inputTextAreaPadding: string;
 
   // ---- Layout ---- //
   layoutHeaderHeight: string;
@@ -215,6 +217,7 @@ export interface GlobalTheme {
   modalFooterPadding: string;
   modalHeaderBackground: string;
   modalHeaderColor: string;
+  modalHeaderHeight: string;
   modalHeaderMarginTop: string;
   modalHeaderPadding: string;
   modalMaskBackground: string;

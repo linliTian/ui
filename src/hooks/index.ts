@@ -11,4 +11,4 @@ import {
 
 export { useAfterMountEffect, useTheme, useUploadOnMountEffect };
 
-export type { Header, UploadOnMountProps, UploadOnMountResult };
+export { Header, UploadOnMountProps, UploadOnMountResult };

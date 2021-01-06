@@ -36,6 +36,8 @@ const Container = styled.div<ContainerProps>`
   }}
 `;
 
+Container.displayName = 'Container';
+
 const StyledLabel = styled.label`
   ${({ theme }: { theme: GlobalTheme }) => css`
     position: relative;

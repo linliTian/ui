@@ -40,6 +40,7 @@ const FormItemContainer = styled.div`
 const Container = styled.div`
   position: relative;
 `;
+Container.displayName = 'Container';
 
 const StatusContainer = styled.div`
   margin-bottom: 8px;
@@ -74,6 +75,7 @@ const getMessageStyle = ({ theme, otherProps }) => {
 const StatusMessage = styled(Typography.Description)`
   ${getMessageStyle}
 `;
+StatusMessage.displayName = 'StatusMessage';
 
 export const FormItem: React.FunctionComponent<FormItemProps> = ({
   children,

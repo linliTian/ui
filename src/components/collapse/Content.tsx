@@ -53,13 +53,14 @@ export const ContentContainer: React.FunctionComponent<ContentContainerProps> = 
   );
 };
 
+ContentContainer.displayName = 'ContentContainer';
 interface ContentBodyProps {
   theme: GlobalTheme;
   hasFooter: boolean;
 }
 
 const StyledContentBody = styled.div<ContentBodyProps>`
-  ${({ theme, hasFooter }) => css<ContentBodyProps>`
+  ${({ theme, hasFooter }) => css`
     padding: ${theme.collapseContentPadding};
     background: ${theme.collapseContentBackground};
     ${
@@ -91,7 +92,7 @@ interface ContentFooterProps {
 }
 
 const StyledFooter = styled.div<ContentFooterProps>`
-  ${({ theme }) => css<ContentFooterProps>`
+  ${({ theme }) => css`
     background: ${theme.collapseContentBackground};
     padding: ${theme.collapseContentPadding};
     border-radius: 0 0 ${theme.collapseBorderRadius}
@@ -118,7 +119,7 @@ interface ContentProps {
 }
 
 const StyledContent = styled.div<ContentProps>`
-  ${({ theme }) => css<ContentProps>`
+  ${({ theme }) => css`
     background: ${theme.collapseContentBackground};
     border: ${theme.collapseBorder};
     border-color: ${theme.collapseBorderColor};

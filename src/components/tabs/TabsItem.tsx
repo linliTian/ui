@@ -11,8 +11,6 @@ import { TabsContext } from './TabsContext';
 
 import { useTheme } from '../../hooks/useTheme';
 
-import { GlobalTheme } from '../../theme/types';
-
 export interface TabsItemProps {
   /** className of the tabs item component */
   className?: string;
@@ -24,14 +22,12 @@ export interface TabsItemProps {
   title: React.ReactNode;
 }
 
-const Container = styled.div`
-  ${({
-    theme,
-    isSelected,
-  }: {
-    theme: GlobalTheme;
-    isSelected: boolean;
-  }) => css<{ theme: GlobalTheme; isSelected: boolean }>`
+type ContainerProps = {
+  isSelected: boolean;
+};
+
+const Container = styled.div<ContainerProps>`
+  ${({ theme, isSelected }) => css`
     cursor: pointer;
     box-sizing: border-box;
     user-select: none;
@@ -54,7 +50,7 @@ const Container = styled.div`
 `;
 
 const TabBody = styled(Typography.Body)`
-  ${({ theme }: { theme: GlobalTheme }) => css<{ theme: GlobalTheme }>`
+  ${({ theme }) => css`
     color: ${theme.tabsItemColor};
   `}
 `;
@@ -120,6 +116,7 @@ export const TabsItem: React.FunctionComponent<TabsItemProps> = ({
     <Container
       className={`${className} rtk-tabs-item`}
       onClick={handleClick}
+      theme={theme}
       isSelected={selectedItem === itemKey}
     >
       <TabBody theme={theme} ref={tabItemRef}>

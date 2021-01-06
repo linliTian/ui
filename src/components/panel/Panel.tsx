@@ -71,7 +71,9 @@ export const Container = styled.div<StyledContainerProps>`
     `}
 `;
 
-const Title = styled(Typography.Title)<{ level?: number }>`
+Container.displayName = 'Container';
+
+const Title = styled(Typography.Title)<{ level?: number; theme: GlobalTheme }>`
   position: absolute;
   background: inherit;
 
@@ -92,6 +94,7 @@ const Title = styled(Typography.Title)<{ level?: number }>`
 
   padding: 4px 8px;
 `;
+Title.displayName = 'Title';
 
 export const Panel: React.FunctionComponent<PanelProps> = ({
   children,

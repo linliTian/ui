@@ -104,7 +104,7 @@ export const NotificationBox: React.FunctionComponent<NotificationBoxProps> = ({
       <NotificationIcon notificationType={notificationType} />
       <NotificationTextContainer>
         <NotificationTitle>{title}</NotificationTitle>
-        <NotificationText>{children}</NotificationText>
+        <NotificationText theme={theme}>{children}</NotificationText>
       </NotificationTextContainer>
       {allowClose && <CloseIcon onClose={close} />}
     </Container>

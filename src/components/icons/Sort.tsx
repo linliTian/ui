@@ -11,8 +11,7 @@ import { faSortDown } from '@fortawesome/free-solid-svg-icons/faSortDown';
 import { faSortUp } from '@fortawesome/free-solid-svg-icons/faSortUp';
 
 import { useTheme } from '../../hooks/useTheme';
-
-export type SortState = 'none' | 'asc' | 'dsc';
+import { SortState } from './types';
 
 export interface SortProps {
   state: SortState;
@@ -52,5 +51,7 @@ export const Sort: React.FunctionComponent<SortProps> = ({ state }) => {
     </Container>
   );
 };
+
+Sort.displayName = 'Sort';
 
 export default Sort;

@@ -68,6 +68,7 @@ export const Container = styled(motion.div)<ContainerProps>`
 
   padding: 16px;
 `;
+Container.displayName = 'Container';
 
 export const NotificationTextContainer = styled.div`
   flex: 1;
@@ -82,3 +83,4 @@ export const NotificationText = styled(Typography.Body)`
 export const NotificationTitle: React.FunctionComponent = ({ children }) => (
   <Typography.Title level={5}>{children}</Typography.Title>
 );
+NotificationTitle.displayName = 'NotificationTitle';

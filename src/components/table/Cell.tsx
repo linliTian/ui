@@ -25,7 +25,7 @@ interface StyledCellProps {
 }
 
 const StyledCell = styled.div<StyledCellProps>`
-  ${({ theme, justify, header }) => css<StyledCellProps>`
+  ${({ theme, justify, header }) => css`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -39,6 +39,7 @@ const StyledCell = styled.div<StyledCellProps>`
     `}
   `}
 `;
+StyledCell.displayName = 'StyledCell';
 
 export const Cell: React.FunctionComponent<CellProps> = ({
   className,

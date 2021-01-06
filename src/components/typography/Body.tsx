@@ -24,7 +24,7 @@ interface StyledBodyProps {
   theme: GlobalTheme;
 }
 
-export const bodyStyles = ({ theme, disabled }) => css`
+export const bodyStyles = ({ theme, disabled }: StyledBodyProps) => css`
   color: ${disabled
     ? theme.typographyBodyDisabledColor
     : theme.typographyBodyColor};
@@ -38,6 +38,7 @@ export const bodyStyles = ({ theme, disabled }) => css`
 const StyledBody = styled.div<StyledBodyProps>`
   ${bodyStyles}
 `;
+StyledBody.displayName = 'StyledBody';
 
 export const Body: React.FunctionComponent<BodyProps> = React.forwardRef<
   HTMLDivElement,

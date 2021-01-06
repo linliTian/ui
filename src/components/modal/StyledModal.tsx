@@ -100,7 +100,7 @@ export const ModalBody = styled(motion.div)<StyledModalProps>`
   `};
 `;
 
-export const ModalSentinel = styled.div<StyledModalProps>`
+export const ModalSentinel = styled.div`
   width: 0;
   height: 0;
   overflow: hidden;

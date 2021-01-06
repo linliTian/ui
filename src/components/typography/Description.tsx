@@ -24,6 +24,7 @@ const StyledDescription = styled.div`
     line-height: ${theme.typographyDescriptionLineHeight};
   `}
 `;
+StyledDescription.displayName = 'StyledDescription';
 
 export const Description: React.FunctionComponent<DescriptionProps> = ({
   children,

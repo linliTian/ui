@@ -28,6 +28,7 @@ const Container = styled.div`
 
   margin-top: 8px;
 `;
+Container.displayName = 'Container';
 
 const ContentContainer = styled.div`
   display: flex;
@@ -50,6 +51,7 @@ const StyledTrashIcon = styled(TrashAlt)`
   padding: 4px;
   cursor: pointer;
 `;
+StyledTrashIcon.displayName = 'StyledTrashIcon';
 
 const LoadingBarContainer = styled.div`
   position: relative;

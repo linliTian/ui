@@ -11,3 +11,5 @@ const CaretDown: React.FunctionComponent<IconProps> = (props) => {
 };
 
 export default CaretDown;
+
+CaretDown.displayName = 'CaretDown';

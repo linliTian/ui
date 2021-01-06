@@ -274,7 +274,6 @@ const getTheCSSStyle = ({
   theme,
 }: StyledButtonProps) => {
   const { size } = customProps;
-  // const key = getTheKey(size);
 
   return css`
     display: flex;
@@ -324,3 +323,5 @@ const getTheCSSStyle = ({
 export const StyledButton = styled.button<StyledButtonProps>`
   ${getTheCSSStyle};
 `;
+
+StyledButton.displayName = 'StyledButton';

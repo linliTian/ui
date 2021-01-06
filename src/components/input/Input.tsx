@@ -8,6 +8,7 @@ import { FormItemContext } from '../formItem/FormItemContext';
 
 export type BorderType = 'full' | 'bottom' | 'none';
 export type InputSize = 'small' | 'default' | 'large';
+export type HtmlType = 'text' | 'textarea' | 'number' | 'password';
 
 export interface InputProps {
   /** Type of border for the input */
@@ -26,7 +27,7 @@ export interface InputProps {
   disabled?: boolean;
 
   /** HTML input type attribute */
-  htmlType?: 'text' | 'textarea' | 'number' | 'password';
+  htmlType?: HtmlType;
 
   /** id of the input to be used with Formik */
   id?: string;

@@ -25,6 +25,8 @@ const StyledLabel = styled.label`
   `}
 `;
 
+StyledLabel.displayName = 'StyledLabel';
+
 export const Label: React.FunctionComponent<LabelProps> = ({
   children,
   className,

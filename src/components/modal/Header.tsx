@@ -14,7 +14,7 @@ interface HeaderProps {
   closable?: boolean;
   closeIcon?: React.ReactNode;
   onCancel?: () => void;
-  theme?: GlobalTheme;
+  theme: GlobalTheme;
 }
 
 const Container = styled.div`

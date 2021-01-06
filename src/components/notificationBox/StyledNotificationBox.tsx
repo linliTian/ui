@@ -8,7 +8,7 @@ import { motion } from 'framer-motion';
 import * as React from 'react';
 import { GlobalTheme } from '../../theme/types';
 
-import { Typography } from '../typography/Typography';
+import { TitleProps, Typography } from '../typography/Typography';
 
 interface ContainerProps {
   theme: GlobalTheme;
@@ -62,6 +62,7 @@ export const Container = styled(motion.div)<ContainerProps>`
 
   padding: ${({ theme }) => theme.notificationBoxPadding};
 `;
+Container.displayName = 'Container';
 
 export const NotificationTextContainer = styled.div`
   flex: 1;
@@ -77,6 +78,6 @@ const StyledTitle = styled(Typography.Title)`
   color: ${({ theme }) => theme.notificationBoxColor};
 `;
 
-export const NotificationTitle: React.FunctionComponent = ({ children }) => (
-  <StyledTitle level={5}>{children}</StyledTitle>
-);
+export const NotificationTitle: React.FunctionComponent<TitleProps> = ({
+  children,
+}) => <StyledTitle level={5}>{children}</StyledTitle>;

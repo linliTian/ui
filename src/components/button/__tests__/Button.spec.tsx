@@ -83,12 +83,22 @@ describe('Button', () => {
     expect(wrapper.exists('Loading')).toBe(true);
   });
 
+  it('renders with small size', () => {
+    const wrapper = shallow(<Button size="small">Test Button</Button>);
+    // @ts-ignore
+    expect(wrapper.find('StyledButton').prop('customProps').size).toBe('small');
+  });
+
   it('sets the shape prop', () => {
     const wrapper = shallow(<Button shape={'circle'}>Test Button</Button>);
 
     // @ts-ignore
     expect(wrapper.find('StyledButton').prop('customProps').shape).toBe(
       'circle'
+    );
+    expect(wrapper.find('StyledButton')).toHaveStyleRule(
+      'border-radius',
+      '50%'
     );
   });
 
