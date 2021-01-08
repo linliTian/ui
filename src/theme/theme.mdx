@@ -1,0 +1,46 @@
+---
+name: Theming
+---
+
+# Theming
+### Provide a theme to change the look and feel of each component
+
+## Creating a Theme
+
+If you wish to create your own theme use the provided `createTheme` function. Each component provides its own theme
+ that can be overridden. Please see the respective component documentation for a full list of the available theme
+  overrides.
+
+```
+import { createTheme } from '@rtkwlf/ui';
+
+const myTheme = createTheme(colorOverrides, themeOverrides);
+```
+
+## Using a Theme
+
+Once you have created a new theme you can provide it to the components via the `ThemeProvider`.
+
+```
+import {
+  createTheme
+} from '@rtkwlf/ui';
+
+import {
+  ThemeProvider
+} from '@emotion/react';
+
+const myTheme = createTheme({
+  primary: 'red'
+}, {});
+
+const App = () => (
+  <ThemeProvider theme={myTheme}>
+    <Button>My Red Button</Button>
+  </ThemeProvider
+)
+```
+
+
+
+

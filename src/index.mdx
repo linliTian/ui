@@ -1,0 +1,41 @@
+---
+name: Getting Started
+route: /
+---
+
+import Logo from './docz/logo-main.png';
+
+<div style={{ display: 'flex', justifyContent: 'center', marginBottom: '100px'}}>
+  <img src={Logo} height="200px" />
+</div>
+
+# Getting Started
+### Reusable React component library designed to create a consistent look and feel.
+ 
+## Installation
+
+Using npm or yarn.
+```
+npm install --save @rtkwlf/ui react react-dom react-is react-select @emotion/react @emotion/styled
+```
+or
+```
+yarn add @rtkwlf/ui react react-dom react-is
+```
+## Usage
+
+Import the components you would like to use in your React Application:
+
+`import { Button } from @rtkwlf/ui;`
+
+Then use them in a component:
+```
+const example = () => (
+  <Button>Click Me!</Button>
+);
+```
+
+
+
+
+
