@@ -1,13 +1,12 @@
 import * as React from 'react';
 import styled from '@emotion/styled';
 
-const Container = styled.div`
-  padding: 20px;
-  overflow: scroll;
-  height: 300px;
+export const Container = styled.div`
+  display: flex;
+  margin-bottom: 10px;
 `;
 
-export const StoryContainer: React.FunctionComponent = ({ children }) => {
+export const PlayGroundContainer: React.FunctionComponent = ({ children }) => {
   return <Container>{children}</Container>;
 };
 
@@ -22,4 +21,9 @@ export const CollapseContent = ({ children }: any) => (
 export const AccordionContainer = styled.div`
   width: 400px;
   padding: 10px;
+`;
+
+export const Spacer = styled.span`
+  height: 1px;
+  padding: 5px;
 `;

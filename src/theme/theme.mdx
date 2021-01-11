@@ -2,6 +2,11 @@
 name: Theming
 ---
 
+import { Playground, Props } from 'docz'
+import { Button } from '../components/button/Button';
+import { ThemeProvider as UIThemeProvider } from '../styled';
+import { createTheme } from './index';
+
 # Theming
 ### Provide a theme to change the look and feel of each component
 
@@ -23,24 +28,28 @@ Once you have created a new theme you can provide it to the components via the `
 
 ```
 import {
-  createTheme
+  createTheme,
+  ThemeProvider as UIThemeProvider
 } from '@rtkwlf/ui';
-
-import {
-  ThemeProvider
-} from '@emotion/react';
 
 const myTheme = createTheme({
   primary: 'red'
 }, {});
 
 const App = () => (
-  <ThemeProvider theme={myTheme}>
+  <UIThemeProvider theme={myTheme}>
     <Button>My Red Button</Button>
-  </ThemeProvider
+  </UIThemeProvider
 )
 ```
 
+<Playground>
+  <Button>Normal Button</Button>
+  <br/>
+  <UIThemeProvider  theme={createTheme({primary: 'red'}, {})}>
+    <Button>My Red Button</Button>
+  </UIThemeProvider>
+</Playground>
 
 
 

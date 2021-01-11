@@ -1,0 +1,65 @@
+---
+menu: Components
+name: Badge
+---
+
+import { Playground, Props } from 'docz'
+import { Badge } from '../Badge';
+
+import { Icon } from '../../icons';
+import { useTheme } from '../../../hooks/useTheme';
+import { Spacer, Container, ThemeContainer } from '../../../docz/components';
+
+# Badge
+### Also known as a pill or label. Often used to indicate status.
+
+## Simple
+
+> Note: you must manually set the color on any non-text `children` you supply (e.g. icons)
+
+<Playground>
+  <Badge leftChildren={<Icon.Check />}>v10.42</Badge>
+  <Spacer />
+  <Badge rightChildren={<Icon.Check />} backgroundColor="red">
+    v10.42
+  </Badge>
+  <Spacer />
+  <Badge
+    leftChildren={<Icon.Check />}
+    rightChildren={<Icon.Check />}
+    backgroundColor="yellow"
+  >
+    v10.42
+  </Badge>
+</Playground>
+
+## Icons Only
+
+Can be used with icons only
+
+<Playground>
+  <Container>
+      <Badge leftChildren={<Icon.Exclamation />} backgroundColor="gray">
+        <Icon.InfoCircle />
+      </Badge>
+      <Spacer />
+      <Badge backgroundColor="blue">
+        <Icon.InfoCircle />
+      </Badge>
+    </Container>
+</Playground>
+
+## Text Only
+
+Centers the child node if no `rightChildren` or `leftChildren` are specified
+
+<Playground>
+  <Container>
+    <Badge backgroundColor="purple">Text Only</Badge>
+    <Spacer />
+    <Badge backgroundColor="orange">?</Badge>
+  </Container>
+</Playground>
+
+## Badge Props
+<Props table={true} of={Badge} />
