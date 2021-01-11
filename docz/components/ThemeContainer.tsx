@@ -6,11 +6,11 @@ import { css, jsx } from '@emotion/react';
 
 import { rgba } from 'polished';
 
-import { ThemeProvider } from '../../styled';
+import { ThemeProvider } from '../../src/styled';
 
-import { Button } from '../../components/button/Button';
+import { Button } from '../../src/components/button/Button';
 
-import { createTheme } from '../../theme';
+import { createTheme } from '../../src/theme';
 
 const Container = styled.div`
   ${({ theme }) => css`
