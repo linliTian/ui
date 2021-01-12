@@ -1,0 +1,200 @@
+---
+menu: Components
+name: Button
+---
+
+
+import { Playground, Props } from 'docz'
+import { Button } from '../Button';
+
+import { Spacer, Container, ThemeContainer } from '../../../../docz/components';
+
+# Button
+Buttons allow users to take actions, and make choices, with a single tap or click.
+
+## Types
+
+You can modify the `type` to change the style of the button depending on the use case.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Button type="primary">Primary</Button>
+      <Spacer />
+      <Button type="secondary">Secondary</Button>
+      <Spacer />
+      <Button type="tertiary">Tertiary</Button>
+      <Spacer />
+      <Button type="danger">Danger</Button>
+      <Spacer />
+      <Button type="link">Link</Button>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Ghost
+
+You can modify the background of the button to white by setting the `ghost` prop.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Button type="primary" ghost>
+        Primary
+      </Button>
+      <Spacer />
+      <Button type="secondary" ghost>
+        Secondary
+      </Button>
+      <Spacer />
+      <Button type="tertiary" ghost>
+        Tertiary
+      </Button>
+      <Spacer />
+      <Button type="danger" ghost>
+        Danger
+      </Button>
+      <Spacer />
+      <Button type="link" ghost>
+        Link
+      </Button>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Disable
+
+You can `disable` a button to limit a users ability to interact with it.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Button type="primary" disabled>
+        Primary
+      </Button>
+      <Spacer />
+      <Button type="primary" ghost disabled>
+        Ghost
+      </Button>
+      <Spacer />
+      <Button type="danger" disabled>
+        Danger
+      </Button>
+      <Spacer />
+      <Button type="danger" ghost disabled>
+        Ghost
+      </Button>
+      <Spacer />
+      <Button type="link" disabled>
+        Link
+      </Button>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Loading
+
+You can add a `loading` state to a button to provide the user feedback when an asynchronous action is taking place.
+
+<Playground>
+  {() => {
+    const [loading, toggleLoading] = React.useState(false)
+    const handleToggle = React.useCallback(() => {
+    toggleLoading(!loading);
+  }, [loading, toggleLoading])
+    return (
+      <ThemeContainer>
+        <div style={{ marginBottom: '15px' }}>
+          <Button onClick={handleToggle}>
+            {loading ? 'Cancel Loading' : 'Start Loading'}
+          </Button>
+        </div>
+        <Container>
+          <Button type="primary" onClick={handleToggle} loading={loading}>
+            Primary
+          </Button>
+          <Spacer />
+          <Button type="primary" onClick={handleToggle} loading={loading} ghost>
+            Ghost
+          </Button>
+          <Spacer />
+          <Button type="danger" onClick={handleToggle} loading={loading}>
+            Danger
+          </Button>
+          <Spacer />
+          <Button type="danger" onClick={handleToggle} loading={loading} ghost>
+            Danger
+          </Button>
+          <Spacer />
+          <Button type="link" onClick={handleToggle} loading={loading}>
+            Link
+          </Button>
+        </Container>
+      </ThemeContainer>
+  );
+}}
+</Playground>
+
+## Shape
+
+You can modify the `shape` of the button depending on the use case.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Button shape="circle" type="primary">
+        P
+      </Button>
+      <Spacer />
+      <Button shape="circle" type="danger">
+        D
+      </Button>
+      <Spacer />
+      <Button shape="circle" type="primary" ghost>
+        G
+      </Button>
+      <Spacer />
+      <Button shape="circle" loading type="primary">
+        P
+      </Button>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Size
+
+You can modify the `size` of the button.
+
+<Playground>
+  {
+    () => {
+    const [size, setSize] = React.useState('default');
+    return (
+      <ThemeContainer>
+        <React.Fragment>
+          <Container>
+            <Button onClick={() => setSize('small')}>Small</Button>
+            <Spacer />
+            <Button onClick={() => setSize('default')}>Default</Button>
+            <Spacer />
+            <Button onClick={() => setSize('large')}>Large</Button>
+          </Container>
+          <Container>
+            <Button size={size} type="primary">
+              Primary
+            </Button>
+            <Spacer />
+            <Button size={size} shape="circle" ghost>
+              G
+            </Button>
+          </Container>
+        </React.Fragment>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Props 
+<Props of={Button} />
+

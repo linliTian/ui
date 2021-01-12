@@ -68,9 +68,11 @@ export default (props: any) => {
     }
   }, [themeIndex]);
 
+  const theme = themes[themeIndex];
+
   return (
-    <ThemeProvider theme={themes[themeIndex]}>
-      <Container>
+    <ThemeProvider theme={theme}>
+      <Container theme={theme}>
         <Header>
           <Button size="small" shape="circle" onClick={onClick} />
         </Header>
