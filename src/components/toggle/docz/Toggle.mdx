@@ -1,0 +1,91 @@
+---
+menu: Components
+name: Toggle
+---
+
+
+import { Playground, Props } from 'docz'
+import { Toggle } from '../Toggle';
+import { Container, Spacer } from './Toggle.docz';
+import { Button } from '../../button/Button';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Toggle
+
+## Simple
+
+<Playground>
+{
+  () => {
+    const [isOn, setIsOn] = React.useState(false)
+    const handleClick = React.useCallback(() => {
+      setIsOn(!isOn);
+    }, [setIsOn, isOn])
+    return <ThemeContainer><Toggle onClick={handleClick} isOn={isOn} /></ThemeContainer>
+  }
+}
+</Playground>
+
+
+## isLoading
+
+If there is an asyncronous action occuring as a result of turning on or off the toggle. Provide the user feedback by showing a loading indicator.
+
+<Playground>
+{
+  () => {
+    const [isLoading, setLoading] = React.useState(false)
+    const [isOn, setIsOn] = React.useState(false)
+    const handleClick = React.useCallback(() => {
+      setIsOn(!isOn);
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }, [setIsOn, isOn, setLoading])
+    return <ThemeContainer><Toggle onClick={handleClick} isLoading={isLoading} isOn={isOn} /></ThemeContainer>
+  }
+}
+</Playground>
+
+
+## isOn
+
+Control the toggle setting.
+
+<Playground>
+{
+  () => {
+    const [isOn, setIsOn] = React.useState(true)
+    const handleClickOn = React.useCallback(() => setIsOn(true), [setIsOn])
+    const handleClickOff = React.useCallback(() => setIsOn(false), [setIsOn])
+    return (<ThemeContainer>
+      <React.Fragment>
+        <Container>
+          <Button onClick={handleClickOff}>Toggle Off</Button>
+          <Spacer />
+          <Button onClick={handleClickOn}>Toggle On</Button>
+        </Container>
+        <Container>
+          <Toggle isOn={isOn} />
+        </Container>
+      </React.Fragment>
+    </ThemeContainer>)
+  }
+}
+</Playground>
+
+
+## Disabled
+
+Disable a users ability to interact with the toggle by setting the `disabled` prop to `true`.
+
+<Playground>
+  <ThemeContainer>
+    <Toggle disabled /> 
+  </ThemeContainer>
+</Playground>
+
+## Toggle Props
+<Props of={ Toggle } />

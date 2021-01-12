@@ -1,0 +1,150 @@
+---
+menu: Components
+name: Modal
+---
+
+
+import { Playground, Props } from 'docz'
+import { Modal } from '../Modal';
+
+import { Button } from '../../button/Button';
+import { Input } from '../../input/Input';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Modal
+Provides interaction with application without changing pages.
+
+## Simple
+
+Many times a simple input is all that is needed.
+
+<Playground>
+{
+  () => {
+    const [visible, setVisibility] = React.useState(false)
+    const onCancel = React.useCallback(() => {
+      setVisibility(false);
+    }, [])
+    const onOk = React.useCallback(() => {
+      setVisibility(false);
+    }, []);
+    return (
+      <ThemeContainer>
+        <div>
+          <Button onClick={() => setVisibility(true)}>Open Simple Modal</Button>
+          <Modal title={'Title'} onOk={onOk} onCancel={onCancel} visible={visible}>
+            <div style={{minHeight: "200px"}}>
+              <Input label={'First Name'} />
+              <Input label={'Last Name'} />
+              <Input label={'Email'} />
+              <Input label={'Password'} />
+            </div>
+          </Modal>
+        </div>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Custom Footer
+
+Sometimes a custom footer is needed to satisfy specific use cases. Modify the `footer` prop to create a custom footer.
+
+<Playground>
+{
+  () => {
+    const [visible, setVisibility] = React.useState(false)
+    const onCancel = React.useCallback(() => {setVisibility(false)}, [])
+    const onOk = React.useCallback(() => {setVisibility(false);}, [])
+    return (
+      <ThemeContainer>
+        <div>
+          <Button onClick={() => setVisibility(true)}>
+            Open Custom Footer Modal
+          </Button>
+          <Modal
+            title={'Title'}
+            onOk={onOk}
+            onCancel={onCancel}
+            footer={
+              <React.Fragment>
+                <Button onClick={onCancel} ghost>
+                  Cancel
+                </Button>
+                <div style={{ height: '1px', width: '16px' }} />
+                <Button onClick={onOk}>Finish</Button>
+              </React.Fragment>
+            }
+            visible={visible}
+          >
+            <div style={{minHeight: "200px"}}>
+              <Input label={'First Name'} />
+              <Input label={'Last Name'} />
+              <Input label={'Email'} />
+              <Input label={'Password'} />
+            </div>
+          </Modal>
+        </div>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Asynchronous Actions
+
+If there is a form in the modal that needs to be saved to the server, modify the `okButtonProps` to make use of the
+ loading state while the form is being submitted. Then automatically close the modal once the request completes. The
+  example below is configured such that the modal will close 3 seconds after the `Okay` button is clicked. 
+
+<Playground>
+{
+  () => {
+    const [visible, setVisibility] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
+    const onCancel = React.useCallback(() => {
+      setVisibility(false);
+    }, [])
+    const onOk = React.useCallback(() => {
+      setLoading(true);
+      setTimeout(() => {
+        setVisibility(false);
+        setLoading(false);
+      }, 3000);
+    }, [])
+    return (
+      <div>
+        <Button onClick={() => setVisibility(true)}>
+          Open Modal with Async Logic
+        </Button>
+        <Modal
+          title={'Title'}
+          onOk={onOk}
+          onCancel={onCancel}
+          closable={!loading}
+          allowKeyboard={!loading}
+          cancelButtonProps={{
+            disabled: loading,
+          }}
+          okButtonProps={{
+            loading,
+          }}
+          visible={visible}
+        >
+          <div style={{minHeight: "200px"}}>
+            <Input label={'First Name'} />
+            <Input label={'Last Name'} />
+            <Input label={'Email'} />
+            <Input label={'Password'} />
+          </div>
+        </Modal>
+      </div>
+    );
+  }
+}
+</Playground>
+
+## Modal Props
+<Props of={ Modal } />

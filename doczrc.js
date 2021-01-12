@@ -12,6 +12,7 @@ export default {
     'Hooks',
   ],
   themeConfig: {
+    showPlaygroundEditor: false,
     search: true,
     mainContainer: {
       fullscreen: false,

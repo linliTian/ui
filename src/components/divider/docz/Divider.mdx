@@ -1,0 +1,165 @@
+---
+menu: Components
+name: Divider
+---
+
+
+import { Playground, Props } from 'docz'
+import { Divider } from '../Divider';
+import { Button } from '../../button/Button';
+import { Modal } from '../../modal/Modal';
+import { Parent, Container, Ulist, UlistHorizontal, Rect, Spacer, ContainerModal, ModalContent, ContainerText } from './Divider.docz';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Divider
+A divider is a line used to group content on lists and layouts.
+
+## Horizontal line
+Set the wrapper Container to display:flex
+
+<Playground>
+  <ThemeContainer>
+    <Parent>
+      <Container>
+        <Ulist>
+          <li>item 1 item 1</li>
+          <li>item 2</li>
+          <Divider
+            component="li"
+            margin="20px"
+            thickness="1px"
+          />
+          <li>item 3</li>
+          <li>item 4</li>
+          <li>item 5</li>
+        </Ulist>
+      </Container>
+    </Parent>
+  </ThemeContainer>
+</Playground>
+
+## Vertical line
+
+Set the wrapper Container to display:flex
+
+<Playground>
+  <ThemeContainer>
+    <Parent>
+      <Container>
+        <Rect>A</Rect>
+        <Rect>B</Rect>
+        <Rect>C</Rect>
+        <Divider
+          orientation="vertical"
+          margin="20px"
+          thickness="1px"
+        />
+        <Rect>D</Rect>
+      </Container>
+      <Spacer />
+      <Container>
+        <UlistHorizontal>
+          <li>item 1</li>
+          <li>Item 2</li>
+          <Divider
+            component="li"
+            orientation="vertical"
+            margin="20px"
+            thickness="1px"
+          />
+          <li>Item 3</li>
+        </UlistHorizontal>
+      </Container>
+    </Parent>
+  </ThemeContainer>
+</Playground>
+
+## Inside a modal
+
+<Playground>
+{
+  () => {
+    const [visible, setVisibility] = React.useState(false)
+    const onCancel = React.useCallback(() => {
+      setVisibility(false);
+    }, [])
+    const onOk = React.useCallback(() => {
+      setVisibility(false);
+    }, [])
+    return (
+      <ThemeContainer>
+        <Parent>
+          <ContainerModal>
+            <Button onClick={() => setVisibility(true)}>Open Modal</Button>
+            <Modal
+              title={'Title'}
+              onCancel={onCancel}
+              onOk={onOk}
+              visible={visible}
+            >
+              <ModalContent>
+                <div>Some content here</div>
+                <Divider
+                  margin="20px"
+                  thickness="1px"
+                />
+                <div>More content here</div>
+                <Divider
+                  margin="20px"
+                  thickness="1px"
+                />
+                <div>More content here</div>
+              </ModalContent>
+            </Modal>
+          </ContainerModal>
+        </Parent>
+      </ThemeContainer>)
+  }
+}
+</Playground>
+
+## With text
+
+Set the wrapper Container to display:flex.
+
+** bgColor ** is used only when ** text ** is also used in order to match the background color of the parent
+
+<Playground>
+  <ThemeContainer>
+    <Parent>
+      <ContainerText>
+        <Divider
+          text="Some text"
+          textAlign="left"
+          bgColor="#f1f1f1"
+          thickness="1px"
+          fontSize={1}
+        />
+      </ContainerText>
+      <Spacer />
+      <ContainerText>
+        <Divider
+          text="Some text"
+          bgColor="#f1f1f1"
+          thickness="1px"
+          fontSize={1}
+        />
+      </ContainerText>
+      <Spacer />
+      <ContainerText>
+        <Divider
+          text="Some text"
+          textAlign="right"
+          thickness="1px"
+          bgColor="#f1f1f1"
+          fontSize={1}
+        />
+      </ContainerText>
+    </Parent>
+  </ThemeContainer>
+</Playground>
+
+
+## Props 
+<Props of={Divider} />

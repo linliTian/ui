@@ -1,0 +1,54 @@
+---
+menu: Components
+name: Tabs
+---
+
+import { Playground, Props } from 'docz'
+import { Tabs } from '../Tabs';
+import { Container } from './Tabs.docz';
+
+import { useTheme } from '../../../hooks/useTheme';
+import { ThemeContainer } from '../../../../docz/components';
+
+# Tabs
+Tabs component that is designed to work with react-router
+
+## Simple
+
+<Playground>
+{
+  () => {
+    const [selectedTab, setSelectedTab] = React.useState('2')
+    const theme = useTheme()
+    return (
+      <ThemeContainer>
+        <Container theme={theme}>
+          <Tabs
+            defaultSelectedItem="2"
+            selectedItem={selectedTab}
+            onTabClick={(key) => setSelectedTab(key)}
+          >
+            <Tabs.Item title="Home" itemKey="1" />
+            <Tabs.Item title="Incidents" itemKey="2" />
+            <Tabs.Item
+              title={
+                <div>
+                  <span>Tickets</span>
+                </div>
+              }
+              itemKey="3"
+            />
+            <Tabs.Item title="Customers" itemKey="4" />
+          </Tabs>
+        </Container>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Tabs Props
+<Props of={ Tabs } />
+
+## Tabs.Item Props
+<Props of={ Tabs.Item } />

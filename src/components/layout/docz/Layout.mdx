@@ -1,0 +1,66 @@
+---
+menu: Components
+name: Layout
+---
+
+import { Playground, Props } from 'docz'
+import { Layout } from '../Layout';
+import { Header, Content, Footer, Sider, Spacer } from './Layout.docz';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Layout
+Provides overall application layout for views
+
+## Simple
+
+<Playground>
+  <ThemeContainer>
+    <div>
+      <Layout>
+        <Header></Header>
+        <Layout.Content>
+          <Content />
+        </Layout.Content>
+        <Footer></Footer>
+      </Layout>
+      <Spacer />
+      <Layout hasSider>
+        <Sider></Sider>
+        <Layout>
+          <Header></Header>
+          <Layout.Content>
+            <Content />
+          </Layout.Content>
+          <Footer></Footer>
+        </Layout>
+      </Layout>
+      <Spacer />
+      <Layout>
+        <Header></Header>
+        <Layout hasSider>
+          <Sider></Sider>
+          <Layout.Content>
+            <Content />
+          </Layout.Content>
+        </Layout>
+        <Footer></Footer>
+      </Layout>
+    </div>
+  </ThemeContainer>
+</Playground>
+
+## Layout Props
+<Props of={ Layout } />
+
+## Layout.Header Props
+<Props of={Layout.Header} />
+
+## Layout.Content Props
+<Props of={Layout.Content} />
+
+## Layout.Footer Props
+<Props of={Layout.Footer} />
+
+## Layout.Sider Props
+<Props of={Layout.Sider} />

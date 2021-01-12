@@ -1,0 +1,124 @@
+---
+menu: Components
+name: Select
+---
+
+import { Playground, Props } from 'docz'
+import { Select } from '../Select';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Select
+Allows users to select from a list of options.
+
+## Simple
+
+Simple single value select.
+
+<Playground>
+{
+  () => {
+    const options = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ]
+    return (
+      <ThemeContainer>
+        <Select
+          selectProps={{
+            options,
+            menuPortalTarget: document.body,
+          }}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Multi-Select
+
+If there are multiple selections required, set `isMulti` to `true`.
+
+<Playground>
+{
+  () => {
+    const options = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ]
+    return (
+      <ThemeContainer>
+        <Select
+          selectProps={{
+            options,
+            isMulti: true,
+            menuPortalTarget: document.body,
+          }}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Disabled
+
+Disable user interaction by setting `isDisabled` to `true`.
+
+<Playground>
+{
+  () => {
+    const options = [
+      { value: 'chocolate', label: 'Chocolate' },
+      { value: 'strawberry', label: 'Strawberry' },
+      { value: 'vanilla', label: 'Vanilla' }
+    ]
+    return (
+      <ThemeContainer>
+        <Select
+          selectProps={{
+            options,
+            isMulti: true,
+            isDisabled: true,
+            menuPortalTarget: document.body,
+          }}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Large List
+
+Virtualization in action when rendering a very large list
+
+<Playground>
+{
+  () => {
+    const options = [];
+    for (let i = 0; i < 10000; i += 1) {
+      options.push({
+        label: `Option ${i}`,
+        value: i.toString(),
+      });
+    }
+    return (
+      <ThemeContainer>
+        <Select
+          selectProps={{
+            options,
+            menuPortalTarget: document.body,
+          }}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Select Props
+<Props of={ Select } />

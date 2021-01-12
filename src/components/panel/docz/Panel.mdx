@@ -1,0 +1,68 @@
+---
+menu: Components
+name: Panel
+---
+
+
+import { Playground, Props } from 'docz'
+import { Panel } from '../Panel';
+import { Parent, Container, Content } from './Panel.docz';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Panel
+Panel provides a simple box to display data in.
+
+## Standard
+
+You can use the standard panel simply by passing it children.
+
+<Playground>
+  <ThemeContainer>
+    <Parent>
+      <Container>
+        <Panel>
+          <Content />
+        </Panel>
+      </Container>
+    </Parent>
+  </ThemeContainer>
+</Playground>
+
+## Clickable
+
+You optionally make the panel clickable by passing it an `onClick` function.
+
+<Playground>
+  <ThemeContainer>
+    <Parent>
+      <Container>
+        <Panel onClick={() => console.log('clicked')}>
+          <Content>Click Me!</Content>
+        </Panel>
+      </Container>
+    </Parent>
+  </ThemeContainer>
+</Playground>
+
+## Title
+
+You optionally add a title to the panel. This will also add the border.
+
+<Playground>
+  <ThemeContainer>
+    <Parent>
+      <Container>
+        <Panel title="Title">
+          <Content>Content!</Content>
+        </Panel>
+        <Panel title="Title" titleLevel={5}>
+          <Content>Content!</Content>
+        </Panel>
+      </Container>
+    </Parent>
+  </ThemeContainer>
+</Playground>
+
+## Panel Props
+<Props of={ Panel } />

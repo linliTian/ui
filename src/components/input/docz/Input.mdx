@@ -1,0 +1,114 @@
+---
+menu: Components
+name: Input
+---
+
+
+import { Playground, Props } from 'docz'
+import { Input } from '../Input';
+
+import { ButtonContainer, Container } from './Input.docz';
+import { ThemeContainer, Spacer } from '../../../../docz/components';
+
+# Input
+Inputs allow users to input data.
+
+## Simple
+
+Many times a simple input is all that is needed.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Input />
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Size
+
+Change the size of the input by modifying the `inputSize` prop.
+
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Input size="small" />
+      <Input />
+      <Input size="large" />
+      <Input size="small" htmlType="textarea" />
+      <Input htmlType="textarea" />
+      <Input size="large" htmlType="textarea" />
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Types
+
+Change the type of the input by modifying the `htmlType` prop.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Input description="Number" htmlType="number" defaultValue="123" />
+      <Input
+        description="Password"
+        placeholder="Put in a secret"
+        htmlType="password"
+      />
+      <Input
+        description="Textarea"
+        placeholder="Multiline text box"
+        htmlType="textarea"
+      />
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Border
+
+Modify how the `input` looks by changing the `borderType` prop;
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Input placeholder="Input with border" />
+      <Input borderType="bottom" placeholder="Input with bottom border" />
+      <Input borderType="none" placeholder="Input without border" />
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Label
+
+Provide a `label` for the input to use in a form.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Input label="Label" />
+      <Spacer />
+      <Input
+        label="Label"
+        description="This is why this input is required"
+        required
+      />
+    </Container>  
+  </ThemeContainer>
+</Playground>
+
+## Disabled
+
+Disable an input by adding passing it the `disabled` prop. This will inhibit the users ability to focus and type in
+ the input.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Input disabled />
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Input Props
+<Props of={ Input } />

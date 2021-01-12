@@ -1,0 +1,29 @@
+---
+menu: Components
+name: Markdown
+---
+
+import { Playground, Props } from 'docz'
+import { Markdown } from '../Markdown';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Markdown
+Pass it a string as children and get markdown
+
+## Simple
+
+String passed as child interpreted as markdown
+
+<Playground>
+  <ThemeContainer>
+    <Markdown>
+      {'# Heading'}
+      {'## Sub-heading'}
+      {'This is sample description'}
+  </Markdown>
+  </ThemeContainer>
+</Playground>
+
+## Markdown Props
+<Props of={ Markdown } />

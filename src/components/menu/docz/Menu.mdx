@@ -1,0 +1,61 @@
+---
+menu: Components
+name: Menu
+---
+
+
+import { Playground, Props } from 'docz'
+import { Menu } from '../Menu';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Menu
+Can be used for navigation around an application
+
+## Simple
+
+Simple Menu that can be used in a variety of places for navigation or listing options.
+
+<Playground>
+  <ThemeContainer>
+    <div style={{background: "transparent", maxWidth: "300px" }}>
+      <Menu onClick={(key) => console.log(key)}>
+        <Menu.Item itemKey={'1'}>Item 1</Menu.Item>
+        <Menu.Item itemKey={'2'}>Item 2</Menu.Item>
+        <Menu.Item itemKey={'3'}>Item 3</Menu.Item>
+      </Menu>
+    </div>
+  </ThemeContainer>
+</Playground>
+
+## Groups
+
+Group items together using the `ItemGroup` component.
+
+<Playground>
+  <ThemeContainer>
+    <div style={{background: "transparent", maxWidth: "300px" }}>
+        <Menu onClick={(key) => console.log(key)}>
+        <Menu.ItemGroup title="Group 1">
+          <Menu.Item itemKey={'1-1'} disabled>
+            Sub Item 1
+          </Menu.Item>
+          <Menu.Item itemKey={'1-2'}>Sub Item 2</Menu.Item>
+        </Menu.ItemGroup>
+        <Menu.ItemGroup title="Group 2">
+          <Menu.Item itemKey={'2-1'}>Sub Item 2</Menu.Item>
+          <Menu.Item itemKey={'2-2'}>Sub Item 3</Menu.Item>
+        </Menu.ItemGroup>
+      </Menu>
+    </div>
+  </ThemeContainer>
+</Playground>
+
+## Menu Props
+<Props of={ Menu } />
+
+## Menu.Item Props
+<Props of={Menu.Item} />
+
+## Menu.ItemGroup Props
+<Props of={Menu.ItemGroup} />

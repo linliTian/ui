@@ -1,0 +1,76 @@
+---
+menu: Components
+name: Checkbox
+---
+
+import { Playground, Props } from 'docz'
+import { Checkbox } from '../Checkbox';
+
+import { Spacer, Container, ThemeContainer } from '../../../../docz/components';
+
+# Checkbox
+Used as a way to select multiple values
+
+## Simple
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Checkbox name="tiger">Tiger</Checkbox>
+      <Checkbox name="lion">Lion</Checkbox>
+      <Checkbox name="bear">Bear</Checkbox>
+      <Checkbox name="fox" disabled>
+        Fox
+      </Checkbox>
+      <Checkbox name="no-content" />
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Tracking Selected Checkboxs
+
+<Playground>
+{
+  () => {
+    const [selected, setSelected] = React.useState([])
+    const handleChange = ({ name, checked }) => {
+      if (checked) {
+        setSelected((currentState) => [...currentState, name]);
+      } else {
+        setSelected((currentState) => currentState.filter((n) => n !== name));
+      }
+    }
+    
+    return (
+      <ThemeContainer>
+        <React.Fragment>
+          <Checkbox name="tiger" onChange={handleChange}>
+            Tiger
+          </Checkbox>
+          <Checkbox name="lion" onChange={handleChange}>
+            Lion
+          </Checkbox>
+          <Checkbox name="bear" onChange={handleChange}>
+            Bear
+          </Checkbox>
+          <Checkbox name="fox" disabled>
+            Fox
+          </Checkbox>
+          Checked Items:
+          <div>
+            {selected.map((name) => (
+              <div>
+                <span key={name}>{name} </span><br/>
+              </div>
+            ))}
+          </div>
+        </React.Fragment>
+      </ThemeContainer>
+    )
+  }
+}
+</Playground>
+
+## Props 
+<Props of={Checkbox} />
+

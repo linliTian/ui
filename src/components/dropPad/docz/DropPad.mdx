@@ -1,0 +1,53 @@
+---
+menu: Components
+name: DropPad
+---
+
+
+import { Playground, Props } from 'docz'
+import { DropPad } from '../DropPad';
+import { CollapseContent, Container, TestContent } from './DropPad';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# DropPad
+Use DropPad to get a list of files that can be uploaded.
+
+## Simple
+This example provides a simple way to get files that have been dropped or selected from the file picker. It is important to note that these files will not be uploaded. In order to uploaded them, feel free to make use of the handy `useUploadOnMountEffect` hook that we provide.
+
+<Playground>
+  {
+    () => {
+      const [files, setFiles] = React.useState([])
+      const handleDrop = React.useCallback((recentFiles) => {
+        const newFiles = recentFiles.map((file) => {
+          return {
+            file,
+            itemKey: file.lastModified,
+          };
+        });
+        setFiles([...files, ...newFiles]);
+      }, [])
+      const handleDelete = React.useCallback((itemKey) => {
+        setFiles((prevFiles) => prevFiles.filter((f) => f.itemKey !== itemKey));
+      }, [])
+      return (
+        <DropPad onDrop={handleDrop}>
+          {files.map(({ file, itemKey }) => (
+            <DropPad.File
+              name={file.name}
+              percentUploaded={0}
+              itemKey={itemKey}
+              onDelete={handleDelete}
+            />
+          ))}
+        </DropPad>
+      );
+    }
+  }
+</Playground>
+
+
+## Props 
+<Props of={DropPad} />

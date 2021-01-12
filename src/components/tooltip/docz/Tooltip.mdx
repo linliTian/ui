@@ -1,0 +1,81 @@
+---
+menu: Components
+name: Tooltip
+---
+
+import { Playground, Props } from 'docz'
+import { Tooltip } from '../Tooltip';
+import { Current, positions, Overlay, Spacer } from './Tooltip.docz';
+import { Menu } from '../../menu/Menu';
+import { Button } from '../../button/Button';
+
+import { ThemeContainer  } from '../../../../docz/components';
+
+# Tooltip
+Used to reveal extra guidance or information to the user.
+
+## Simple
+
+Change the placement of the tooltip with respect to the anchor position by modifying the `placement` prop.
+
+<Playground>
+{
+  () => {
+    const [index, setPositionIndex] = React.useState(0)
+    const handleClick = React.useCallback(() => {
+      if (index === positions.length - 1) {
+        setPositionIndex(0);
+      } else {
+        setPositionIndex(index + 1);
+      }
+    }, [index])
+    const position = positions[index]
+    return (
+      <ThemeContainer>
+        <React.Fragment>
+          <Tooltip placement={position} overlay={<Overlay />}>
+            <Button onClick={handleClick} ghost>
+              Click to Change Position
+            </Button>
+          </Tooltip>
+          <Current>Current Position: {positions[index]}</Current>
+        </React.Fragment>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Custom Visibility
+
+Customize how a tooltip is shown by modifying the `visible` prop.
+
+<Playground>
+{
+  () => {
+    const [visible, setVisible] = React.useState(false)
+    const overlay = (
+      <Menu onClick={(key) => console.log(key)} defaultSelectedItem="1">
+        <Menu.Item itemKey="1">Item 1</Menu.Item>
+        <Menu.Item itemKey="2">Item 2</Menu.Item>
+      </Menu>
+    )
+    return (
+      <ThemeContainer>
+        <React.Fragment>
+          <Button onClick={() => setVisible(!visible)}>
+            Click to Show Tooltip
+          </Button>
+          <Spacer />
+          <Tooltip placement={'bottom'} overlay={overlay} visible={visible}>
+            <Button ghost>Tooltip Here</Button>
+          </Tooltip>
+        </React.Fragment>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Tooltip Props
+<Props of={ Tooltip } />

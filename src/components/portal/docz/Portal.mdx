@@ -1,0 +1,62 @@
+---
+menu: Components
+name: Portal
+---
+
+
+import { Playground, Props } from 'docz'
+import { motion, AnimatePresence } from 'framer-motion';
+import { Portal } from '../Portal';
+import { Button } from '../../button/Button';
+
+import { ThemeContainer, Spacer } from '../../../../docz/components';
+
+# Portal
+Portals allow components to mount to a position outside the default DOM position.
+
+## Simple
+
+Add a simple floater to any anchor point using a `ref`.
+
+<Playground>
+{
+  () => {
+    const [showPortal, setShowPortal] = React.useState(false);
+    const containerRef = React.useRef(null)
+    const getContainer = () => containerRef.current
+    return (
+      <React.Fragment>
+        <Button onClick={() => setShowPortal(!showPortal)}>
+          {!showPortal ? 'Show Portal' : 'Hide Portal'}
+        </Button>
+        <Spacer />
+        <div ref={containerRef} style={{ height: '300px', width: "500px", border: "1px solid", padding: "0 20px" }}>
+          Portal will render here
+        </div>
+        <AnimatePresence>
+          {showPortal && (
+            <Portal container={getContainer}>
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+              >
+                <div>I am the portal</div>
+              </motion.div>
+            </Portal>
+          )}
+        </AnimatePresence>
+        <Portal>
+          <div style={{ visibility: 'hidden' }}>
+            <div>I am the portal</div>
+          </div>
+        </Portal>
+      </React.Fragment>
+    );
+  }
+}
+</Playground>
+
+
+## Portal Props
+<Props of={ Portal } />

@@ -1,0 +1,71 @@
+---
+menu: Components
+name: NotificationBin
+---
+
+import { Playground, Props } from 'docz'
+import { NotificationBin } from '../NotificationBin';
+import { Button } from '../../button/Button';
+
+import { ThemeContainer, Spacer } from '../../../../docz/components';
+
+# NotificationBin
+Manages all notifications including enter and exit notifications
+
+## Simple
+
+<Playground>
+{
+  () => {
+    const [notifications, setNotifications] = React.useState(
+      []
+    )
+    const [notificationComponent, setNotificationComponent] = React.useState('default')
+    const add = React.useCallback(() => {
+      setNotifications((currentNotifications) => {
+        const randomNumber = Math.floor(Math.random() * 999);
+        const newNotifcation = {
+          itemKey: randomNumber,
+          title: `Notification: ${randomNumber}`,
+          children: <div>This is the description.</div>,
+          notificationType: 'success',
+        }
+        return [...currentNotifications, newNotifcation];
+      });
+    }, [])
+    const remove = React.useCallback((key) => {
+      setNotifications((currentNotifications) => {
+        return currentNotifications.filter((n) => n.itemKey !== key);
+      });
+    }, [])
+    const toggleComponent = React.useCallback(() => {
+      setNotificationComponent((current) => {
+        if (current === 'default') {
+          return 'box';
+        }
+        return 'default';
+      });
+    }, [])
+    return (
+      <ThemeContainer>
+        <div>
+          <div style={{ display: 'flex' }}>
+            <Button onClick={add}>Add</Button>
+            <Spacer />
+            <Button onClick={toggleComponent}>Toggle Notification Component</Button>
+          </div>
+          <Spacer />
+          <NotificationBin
+            notificationComponent={notificationComponent}
+            notifications={notifications}
+            onRemove={remove}
+          />
+        </div>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## NotificationBin Props
+<Props of={ NotificationBin } />

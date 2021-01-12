@@ -1,0 +1,32 @@
+---
+menu: Components
+name: Radio
+---
+
+import { Playground, Props } from 'docz'
+import { Radio } from '../Radio';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Radio
+User form input used when there is a multiple choice decision to be made.
+
+## Simple
+
+<Playground>
+  <ThemeContainer>
+    <Radio name="radio">
+      <Radio.Item itemKey="item1">Item 1</Radio.Item>
+      <Radio.Item itemKey="item2">Item 2</Radio.Item>
+      <Radio.Item itemKey="item3" disabled>
+        Item 3
+      </Radio.Item>
+    </Radio>
+  </ThemeContainer>
+</Playground>
+
+## Radio Props
+<Props of={ Radio } />
+
+## Radio.Item Props
+<Props of={ Radio.Item } />

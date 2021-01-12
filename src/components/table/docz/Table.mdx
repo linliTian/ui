@@ -1,0 +1,324 @@
+---
+menu: Components
+name: Table
+---
+
+import { Playground, Props } from 'docz'
+import { Table } from '../Table';
+import { Button } from '../../button/Button';
+
+import { Actions, Column, ButtonSpacer, IconSpacer } from './Table.docz';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Table
+Use this component to store data and sort data in a tabular format.
+
+## Simple
+
+Store data in a table by providing the columns and the data to store.
+
+<Playground>
+{
+  () => {
+    const [selectedRow, setSelectedRow] = React.useState()
+    const data = [
+      {
+        name: 'John Brown',
+        age: 61,
+        address: 'British Columbia No. 1 Lake Park'
+      },
+      {
+        name: 'Jim Green',
+        age: 70,
+        address: 'Ontario No. 1 Lake Park'
+      },
+      {
+        name: 'Joe Flack',
+        age: 40,
+        address: 'Winnepeg No. 1 Lake Park'
+      }
+    ]
+    const columns = [
+      {
+        key: 'name',
+        dataIndex: 'name',
+        title: 'Name',
+        width: 15
+      },
+      {
+        key: 'age',
+        title: 'Age',
+        render: ({ record: { age } }) => (
+          <span>
+            <b>{age}</b> y/o
+          </span>
+        ),
+        width: 15,
+        justify: 'center'
+      },
+      {
+        key: 'address',
+        dataIndex: 'address',
+        title: 'Address'
+      },
+      {
+        key: 'actions',
+        title: 'Actions',
+        render: () => <Actions />,
+        width: 5,
+        justify: 'flex-end'
+      }
+    ]
+    const onClick = React.useCallback((_, record) => {setSelectedRow(record.name)}, [])
+    return (
+      <ThemeContainer>
+        <Table
+          data={data}
+          dataUniqueKey={'name'}
+          columns={columns}
+          onRow={{ onClick }}
+          selectedRowKey={selectedRow}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Sort by Column
+
+Sort data per column be setting the `sortable` column prop to `true` and handling the `onSort` callback. When a sortable column header is clicked, the `onSort` callback will be called with the column `key` and `state`. This allows for the data to be sorted then passed back into the table for rerendering.
+
+<Playground>
+{
+  () => {
+    const [tableData, setTableData] = React.useState([
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 61,
+        address: 'British Columbia No. 1 Lake Park',
+      },
+      {
+        key: '2',
+        name: 'Jim Green',
+        age: 70,
+        address: 'Ontario No. 1 Lake Park',
+      },
+      {
+        key: '3',
+        name: 'Joe Flack',
+        age: 40,
+        address: 'Winnepeg No. 1 Lake Park',
+      },
+    ])
+    const columns = [{
+        key: 'name',
+        dataIndex: 'name',
+        title: 'Name',
+        width: 15,
+        sortable: true,
+      },
+      {
+        key: 'age',
+        dataIndex: 'age',
+        title: 'Age',
+        width: 15,
+        justify: 'center',
+        sortable: true,
+      },
+      {
+        key: 'address',
+        dataIndex: 'address',
+        title: 'Address',
+      },
+      {
+        key: 'actions',
+        title: 'Actions',
+        render: () => <Actions />,
+        width: 5,
+        justify: 'flex-end',
+      }
+    ]
+    const sortAlpabetical = (reverse) => {
+      if (reverse) {
+        return tableData.sort((b, a) => {
+          return a.name.localeCompare(b.name);
+        });
+      }
+      return tableData.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+    }
+    const sortNumerical = (reverse) => {
+      if (reverse) {
+        return tableData.sort((a, b) => b.age - a.age);
+      }
+      return tableData.sort((a, b) => a.age - b.age);
+    }
+    const handleSort = React.useCallback(
+      (column, state) => {
+        switch (column) {
+          case 'name': {
+            const newData = sortAlpabetical(state === 'dsc');
+            setTableData([...newData]);
+            break;
+          }
+          case 'age': {
+            const newData = sortNumerical(state === 'dsc');
+            setTableData([...newData]);
+            break;
+          }
+        }
+      }, [tableData, setTableData])
+    return (
+      <ThemeContainer>
+        <Table
+          dataUniqueKey={'name'}
+          data={tableData}
+          columns={columns}
+          onSort={handleSort}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Empty State
+
+If there is no data supplied to the table, provide a custom empty state component to provide the user more feedback.
+
+
+<Playground>
+{
+  () => {
+    const columns = [{
+        key: 'name',
+        dataIndex: 'name',
+        title: 'Name',
+        width: 15,
+        sortable: true,
+      },
+      {
+        key: 'age',
+        dataIndex: 'age',
+        title: 'Age',
+        width: 15,
+        justify: 'center',
+        sortable: true,
+      },
+      {
+        key: 'address',
+        dataIndex: 'address',
+        title: 'Address',
+      },
+      {
+        key: 'actions',
+        title: 'Actions',
+        render: () => <Actions />,
+        width: 5,
+        justify: 'flex-end',
+      }
+    ]
+    return (
+      <ThemeContainer>
+        <Table
+          data={[]}
+          dataUniqueKey={'name'}
+          columns={columns}
+          emptyComponent={<div>It appears you have no users.</div>}
+        />
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+## Loading State
+
+If data is asynchronously loading, set the `loading` prop to `true` in order to provide the user feedback.
+
+<Playground>
+{
+  () => {
+    const [loading, setLoading] = React.useState(false)
+    const fetchData = React.useCallback(() => {
+      setLoading(true)
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000) }, [])
+    const [tableData, setTableData] = React.useState([
+      {
+        key: '1',
+        name: 'John Brown',
+        age: 61,
+        address: 'British Columbia No. 1 Lake Park',
+      },
+      {
+        key: '2',
+        name: 'Jim Green',
+        age: 70,
+        address: 'Ontario No. 1 Lake Park',
+      },
+      {
+        key: '3',
+        name: 'Joe Flack',
+        age: 40,
+        address: 'Winnepeg No. 1 Lake Park',
+      },
+    ])
+    const columns = [
+      {
+        key: 'name',
+        dataIndex: 'name',
+        title: 'Name',
+        width: 15,
+      },
+      {
+        key: 'age',
+        dataIndex: 'age',
+        title: 'Age',
+        width: 15,
+        justify: 'center',
+      },
+      {
+        key: 'address',
+        dataIndex: 'address',
+        title: 'Address',
+      },
+      {
+        key: 'actions',
+        title: 'Actions',
+        render: () => <Actions />,
+        width: 5,
+        justify: 'flex-end',
+      },
+    ]
+    return (
+      <ThemeContainer>
+        <React.Fragment>
+          <Button loading={loading} onClick={fetchData}>
+            Fetch Data
+          </Button>
+          <ButtonSpacer />
+          <Table
+            dataUniqueKey={'name'}
+            data={tableData}
+            columns={columns}
+            loading={loading}
+          />
+        </React.Fragment>
+      </ThemeContainer>
+    );
+  }
+}
+</Playground>
+
+
+## Table Props
+<Props of={ Table } />
+
+## Column Props
+<Props of={ Column } />

@@ -1,0 +1,94 @@
+---
+menu: Components
+name: Collapse
+---
+
+
+import { Playground, Props } from 'docz'
+import { Collapse } from '../Collapse';
+import { CollapseContent, Container, TestContent } from './Collapse.docz';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# Collapse
+Collapses allow users to display information in a space efficient manner.
+
+## Simple
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Collapse header="Click Me" itemKey="default" defaultExpanded>
+        <CollapseContent />
+      </Collapse>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Expanded
+
+Setting `defaultExpanded` to `true` will have the `Collapse` start in the open state when mounted
+
+<Playground>
+  <ThemeContainer>
+      <Container>
+      <Collapse header="Click Me" defaultExpanded itemKey="default">
+        <TestContent />
+      </Collapse>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Destory on Close
+
+Setting `destroyOnClose` to `true` will have the `Collapse` unmount the contents of the collapse when it is closed
+. Especially useful for components that do not need to be persisted when the collapse closes. Provides a level of
+ performance along with cleaning up the DOM. See the console for logs of when the content is
+ mounted and unmounted.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Collapse header="Click Me" itemKey="default" destroyOnClose>
+      <TestContent />
+    </Collapse>
+  </Container>
+  </ThemeContainer>
+</Playground>
+
+## Disabled
+
+If disabled, the current expanded state of the collapse will remain unchanged when the header is clicked.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Collapse header="Click Me" itemKey="default" disabled >
+        <TestContent />
+      </Collapse>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Footer
+
+If supplied, the `footer` will be rendered when the collapse is expanded. It also receives a unique background
+color when the collapse is hovered.
+
+<Playground>
+  <ThemeContainer>
+    <Container>
+      <Collapse
+        header="Click Me"
+        defaultExpanded
+        itemKey="default"
+        footer="Collapse Footer"
+      >
+        <CollapseContent>Collapse Body</CollapseContent>
+      </Collapse>
+    </Container>
+  </ThemeContainer>
+</Playground>
+
+## Props 
+<Props of={Collapse} />

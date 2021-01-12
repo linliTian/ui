@@ -1,0 +1,90 @@
+---
+menu: Components
+name: FormItem
+---
+
+
+import { Playground, Props } from 'docz'
+import { FormItem } from '../FormItem';
+import { Input } from '../../input/Input';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# FormItem
+Wrap around form items to add additional functionality
+
+## Simple
+
+<Playground>
+{
+  () => {
+    const [status, setStatus] = React.useState()
+    const handleCheck = React.useCallback(
+      (type) => {
+        if (type === status) {
+          setStatus(undefined);
+        } else {
+          setStatus(type);
+        }
+      },
+      [status]
+    )
+    return (
+      <ThemeContainer>
+        <div>
+          <div style={{display: "flex", alignItems: "center", marginBotton: "8px" }}>
+            <label>
+              <input
+                checked={status === 'error'}
+                type="checkbox"
+                onClick={() => handleCheck('error')}
+              />
+              error
+            </label>
+            <label>
+              <input
+                checked={status === 'warning'}
+                type="checkbox"
+                onClick={() => handleCheck('warning')}
+              />
+              warning
+            </label>
+            <label>
+              <input
+                checked={status === 'loading'}
+                type="checkbox"
+                onClick={() => handleCheck('loading')}
+              />
+              loading
+            </label>
+            <label>
+              <input
+                checked={status === 'success'}
+                type="checkbox"
+                onClick={() => handleCheck('success')}
+              />
+              success
+            </label>
+          </div>
+          <FormItem
+            label="Label"
+            status={status}
+            message={`This is a ${status} message`}
+          >
+            <Input />
+          </FormItem>
+          <FormItem
+            label="Label"
+            status={status}
+            message={`This is a ${status} message`}
+          >
+            <Input htmlType="textarea" />
+          </FormItem>
+          </div>
+      </ThemeContainer>
+    )
+  }}
+  </Playground>
+
+## FormItem Props
+<Props of={ FormItem } />

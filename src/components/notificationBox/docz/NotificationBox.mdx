@@ -1,0 +1,51 @@
+---
+menu: Components
+name: NotificationBox
+---
+
+
+import { Playground, Props } from 'docz'
+import { NotificationBox } from '../NotificationBox';
+
+import { ThemeContainer, Spacer } from '../../../../docz/components';
+
+# NotificationBox
+Can be displayed anywhere on screen to inform the user of an action they just performed.
+
+## Status
+
+Change the status of the validation in order to inform the user of their actions result by modifying the `validationStatus` prop.
+
+<Playground>
+  <ThemeContainer>
+    <React.Fragment>
+    <NotificationBox itemKey={'1'} notificationType="warning">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
+      posuere, blandit massa sit amet, rutrum risus.
+    </NotificationBox>
+    <Spacer />
+    <NotificationBox itemKey={'1'} notificationType="error">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
+      posuere, blandit massa sit amet, rutrum risus.
+    </NotificationBox>
+    <Spacer />
+    <NotificationBox itemKey={'1'} notificationType="success">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
+      posuere, blandit massa sit amet, rutrum risus.
+    </NotificationBox>
+    <Spacer />
+    <NotificationBox itemKey={'1'} notificationType="info">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
+      posuere, blandit massa sit amet, rutrum risus.
+    </NotificationBox>
+    <Spacer />
+    <NotificationBox itemKey={'1'} notificationType="default">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget dui
+      posuere, blandit massa sit amet, rutrum risus.
+    </NotificationBox>
+  </React.Fragment>
+  </ThemeContainer>
+</Playground>
+
+## NotificationBox Props
+<Props of={ NotificationBox } />
