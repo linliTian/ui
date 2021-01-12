@@ -1,0 +1,28 @@
+---
+menu: Components
+name: {{ pascalCase name }}
+---
+
+
+import { Playground, Props } from 'docz'
+import { {{ pascalCase name }} } from '../{{ pascalCase name }}';
+
+import { ThemeContainer } from '../../../../docz/components';
+
+# {{ pascalCase name }}
+Description of your component here
+
+## Simple
+
+Description of the simple story here...
+
+<
+<Playground>
+  <ThemeContainer>
+    <{{ pascalCase name }}>
+    </{{ pascalCase name }}>
+  </ThemeContainer>
+</Playground>
+
+## {{ pascalCase name }} Props
+<Props of={ {{ pascalCase name }} } />

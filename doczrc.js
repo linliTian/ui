@@ -4,11 +4,13 @@ export default {
   typescript: true,
   files: '**/*.mdx',
   ignore: ['./*.md', '**/stories/*.mdx', '**/*.stories.mdx'],
-  menu: ['Getting Started', 'Theming', { name: 'Components', menu: [] }],
-  menuDisplayName: {
-    UI: 'User Interface',
-    Main: 'Main Container',
-  },
+  menu: [
+    'Getting Started',
+    'Theming',
+    { name: 'Components', menu: [] },
+    'Utilities',
+    'Hooks',
+  ],
   themeConfig: {
     search: true,
     mainContainer: {

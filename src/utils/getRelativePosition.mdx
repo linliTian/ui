@@ -1,0 +1,37 @@
+---
+menu: Utilities
+name: getRelativePosition
+---
+
+# getRelativePosition
+Position one element with respect to another.
+
+Many times a single element needs to be positioned with respect to another. A very common use case is a tooltip. Using
+ the `getRelativePosition` utility, for a given anchor element (button), floater element (tooltip) and position the
+  `top` and `left` position values can be calculated for the floater in order to position it relative to the anchor.
+
+## Positioning
+
+The positioning API allows for a range of allowable positions. See the element table below which shows the 9
+ potential points that can be used on each element for positioning.
+
+| | Left | Center | Right |
+--- | --- | --- | ---
+**Top** | tl | tc | tr
+**Center** | cl | cc | cr
+**Bottom** | bl | bc | br
+
+
+## Example
+
+```
+import { getRelativePosition } from '@rtkwlf/ui';
+
+// Position center-left point of anchor with center-right point of floater
+const position = ['cl', 'cr'];
+
+const floaterPosition = getRelativePosition(anchorElement, floaterElement, position);
+```
+
+
+
