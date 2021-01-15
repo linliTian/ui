@@ -3,7 +3,7 @@ module.exports = {
   transform: { '^.+\\.ts|x?$': 'ts-jest' },
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
-    '!src/**/*.stories.tsx',
+    '!src/**/*.docz.tsx',
     '!src/**/*.placeholder.tsx',
     '!src/**/*.components.tsx',
     '!src/**/icons/**',

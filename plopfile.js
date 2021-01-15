@@ -9,11 +9,11 @@ module.exports = function (plop) {
       },
     ],
     actions: [
-      // {
-      //   type: 'add',
-      //   path: 'src/components/{{name}}/{{ pascalCase name }}.tsx',
-      //   templateFile: 'templates/Component.tsx.hbs',
-      // },
+      {
+        type: 'add',
+        path: 'src/components/{{name}}/{{ pascalCase name }}.tsx',
+        templateFile: 'templates/Component.tsx.hbs',
+      },
       {
         type: 'add',
         path: 'src/components/{{name}}/docz/{{ pascalCase name }}.docz.tsx',
@@ -24,12 +24,12 @@ module.exports = function (plop) {
         path: 'src/components/{{name}}/docz/{{ pascalCase name }}.mdx',
         templateFile: 'templates/Document.mdx.hbs',
       },
-      // {
-      //   type: 'add',
-      //   path:
-      //     'src/components/{{name}}/__tests__/{{ pascalCase name }}.spec.tsx',
-      //   templateFile: 'templates/Component.spec.tsx.hbs',
-      // },
+      {
+        type: 'add',
+        path:
+          'src/components/{{name}}/__tests__/{{ pascalCase name }}.spec.tsx',
+        templateFile: 'templates/Component.spec.tsx.hbs',
+      },
     ],
   });
 };
