@@ -1,8 +1,15 @@
 export default {
   title: 'Arctic Wolf UI',
   lang: 'en',
+  dest: 'docs2',
   typescript: true,
-  files: '**/*.mdx',
+  files: [
+    './src/**/index.mdx',
+    './src/theme/theme.mdx',
+    './src/components/**/*.mdx',
+    './src/utils/getRelativePosition.mdx',
+    './src/hooks/hooks.mdx',
+  ],
   ignore: ['./*.md', '**/stories/*.mdx', '**/*.stories.mdx'],
   menu: [
     'Getting Started',

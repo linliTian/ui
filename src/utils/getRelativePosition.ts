@@ -14,7 +14,7 @@ export interface Region {
 export function getScroll(w: any, isTop: boolean): number {
   let value = w[`page${isTop ? 'Y' : 'X'}Offset`];
   const method = `scroll${isTop ? 'Top' : 'Left'}`;
-  if (typeof value !== 'number') {
+  if (typeof value !== 'number' && w) {
     const d = w.document;
     value = d.documentElement[method];
     if (typeof value !== 'number') {

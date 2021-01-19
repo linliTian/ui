@@ -64,9 +64,10 @@ export const NotificationBox: React.FunctionComponent<NotificationBoxProps> = ({
   // when the notification mounts, set a timeout to remove it.
   React.useEffect(() => {
     if (duration) {
-      window.setTimeout(() => {
-        close();
-      }, duration);
+      window &&
+        window.setTimeout(() => {
+          close();
+        }, duration);
     }
 
     // eslint-disable-next-line

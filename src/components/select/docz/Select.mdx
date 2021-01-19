@@ -23,14 +23,10 @@ Simple single value select.
       { value: 'strawberry', label: 'Strawberry' },
       { value: 'vanilla', label: 'Vanilla' }
     ]
+    const menuPortalTarget = document && document.body
     return (
       <ThemeContainer>
-        <Select
-          selectProps={{
-            options,
-            menuPortalTarget: document.body,
-          }}
-        />
+        <Select selectProps={{options,menuPortalTarget, }} />
       </ThemeContainer>
     );
   }

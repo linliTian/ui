@@ -6,7 +6,9 @@ name: Badge
 import { Playground, Props } from 'docz'
 import { Badge } from '../Badge';
 
-import { Icon } from '../../icons';
+import Check from '../../icons/Check';
+import InfoCircle from '../../icons/InfoCircle';
+import Exclamation from '../../icons/Exclamation';
 import { Spacer, Container, ThemeContainer } from '../../../../docz/components';
 
 # Badge
@@ -17,15 +19,15 @@ import { Spacer, Container, ThemeContainer } from '../../../../docz/components';
 > Note: you must manually set the color on any non-text `children` you supply (e.g. icons)
 
 <Playground>
-  <Badge leftChildren={<Icon.Check />}>v10.42</Badge>
+  <Badge leftChildren={<Check />}>v10.42</Badge>
   <Spacer />
-  <Badge rightChildren={<Icon.Check />} backgroundColor="red">
+  <Badge rightChildren={<Check />} backgroundColor="red">
     v10.42
   </Badge>
   <Spacer />
   <Badge
-    leftChildren={<Icon.Check />}
-    rightChildren={<Icon.Check />}
+    leftChildren={<Check />}
+    rightChildren={<Check />}
     backgroundColor="yellow"
   >
     v10.42
@@ -38,12 +40,12 @@ Can be used with icons only
 
 <Playground>
   <Container>
-      <Badge leftChildren={<Icon.Exclamation />} backgroundColor="gray">
-        <Icon.InfoCircle />
+      <Badge leftChildren={<Exclamation />} backgroundColor="gray">
+        <InfoCircle />
       </Badge>
       <Spacer />
       <Badge backgroundColor="blue">
-        <Icon.InfoCircle />
+        <InfoCircle />
       </Badge>
     </Container>
 </Playground>

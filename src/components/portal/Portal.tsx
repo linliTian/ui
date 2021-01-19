@@ -25,7 +25,7 @@ export const Portal: React.FunctionComponent<PortalProps> = (props) => {
 
   React.useEffect(() => {
     if (!disablePortal) {
-      setMountNode(getContainer() || document.body);
+      setMountNode(getContainer() || (document && document.body));
     }
   }, [getContainer, disablePortal]);
 

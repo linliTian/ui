@@ -106,7 +106,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
       return;
     }
 
-    if (!modalWrapper.current.contains(document.activeElement)) {
+    if (document && !modalWrapper.current.contains(document.activeElement)) {
       modalSentinelStart.current.focus();
     }
   }, [modalSentinelStart, modalWrapper, visible]);
@@ -154,7 +154,7 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
   // handle keydown events for accessibility behaviours
   const handleKeyDown = React.useCallback(
     (e) => {
-      const activeElement = document.activeElement;
+      const activeElement = document && document.activeElement;
 
       if (!(modalSentinelEnd.current && modalSentinelStart.current)) {
         return;
@@ -198,17 +198,19 @@ export const Modal: React.FunctionComponent<ModalProps> = ({
 
   // store which element was active before the modal opens
   React.useEffect(() => {
-    previousActiveElement.current = document.activeElement;
+    previousActiveElement.current = document && document.activeElement;
 
     return () => previousActiveElement.current.focus();
   }, []);
 
   React.useEffect(() => {
-    if (visible) {
-      document.body.style.overflow = 'hidden';
-      checkFocus();
-    } else {
-      document.body.style.overflow = '';
+    if (document) {
+      if (visible) {
+        document.body.style.overflow = 'hidden';
+        checkFocus();
+      } else {
+        document.body.style.overflow = '';
+      }
     }
   }, [visible, checkFocus]);
 

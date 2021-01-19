@@ -7,6 +7,7 @@ import { Playground, Props } from 'docz'
 import { Input } from '../../input/Input';
 import { Button } from '../../button/Button';
 import { Accordion } from '../Accordion';
+import { AccordionItem } from '../AccordionItem';
 import { StyledCollapseContent, CollapseContent, AccordionContainer, ThemeContainer } from '../../../../docz/components'
 
 # Accordion
@@ -20,20 +21,20 @@ The standard accordion will allow users to expand multiple sections. Set the `cl
   <ThemeContainer>
     <AccordionContainer>
       <Accordion classic={false} defaultExpandedItems={['1', '3']} itemGap={20}>
-        <Accordion.Item itemKey="1" footer={<Button>Submit</Button>}>
+        <AccordionItem itemKey="1" footer={<Button>Submit</Button>}>
           <CollapseContent>
             <Input label={'First Name'} />
             <Input label={'Last Name'} />
             <Input label={'Email'} />
             <Input label={'Phone Number'} />
           </CollapseContent>
-        </Accordion.Item>
-        <Accordion.Item itemKey="2">
+        </AccordionItem>
+        <AccordionItem itemKey="2">
           <CollapseContent />
-        </Accordion.Item>
-        <Accordion.Item itemKey="3">
+        </AccordionItem>
+        <AccordionItem itemKey="3">
           <CollapseContent />
-        </Accordion.Item>
+        </AccordionItem>
       </Accordion>
     </AccordionContainer>
   </ThemeContainer>
@@ -47,15 +48,15 @@ The standard accordion will allow users to expand a single section at a time. Se
   <ThemeContainer>
     <AccordionContainer>
       <Accordion itemGap={20} classic>
-        <Accordion.Item itemKey="1">
+        <AccordionItem itemKey="1">
           <CollapseContent />
-        </Accordion.Item>
-        <Accordion.Item itemKey="2">
+        </AccordionItem>
+        <AccordionItem itemKey="2">
           <CollapseContent />
-        </Accordion.Item>
-        <Accordion.Item itemKey="3">
+        </AccordionItem>
+        <AccordionItem itemKey="3">
           <CollapseContent />
-        </Accordion.Item>
+        </AccordionItem>
       </Accordion>
     </AccordionContainer>
   </ThemeContainer>
@@ -84,7 +85,6 @@ Take external control of the accordion by passing `expandedItems` that are manag
         setSelectedItems(itemKeys)
       }     
     }
-    
     const isFullyExpanded = selectedItems.length === itemKeys.length
     return (
       <ThemeContainer>
@@ -99,15 +99,15 @@ Take external control of the accordion by passing `expandedItems` that are manag
             defaultExpandedItems={selectedItems}
             onChange={handleOnChange}
           >
-            <Accordion.Item itemKey={itemKeys[0]} footer={<div>A footer</div>}>
+            <AccordionItem itemKey={itemKeys[0]} footer={<div>A footer</div>}>
               <CollapseContent />
-            </Accordion.Item>
-            <Accordion.Item itemKey={itemKeys[1]} disabled>
+            </AccordionItem>
+            <AccordionItem itemKey={itemKeys[1]} disabled>
               <CollapseContent />
-            </Accordion.Item>
-            <Accordion.Item itemKey={itemKeys[2]}>
+            </AccordionItem>
+            <AccordionItem itemKey={itemKeys[2]}>
               <CollapseContent />
-            </Accordion.Item>
+            </AccordionItem>
           </Accordion>
         </AccordionContainer>
       </ThemeContainer>
@@ -119,8 +119,8 @@ Take external control of the accordion by passing `expandedItems` that are manag
 ## Accordion Props
 <Props table={true} of={Accordion} />
 
-## Accordion.Item Props
-<Props table={true} of={Accordion.Item} exclude={['expanded', 'onChange']} />
+## AccordionItem Props
+<Props table={true} of={AccordionItem} exclude={['expanded', 'onChange']} />
 
 ## Theme
 
