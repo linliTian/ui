@@ -20,4 +20,11 @@ module.exports = {
       statements: 80,
     },
   },
+  globals: {
+    'ts-jest': {
+      diagnostics: {
+        warnOnly: true,
+      },
+    },
+  },
 };
