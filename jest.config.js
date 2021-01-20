@@ -8,6 +8,8 @@ module.exports = {
     '!src/**/*.components.tsx',
     '!src/**/icons/**',
     '!src/styled/**',
+    '!src/docs/**',
+    '!src/docz/**',
     '!src/theme/**',
   ],
   coverageThreshold: {

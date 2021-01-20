@@ -31,6 +31,7 @@ interface ContainerProps {
   disabled?: boolean;
   isSelected: boolean;
   theme: GlobalTheme;
+  css: any;
 }
 
 const Container = styled.div`
