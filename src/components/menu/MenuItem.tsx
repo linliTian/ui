@@ -3,7 +3,7 @@ import * as React from 'react';
 import styled from '@emotion/styled';
 /** @jsx jsx */
 // eslint-disable-next-line
-import { css, jsx } from '@emotion/react';
+import { css, jsx, SerializedStyles } from '@emotion/react';
 
 import { Typography } from '../typography/Typography';
 
@@ -22,6 +22,9 @@ export interface MenuItemProps {
 
   /** Unique key used to distinguish menu items */
   itemKey: string | number;
+
+  /** Emotion based style for the menu item */
+  style?: SerializedStyles;
 }
 
 interface ContainerProps {
@@ -64,6 +67,7 @@ export const MenuItem: React.FunctionComponent<MenuItemProps> = ({
   children,
   disabled,
   itemKey,
+  style,
 }) => {
   const theme = useTheme();
   const { onClick, selectedItem } = React.useContext(MenuContext);
@@ -82,6 +86,9 @@ export const MenuItem: React.FunctionComponent<MenuItemProps> = ({
       isSelected={selectedItem === itemKey}
       theme={theme}
       onClick={handleClick}
+      css={css`
+        ${style}
+      `}
     >
       <Typography.Body disabled={disabled}>{children}</Typography.Body>
     </Container>

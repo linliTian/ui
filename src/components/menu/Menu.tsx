@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { css, SerializedStyles, jsx } from '@emotion/react';
 import * as React from 'react';
 
 import styled from '@emotion/styled';
@@ -24,6 +26,9 @@ export interface MenuProps {
 
   /** Called when any of the menu items are clicked */
   onClick?: (itemKey: string | number) => void;
+
+  /** Emotion based style for the menu */
+  style?: SerializedStyles;
 }
 
 const Container = styled.div`
@@ -35,6 +40,7 @@ export const Menu: MenuFunctionComponent<MenuProps> = ({
   children,
   defaultSelectedItem,
   onClick,
+  style,
 }) => {
   const [selectedItem, setSelectedItem] = React.useState<string | number>(
     defaultSelectedItem || ''
@@ -57,7 +63,14 @@ export const Menu: MenuFunctionComponent<MenuProps> = ({
         selectedItem,
       }}
     >
-      <Container className={`${className} rtk-menu`}>{children}</Container>
+      <Container
+        className={`${className} rtk-menu`}
+        css={css`
+          ${style}
+        `}
+      >
+        {children}
+      </Container>
     </MenuContext.Provider>
   );
 };

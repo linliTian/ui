@@ -1,8 +1,7 @@
+import { rgba, darken } from 'polished';
 import { colors } from './colors';
 
 import { Colors, GlobalTheme } from './types';
-
-import { rgba, darken } from 'polished';
 
 export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   // ---- Animation ---- //
@@ -176,7 +175,7 @@ export const getDefaultTheme = (themeColors: Colors = colors): GlobalTheme => ({
   mediaScreenVeryLarge: '1200px',
 
   // ---- Menu ---- //
-  menuItemPadding: '4px 16px',
+  menuItemPadding: '12px 24px',
   menuItemHoverColor: themeColors.primary,
   menuItemHoverBackground: themeColors.tertiaryBackground,
 
