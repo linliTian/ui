@@ -1,7 +1,7 @@
 export default {
   title: 'Arctic Wolf UI',
   lang: 'en',
-  dest: 'docs2',
+  dest: 'docs',
   typescript: true,
   files: [
     './src/**/index.mdx',
@@ -10,7 +10,13 @@ export default {
     './src/utils/getRelativePosition.mdx',
     './src/hooks/hooks.mdx',
   ],
-  ignore: ['./*.md', '**/stories/*.mdx', '**/*.stories.mdx'],
+  ignore: [
+    './*.md',
+    '**/stories/*.mdx',
+    '**/*.stories.mdx',
+    // TODO fix the react-windowed-select error!!!
+    './src/components/select/docz/Select.mdx',
+  ],
   menu: [
     'Getting Started',
     'Theming',
