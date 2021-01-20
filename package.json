@@ -12,7 +12,7 @@
     "build:ts": "tsc -p ./tsconfig.rollup.json --emitDeclarationOnly --removeComments false && api-extractor run --local",
     "gen": "plop",
     "docz:clean": "rimraf .docz && docz clean",
-    "docz:dev": "npm run docz:clean && docz dev",
+    "docz:dev": "docz clean && docz dev",
     "docz:build": "rm -rf docs && docz clean && docz build",
     "docz:serve": "npm run docz:build && docz serve",
     "build": "rm -rf dist/ && rm -rf types/ && npm run rollup && npm run build:ts",
