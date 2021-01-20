@@ -18,6 +18,8 @@
   },
   "exclude": [
     "node_modules",
+    "docz",
+    "src/**/*.docz.tsx",
     "src/**/*.stories.tsx",
     "src/**/story.components.tsx",
     "src/**/*.spec.tsx",
